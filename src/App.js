@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage';
+import TicketBooking from './pages/TicketBooking';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/booking" element={<TicketBooking />} />
         </Routes>
       </main>
     </React.Fragment>
