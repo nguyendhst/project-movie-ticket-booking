@@ -1,0 +1,32 @@
+.Banner_vertical{
+    max-width: 1400px;
+    max-height: 480px;
+
+    border-radius: 16px;
+}
+
+.Banner_horizontal {
+    max-width: 200px;
+    max-height: 300px;
+
+    border-radius: 4px;
+
+    justify-self: stretch;
+}
+
+.Banner_container{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(10px, 1fr));
+    row-gap: 32px;
+    column-gap: 20px;
+}
+
+.Film_Banner {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 260px;
+    margin-right: 260px;
+
+    row-gap: 32px;
+}
