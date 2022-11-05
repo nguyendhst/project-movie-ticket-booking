@@ -1,23 +1,13 @@
 import React from 'react';
 import './App.css';
-import {
-  Routes,
-  Route
-} from 'react-router-dom';
-
-import LandingPage from './pages/LandingPage';
+import LandingPage from './pages/LandingPage/LandingPage';
 
 function App() {
   return (
-    <React.Fragment>
-      <main>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-        </Routes>
-      </main>
-    </React.Fragment>
-    
+    <div className="App">
+      <LandingPage />
+    </div>
   );
 }
 
-export default App;
+export default App
