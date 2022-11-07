@@ -1,8 +1,8 @@
 import React from "react"
 import './LandingPage.css';
-import HamburgerLogo from './Hamburger.png';
-import Footer from '../components/Footer/Footer';
-import FilmBanner from "../components/Film_banner/FilmBanner";
+import HamburgerLogo from '../../Asset/Hamburger.png';
+import Footer from '../../components/Footer/Footer';
+import FilmBanner from "../../components/Film_banner/FilmBanner";
 
 function Header() {
     return(
