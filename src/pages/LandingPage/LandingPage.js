@@ -4,6 +4,8 @@ import HamburgerLogo from '../../Asset/Hamburger.png';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
 
+
+
 function Header() {
     return(
         <ul className="Header">
@@ -31,8 +33,6 @@ function LandingPage() {
         <div className="LandingPage">
             <Header/>
             <div className="LandingPage_main">
-                <h1>Welcome</h1>
-                If you can read this, KYS
                 <FilmBanner/>
             </div>
             <Footer/>

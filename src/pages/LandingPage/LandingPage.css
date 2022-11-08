@@ -52,10 +52,17 @@
     border-radius: 8px;
 }
 
+.LoginButton:hover{
+    background-color: #B7EDFF;
+    color: #003C4B;
+}
+
 
 .LandingPage{
     background-color: #B7EDFF;
     min-height: 1000px;
+
+    /* padding-bottom: ; */
 }
 
 .LandingPage_main{
