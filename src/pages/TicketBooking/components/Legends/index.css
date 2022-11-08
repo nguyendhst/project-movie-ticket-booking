@@ -1,0 +1,22 @@
+div.legends {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+div.legend {
+    margin-right: 30px;
+}
+
+span.available {
+    color: #000;
+}
+
+span.selected {
+    color: #000;
+}
+
+span.occupied {
+    color: #000;
+}
+

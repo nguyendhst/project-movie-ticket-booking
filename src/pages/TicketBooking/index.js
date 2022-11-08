@@ -1,7 +1,17 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Collapse, Button } from "react-bootstrap";
+import { useRef } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Collapse,
+  Button,
+  ButtonGroup,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Filter from "./components/Filter";
+import MasterForm from "./components/MasterForm";
+import Banner from "./components/Banner";
 import "./index.css";
 
 const ticketData = [
@@ -9,7 +19,7 @@ const ticketData = [
     id: 1,
     timeShort: "06 Thu",
     timeLong: "Thu 06-Dec-2022",
-    price: "660.000",
+    price: "670.000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -17,7 +27,7 @@ const ticketData = [
     id: 2,
     timeShort: "07 Fri",
     timeLong: "Fri 07-Dec-2022",
-    price: "660.000",
+    price: "360.000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -25,7 +35,7 @@ const ticketData = [
     id: 3,
     timeShort: "08 Sat",
     timeLong: "Sat 08-Dec-2022",
-    price: "660.000",
+    price: "560.000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -33,7 +43,7 @@ const ticketData = [
     id: 4,
     timeShort: "09 Sun",
     timeLong: "Sun 09-Dec-2022",
-    price: "660.000",
+    price: "860.000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -55,30 +65,97 @@ const ticketData = [
   },
 ];
 
+// const refs = ticketData.reduce((acc, ticket) => {
+//   acc[ticket.id] = React.createRef();
+//   return acc;
+// }, {});
+
 class TicketBooking extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      originalTicketData: ticketData,
       ticketData: ticketData,
+      activeID: null,
+      priceFilter: false,
     };
   }
 
+  componentDidUpdate;
+
+  applyAllFilter = () => {
+    console.log("applyAllFilter");
+    let base = this.state.originalTicketData.map((ticket) => ticket);
+    console.log(base[0].price);
+    console.log(this.state.priceFilter);
+    if (this.state.priceFilter === true) {
+      console.log("sorted!")
+      this.sortByPrice(base);
+      console.log(this.state.originalTicketData[0].price);
+    }
+
+    this.setState(
+      {
+        ticketData: base,
+      },
+      () => {
+        console.log("list updated" + this.state.ticketData[0].price);
+      }
+    );
+  };
+
+  sortByPrice = (base) => {
+    console.log("sortByPrice");
+    base.sort((a, b) => {
+      return a.price - b.price;
+    });
+  };
+
+  sortByPriceRegister = () => {
+    console.log("sortByPriceRegister");
+    console.log("before: " + this.state.priceFilter);
+    this.setState(
+      {
+        priceFilter: !this.state.priceFilter,
+      },
+      () => {
+        console.log("after: " + this.state.priceFilter);
+        this.applyAllFilter();
+      }
+    );
+  };
+
+  activeTicket = (id) => {
+    this.setState({ activeID: id });
+    console.log("active ticket " + id);
+  };
+
+  // scrollToTicket = id => {
+  //   refs[id].current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  // }
+
   render() {
+    console.log("render: " + this.state.activeID);
     const ticketItem = this.state.ticketData.map((ticket) => (
       <TicketItem
-        key={ticket.id}
+        keya={ticket.id}
         timeShort={ticket.timeShort}
         timeLong={ticket.timeLong}
         price={ticket.price}
         emptySeats={ticket.emptySeats}
         time={ticket.time}
+        onPress={this.activeTicket}
+        active={this.state.activeID === ticket.id}
+        // refProp={refs[ticket.id]}
+        // scrollTo={this.scrollToTicket}
       />
     ));
     return (
       <Container>
+        <Banner />
         <Row>
           <Col sm={4}>
-            <Filter />
+            <Filter sortByPrice={this.sortByPriceRegister} />
           </Col>
           <Col sm={8}>{ticketItem}</Col>
         </Row>
@@ -89,8 +166,46 @@ class TicketBooking extends Component {
 
 class TicketItem extends Component {
   state = {
-    open: false,
-    setOpen: false,
+    openBooking: false,
+    setOpenBooking: false,
+    openDetails: false,
+    setOpenDetails: false,
+  };
+
+  handleButtonClick = (ticketID) => {
+    console.log("button clicked " + ticketID);
+    this.props.onPress(ticketID);
+    // this.props.scrollTo(ticketID);
+  };
+
+  detailsClickHandler = () => {
+    if (this.state.openBooking) {
+      this.setState({ openBooking: false });
+    }
+    this.setState(
+      {
+        openDetails: !this.state.openDetails,
+      },
+      () => {
+        this.handleButtonClick(this.props.keya);
+      }
+    );
+  };
+
+  bookingClickHandler = () => {
+    if (this.state.openDetails) {
+      this.setState({
+        openDetails: !this.state.openDetails,
+      });
+    }
+    this.setState(
+      {
+        openBooking: !this.state.openBooking,
+      },
+      () => {
+        this.handleButtonClick(this.props.keya);
+      }
+    );
   };
 
   render() {
@@ -118,27 +233,50 @@ class TicketItem extends Component {
             <div className="ticket-item__time--value">{this.props.time}</div>
           </div>
           <div className="ticket-item__button">
-            <Button
-              onClick={() => this.setState({ open: !this.state.open })}
-              aria-controls="collapse-text"
-              aria-expanded={this.state.open}
-            >
-              Book Now
-            </Button>
+            <ButtonGroup>
+              <Button
+                variant="outline-info"
+                onClick={() => this.detailsClickHandler()}
+                aria-controls="collapse-text"
+                aria-expanded={this.state.openDetails}
+              >
+                Details
+              </Button>
+              <Button
+                variant="info"
+                onClick={() => this.bookingClickHandler()}
+                aria-controls="collapse-text"
+                aria-expanded={this.state.openBooking}
+              >
+                Book Now
+              </Button>
+            </ButtonGroup>
           </div>
-          <Collapse in={this.state.open}>
-            <div id="collapse-text">
-              Hello
-            </div>
-          </Collapse>
         </div>
+        <Collapse
+          in={this.state.openBooking && this.props.active}
+          unmountOnExit={true}
+        >
+          <div id="collapse-booking">
+            <ExpandedBookingItem />
+          </div>
+        </Collapse>
+        <Collapse
+          in={this.state.openDetails && this.props.active}
+          unmountOnExit={true}
+        >
+          <div id="collapse-detail">Details</div>
+        </Collapse>
       </Row>
     );
   }
 }
 
-class ExpandedTicketItem extends Component {
-
+class ExpandedBookingItem extends Component {
+  render() {
+    return <MasterForm />;
+  }
 }
+class ExpandedDetailItem extends Component {}
 
 export default TicketBooking;

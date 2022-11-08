@@ -1,20 +1,31 @@
 .ticket-item {
-    border: 3px solid #121111;
-    margin-bottom: 30px;
-    position: relative;
+  border: 3px solid #121111;
+  border-radius: 10px;
+  margin-top: 20px;
+  position: relative;
 }
 
-
-
 .ticket-item__button {
-    position: absolute;
-    top: 70%;
-    left: 80%; 
-    right: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
 
+div#collapse-booking {
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
+  height: 550px;
+  position: relative;
+}
+
+div#collapse-detail{
+    border: 2px solid #6b6b6b;
+    border-radius: 10px;
 }
 
 .container {
-    margin-top: 50px;
-    padding: 0 15px;
+  margin-top: 50px;
+  padding: 0 15px;
+  margin-bottom: 250px;
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import './index.css';
-import HamburgerLogo from '../../Asset/Hamburger.png';
+import HamburgerLogo from '../../assets/Hamburger.png';
 import Footer from '../../components/footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
 

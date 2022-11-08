@@ -1,7 +1,7 @@
 import React from "react";
 import './FilmBanner.css'
-import banner_1 from '../../Asset/banner_1.png'
-import banner_2 from '../../Asset/banner_2.png'
+import banner_1 from '../../assets/banner_1.png'
+import banner_2 from '../../assets/banner_2.png'
 
 
 function BannerVertical() {

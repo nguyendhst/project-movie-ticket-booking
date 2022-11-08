@@ -1,0 +1,27 @@
+.seat-picker {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.seat {
+  width: 30px;
+  height: 30px;
+}
+
+.seat {
+  border-radius: 0;
+}
+
+.seat__number {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .seat {
+    width: 25px;
+    height: 25  px;
+  }
+  div.blank {
+    width: 25px;
+    height: 25px;
+  }
+}

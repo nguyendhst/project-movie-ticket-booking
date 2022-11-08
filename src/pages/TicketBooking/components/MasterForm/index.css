@@ -1,0 +1,14 @@
+.btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.btn.next-expand {
+    margin: 10px;
+}
+
+.btn.prev-expand {
+    margin: 10px;
+    margin-right: 80px;
+}
