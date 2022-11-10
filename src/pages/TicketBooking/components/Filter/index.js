@@ -37,11 +37,15 @@ class Filter extends Component {
       filterCheck: filterCheck,
       filterRange: filterRange,
     };
+
+    this.checkClickHandler = this.checkClickHandler.bind(this);
   }
 
   checkClickHandler = (value) => {
     if (value === "price") {
       this.props.sortByPrice();
+    } else if (value === "time") {
+      this.props.sortByTime();
     }
   };
 

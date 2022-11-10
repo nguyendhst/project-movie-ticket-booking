@@ -19,15 +19,15 @@ const ticketData = [
     id: 1,
     timeShort: "06 Thu",
     timeLong: "Thu 06-Dec-2022",
-    price: "670.000",
+    price: "670000",
     emptySeats: "10",
-    time: "18:00-20:00",
+    time: "14:00-20:00",
   },
   {
     id: 2,
     timeShort: "07 Fri",
     timeLong: "Fri 07-Dec-2022",
-    price: "360.000",
+    price: "360000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -35,31 +35,31 @@ const ticketData = [
     id: 3,
     timeShort: "08 Sat",
     timeLong: "Sat 08-Dec-2022",
-    price: "560.000",
+    price: "560000",
     emptySeats: "10",
-    time: "18:00-20:00",
+    time: "20:00-22:00",
   },
   {
     id: 4,
     timeShort: "09 Sun",
     timeLong: "Sun 09-Dec-2022",
-    price: "860.000",
+    price: "860000",
     emptySeats: "10",
-    time: "18:00-20:00",
+    time: "10:00-14:00",
   },
   {
     id: 5,
     timeShort: "10 Mon",
     timeLong: "Mon 10-Dec-2022",
-    price: "660.000",
+    price: "660000",
     emptySeats: "10",
-    time: "18:00-20:00",
+    time: "15:00-17:00",
   },
   {
     id: 6,
     timeShort: "11 Tue",
     timeLong: "Tue 11-Dec-2022",
-    price: "660.000",
+    price: "660000",
     emptySeats: "10",
     time: "18:00-20:00",
   },
@@ -78,10 +78,14 @@ class TicketBooking extends Component {
       ticketData: ticketData,
       activeID: null,
       priceFilter: false,
+      timeFilter: false,
     };
-  }
 
-  componentDidUpdate;
+    this.activeTicket = this.activeTicket.bind(this);
+    this.sortByPriceRegister = this.sortByPriceRegister.bind(this);
+    this.sortByTimeRegister = this.sortByTimeRegister.bind(this);
+    this.applyAllFilter = this.applyAllFilter.bind(this);
+  }
 
   applyAllFilter = () => {
     console.log("applyAllFilter");
@@ -89,9 +93,10 @@ class TicketBooking extends Component {
     console.log(base[0].price);
     console.log(this.state.priceFilter);
     if (this.state.priceFilter === true) {
-      console.log("sorted!")
       this.sortByPrice(base);
-      console.log(this.state.originalTicketData[0].price);
+    }
+    if (this.state.timeFilter === true) {
+      this.sortByTime(base);
     }
 
     this.setState(
@@ -125,6 +130,29 @@ class TicketBooking extends Component {
     );
   };
 
+  sortByTimeRegister = () => {
+    console.log("sortByTimeRegister");
+    console.log("before: " + this.state.timeFilter);
+    this.setState(
+      {
+        timeFilter: !this.state.timeFilter,
+      },
+      () => {
+        console.log("after: " + this.state.timeFilter);
+        this.applyAllFilter();
+      }
+    );
+  };
+
+  sortByTime = (base) => {
+    // time format: "18:00-20:00"
+    base.sort((a, b) => {
+      let aHour = parseInt(a.time.split(":")[0]);
+      let bHour = parseInt(b.time.split(":")[0]);
+      return aHour - bHour;
+    });
+  };
+
   activeTicket = (id) => {
     this.setState({ activeID: id });
     console.log("active ticket " + id);
@@ -155,7 +183,11 @@ class TicketBooking extends Component {
         <Banner />
         <Row>
           <Col sm={4}>
-            <Filter sortByPrice={this.sortByPriceRegister} />
+            <Filter 
+            sortByPrice={this.sortByPriceRegister} 
+            sortByTime={this.sortByTimeRegister}
+            
+            />
           </Col>
           <Col sm={8}>{ticketItem}</Col>
         </Row>
@@ -165,12 +197,18 @@ class TicketBooking extends Component {
 }
 
 class TicketItem extends Component {
-  state = {
-    openBooking: false,
-    setOpenBooking: false,
-    openDetails: false,
-    setOpenDetails: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      openBooking: false,
+      setOpenBooking: false,
+      openDetails: false,
+      setOpenDetails: false,
+    };
+
+    this.detailsClickHandler = this.detailsClickHandler.bind(this);
+    this.bookingClickHandler = this.bookingClickHandler.bind(this);
+  }
 
   handleButtonClick = (ticketID) => {
     console.log("button clicked " + ticketID);
@@ -258,7 +296,7 @@ class TicketItem extends Component {
           unmountOnExit={true}
         >
           <div id="collapse-booking">
-            <ExpandedBookingItem />
+            <MasterForm basePrice={this.props.price} />
           </div>
         </Collapse>
         <Collapse
@@ -271,12 +309,5 @@ class TicketItem extends Component {
     );
   }
 }
-
-class ExpandedBookingItem extends Component {
-  render() {
-    return <MasterForm />;
-  }
-}
-class ExpandedDetailItem extends Component {}
 
 export default TicketBooking;
