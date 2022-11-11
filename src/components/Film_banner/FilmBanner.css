@@ -1,32 +1,41 @@
-.Banner_vertical{
+/* .Banner_vertical{
     max-width: 1400px;
-    max-height: 480px;
-
+    max-height: 480px; 
     border-radius: 16px;
-}
+    padd
+    width: 100%;
+} */
 
 .Banner_horizontal {
-    max-width: 200px;
-    max-height: 300px;
+    max-width: 280px;
+    /* max-height: 300px; */
 
-    border-radius: 4px;
+    width: 100%;
 
-    justify-self: stretch;
+    border-radius: 8px;
+
 }
 
 .Banner_container{
     display: grid;
+    justify-items: center;
+    
+    width: 100%;
+    max-width: 1400px;
+
     grid-template-columns: repeat(5, minmax(10px, 1fr));
     row-gap: 32px;
-    column-gap: 20px;
+    grid-column-gap: 2%;
 }
 
 .Film_Banner {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    margin-left: 260px;
-    margin-right: 260px;
+    width: 80%;
+    margin: auto;
 
     row-gap: 32px;
+
 }
