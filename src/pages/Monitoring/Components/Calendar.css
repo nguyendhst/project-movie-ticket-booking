@@ -1,0 +1,29 @@
+.calendar{
+    text-align:center;
+}
+.header{
+    display:flex;
+    flex-direction: row;
+}
+.paginating{
+    flex: 50%;
+}
+.unused{
+    color:#D3D3D3;
+}
+.used{
+    color: #000000;
+    font-weight: 700;
+}
+.container{
+    display:flex;
+}
+.year{
+    flex: 33.3%;
+}
+.quarter{
+    flex: 50%;
+}
+.month{
+    flex: 33.3%;
+}
