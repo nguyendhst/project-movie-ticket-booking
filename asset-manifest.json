@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/project-movie-ticket-booking/static/css/main.3ca37c78.css",
+    "main.js": "/project-movie-ticket-booking/static/js/main.3dd78c75.js",
+    "static/media/banner_2.png": "/project-movie-ticket-booking/static/media/banner_2.6469c0b399d7772eecdc.png",
+    "static/media/banner_1.png": "/project-movie-ticket-booking/static/media/banner_1.52a9b6c067cfe1977a02.png",
+    "static/media/banner_1p.jpg": "/project-movie-ticket-booking/static/media/banner_1p.cd204674844442b7660b.jpg",
+    "index.html": "/project-movie-ticket-booking/index.html",
+    "main.3ca37c78.css.map": "/project-movie-ticket-booking/static/css/main.3ca37c78.css.map",
+    "main.3dd78c75.js.map": "/project-movie-ticket-booking/static/js/main.3dd78c75.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ca37c78.css",
+    "static/js/main.3dd78c75.js"
+  ]
+}
