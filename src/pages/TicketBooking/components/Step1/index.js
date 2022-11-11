@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import SeatMenu from "../SeatPicket";
 import Legends from "../Legends";
