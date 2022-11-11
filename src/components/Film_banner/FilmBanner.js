@@ -7,11 +7,11 @@ import CarouselBanner from "./CasourelBanner/CarouselBanner";
 // import { Button } from "react-bootstrap";
 
 
-function BannerVertical() {
-    return (
-        <img src={banner_1} alt="A movie banner that is large and vertical." className="Banner_vertical"/>
-    )
-}
+// function BannerVertical() {
+//     return (
+//         <img src={banner_1} alt="A movie banner that is large and vertical." className="Banner_vertical"/>
+//     )
+// }
 
 function BannerHorizontal() {
     return (
