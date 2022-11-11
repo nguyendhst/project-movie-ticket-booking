@@ -1,6 +1,5 @@
 import React from "react";
-import './FilmBanner.css'
-import './CasourelBanner/CarouselBanner'
+import './FilmBanner.css';
 import banner_1 from '../../Asset/banner_1.png'
 import banner_2 from '../../Asset/banner_2.png'
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
@@ -10,7 +9,7 @@ import CarouselBanner from "./CasourelBanner/CarouselBanner";
 
 function BannerVertical() {
     return (
-        <img src="https://cdn.oneesports.vn/cdn-data/sites/4/2021/12/t1-doi-hinh-2022.jpg" alt="A movie banner that is large and vertical." className="Banner_vertical"/>
+        <img src={banner_1} alt="A movie banner that is large and vertical." className="Banner_vertical"/>
     )
 }
 
@@ -34,8 +33,8 @@ function BannerHorizontal() {
 function FilmBanner() {
     return (
         <div className="Film_Banner">
-            <BannerVertical/>
-            {/* <CarouselBanner/> */}
+            {/* <BannerVertical/> */}
+            <CarouselBanner/>
 
             <div className="Banner_container">
                 <BannerHorizontal/>
