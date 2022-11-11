@@ -1,7 +1,7 @@
 import React from "react"
 import './LandingPage.css';
 import HamburgerLogo from '../../Asset/Hamburger.png';
-import Footer from '../../components/footer/Footer';
+import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
 
 
