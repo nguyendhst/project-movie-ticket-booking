@@ -188,16 +188,14 @@ class MasterForm extends Component {
       */}
           <Step1
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            currentSum={this.state.total}
             basePrice={this.props.basePrice}
             updateSum={this.updateSum}
             updateSeats={this.updateSeats}
           />
           <Step2
             currentStep={this.state.currentStep}
-            handleChange={this.handleChange}
-            currentSum={this.state.total}
+            // handleChange={this.handleChange}
+            // currentSum={this.state.total}
             basePrice={this.state.step1Total}
             updateSum={this.updateSum}
             selectedMenu={this.state.selectedMenu}

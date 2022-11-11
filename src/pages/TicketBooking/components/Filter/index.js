@@ -84,17 +84,17 @@ const FilterCheckList = ({ options, checkClickHandler }) => {
   );
 };
 
-class FilterRange extends Component {
-  render() {
-    return (
-      <Form.Range
-        key={this.props.id}
-        type="range"
-        label={this.props.name}
-        id={this.props.name}
-      />
-    );
-  }
-}
+// class FilterRange extends Component {
+//   render() {
+//     return (
+//       <Form.Range
+//         key={this.props.id}
+//         type="range"
+//         label={this.props.name}
+//         id={this.props.name}
+//       />
+//     );
+//   }
+// }
 
 export default Filter;

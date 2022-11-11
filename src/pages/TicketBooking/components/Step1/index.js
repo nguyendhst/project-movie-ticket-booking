@@ -112,25 +112,32 @@ function Step1(props) {
   const [total, setTotal] = React.useState(0);
   const [seats, setSeats] = React.useState(seatData);
 
+  //destructuring props
+  // currentStep={this.state.currentStep}
+  // basePrice={this.props.basePrice}
+  // updateSum={this.updateSum}
+  // updateSeats={this.updateSeats}
+  const { currentStep, basePrice, updateSum, updateSeats } = props;
+
   useEffect(() => {
-    console.log("step 1 useEffect ", parseInt(props.basePrice));
+    console.log("step 1 useEffect ", parseInt(basePrice));
 
     let sum;
     if (selected.length > 0) {
       console.log("selected: ", selected);
-      sum = props.basePrice * selected.length;
+      sum = basePrice * selected.length;
     } else {
       sum = 0;
     }
     console.log("total: ", sum);
 
     setTotal(sum);
-    props.updateSeats(selected);
+    updateSeats(selected);
     console.log("step 1 state: ", total);
-    props.updateSum(total);
-  }, [selected, total]);
+    updateSum(total);
+  }, [selected, total, basePrice, updateSeats, updateSum]);
 
-  if (props.currentStep !== 1) {
+  if (currentStep !== 1) {
     return null;
   }
 

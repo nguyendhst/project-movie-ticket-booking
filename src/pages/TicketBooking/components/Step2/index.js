@@ -22,10 +22,26 @@ const menuData = [
 function Step2(props) {
   const [selected, setSelected] = useState([]);
 
+  // destructuring the props
+  // currentStep={this.state.currentStep}
+  // handleChange={this.handleChange}
+  // currentSum={this.state.total}
+  // basePrice={this.state.step1Total}
+  // updateSum={this.updateSum}
+  // selectedMenu={this.state.selectedMenu}
+  // updateMenu={this.updateMenu}
+
+  const {
+    currentStep,
+    basePrice,
+    updateSum,
+    selectedMenu,
+    updateMenu,
+  } = props;
 
   useEffect(() => {
     console.log("step 2 useEffect ");
-    
+
     let sum;
     if (selected.length > 0) {
       sum = selected.reduce((acc, curr) => {
@@ -35,12 +51,12 @@ function Step2(props) {
       sum = 0;
     }
     console.log("sum: ", sum);
-    let newSum = sum + props.basePrice;
+    let newSum = sum + basePrice;
     console.log("t2 newSum: ", newSum);
-    props.updateSum(newSum);
-  }, [selected]);
+    updateSum(newSum);
+  }, [selected, basePrice, updateSum]);
 
-  if (props.currentStep !== 2) {
+  if (currentStep !== 2) {
     return null;
   }
 
@@ -53,18 +69,18 @@ function Step2(props) {
               type="checkbox"
               label={item.name}
               value={item.price}
-              checked={props.selectedMenu.includes(item.id)}
+              checked={selectedMenu.includes(item.id)}
               onChange={(e) => {
                 if (e.target.checked) {
                   console.log("checked");
                   setSelected([...selected, e.target.value]);
-                  props.updateMenu([...props.selectedMenu, item.id]);
+                  updateMenu([...selectedMenu, item.id]);
                   console.log(selected);
                 } else {
                   console.log("unchecked");
                   setSelected(selected.filter((i) => i !== e.target.value));
-                  props.updateMenu(
-                    props.selectedMenu.filter((i) => i !== item.id)
+                  updateMenu(
+                    selectedMenu.filter((i) => i !== item.id)
                   );
                 }
               }}
