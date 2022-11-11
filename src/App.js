@@ -1,14 +1,25 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import {
+  Routes,
+  Route
+} from 'react-router-dom';
+
 import LandingPage from './pages/LandingPage/LandingPage';
+import TicketBooking from './pages/TicketBooking';
 
 function App() {
   return (
-    <div className="App">
-      <LandingPage />
-    </div>
+    <React.Fragment>
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/booking" element={<TicketBooking />} />
+        </Routes>
+      </main>
+    </React.Fragment>
+    
   );
 }
 
-export default App
+export default App;

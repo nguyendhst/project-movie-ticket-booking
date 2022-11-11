@@ -130,7 +130,7 @@ class MasterForm extends Component {
     if (currentStep <= 3) {
       return (
         <button
-          className="btn btn-primary next-expand"
+          className="btn btn-info next-expand"
           type="button"
           onClick={this._next}
         >
