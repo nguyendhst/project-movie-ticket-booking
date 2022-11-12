@@ -168,7 +168,7 @@ function Step1(props) {
             <span className="selected-seats">
               {selected.map((item) => (
                 <span className="selected-seat">
-                  {item.row}-{item.number},{" "}
+                  {item.row}-{item.number},{"  "}
                 </span>
               ))}
             </span>

@@ -68,6 +68,10 @@ const ticketData = [
 //   return acc;
 // }, {});
 
+const intToVND = (int) => {
+  return int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+};
+
 class TicketBooking extends Component {
   constructor(props) {
     super(props);
@@ -181,10 +185,9 @@ class TicketBooking extends Component {
         <Banner />
         <Row>
           <Col sm={4}>
-            <Filter 
-            sortByPrice={this.sortByPriceRegister} 
-            sortByTime={this.sortByTimeRegister}
-            
+            <Filter
+              sortByPrice={this.sortByPriceRegister}
+              sortByTime={this.sortByTimeRegister}
             />
           </Col>
           <Col sm={8}>{ticketItem}</Col>
@@ -248,15 +251,17 @@ class TicketItem extends Component {
     return (
       <Row>
         <div className="ticket-item">
-          <div className="ticket-item__time">
+          <div className="ticket-item__week-time">
             <div className="ticket-item__time--short">
               {this.props.timeShort}
             </div>
-            <div className="ticket-item__time--long">{this.props.timeLong}</div>
           </div>
+          <div className="ticket-item__time--long">{this.props.timeLong}</div>
+
           <div className="ticket-item__price">
-            <div className="ticket-item__price--text">Price</div>
-            <div className="ticket-item__price--value">{this.props.price}</div>
+            <div className="ticket-item__price--value">
+              {intToVND(this.props.price)}đ
+            </div>
           </div>
           <div className="ticket-item__empty-seats">
             <div className="ticket-item__empty-seats--text">Empty Seats</div>

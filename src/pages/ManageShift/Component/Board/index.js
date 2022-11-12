@@ -38,7 +38,7 @@ const Shift = (props) => {
                         <input type="range" className="form-range" id="customRange"/>
                     </div>
                     <br/>
-                    <button type="button" className="btn btn-info m-1">
+                    <button type="button" className="btn btn-info m-1 save-btn">
                         Lưu
                     </button>
                 </div>

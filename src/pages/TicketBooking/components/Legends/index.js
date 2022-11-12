@@ -5,7 +5,7 @@ const Legends = () => {
   return (
     <div className="legends">
       <div className="legend">
-        <div className="seat"></div>
+        <div className="seat available"></div>
         <span className="available">Available</span>
       </div>
       <div className="legend">

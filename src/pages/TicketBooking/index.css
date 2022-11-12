@@ -3,6 +3,7 @@
   border-radius: 10px;
   margin-top: 20px;
   position: relative;
+  height: 200px;  
 }
 
 .ticket-item__button {
@@ -10,6 +11,39 @@
   bottom: 0;
   right: 0;
   margin: 10px;
+}
+
+.ticket-item__week-time {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  border: #121111 3px solid;
+}
+
+.ticket-item__price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.ticket-item__price--value {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.ticket-item__empty-seats {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  padding-top: 20px;
+}
+
+.ticket-item__empty-seats--value {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 div#collapse-booking {
