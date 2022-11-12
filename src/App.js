@@ -7,6 +7,7 @@ import {
 
 import LandingPage from './pages/LandingPage/LandingPage';
 import TicketBooking from './pages/TicketBooking';
+import ManageShift from './pages/ManageShift';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/booking" element={<TicketBooking />} />
+          <Route path="/manage-shift" element={<ManageShift />} />
         </Routes>
       </main>
     </React.Fragment>
