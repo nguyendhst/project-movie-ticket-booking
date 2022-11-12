@@ -21,6 +21,7 @@ function App() {
           <Route path="/manage-shift" element={<ManageShift />} />
           <Route path="/customer-care" element={<CustomerCare />}>
               <Route path='customer-care/new-feedback' element={<NewFeedbacks />} />
+          </Route>
         </Routes>
       </main>
     </React.Fragment>
