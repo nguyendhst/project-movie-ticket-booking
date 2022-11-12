@@ -21,7 +21,7 @@ const Shift = (props) => {
     return (
         <>
             <div className="my-2">
-                <div className="bg-primary rounded-pill text-white mt-3 p-1">
+                <div className="bg-primary rounded text-white mt-3 p-1">
                     {props.shift}<br/>{props.time}
                 </div>
                 <div className="card card-body my-2 border border-dark rounded p-2">
@@ -51,7 +51,7 @@ const DateInWeek = (props) => {
     return (
         <>
             <div className="col-xxl col-lg-2 col-md-3 col-sm-4 m-3 border border-success border-2 rounded">
-                <div className="bg-success rounded-pill text-white p-2 my-2">
+                <div className="bg-success rounded text-white p-2 my-2">
                     <span className="h5">{props.name}</span><br/>
                     <span className="h5">{props.date}</span>
                 </div>
