@@ -1,5 +1,5 @@
 import React from "react";
-import {Button} from "react-bootstrap";
+import "./index.css"
 
 const SelectWeek = () => {
     return (
@@ -20,23 +20,27 @@ const SelectWeek = () => {
 const Shift = (props) => {
     return (
         <>
-            <div>
-                <div className="bg-primary rounded-pill text-white my-2 p-1"
-                     data-bs-toggle="collapse">{props.shift}<br/>{props.time}
+            <div className="my-2">
+                <div className="bg-primary rounded-pill text-white mt-3 p-1">
+                    {props.shift}<br/>{props.time}
                 </div>
-                <div className="my-2 border border-danger rounded p-2">
-                    <div>
+                <div className="card card-body my-2 border border-dark rounded p-2">
+                    <div className="m-1">
                         Quầy bán vé
                         <input type="range" className="form-range" id="customRange"/>
                     </div>
-                    <div>
+                    <div className="m-1">
                         Kiểm soát vé
                         <input type="range" className="form-range" id="customRange"/>
                     </div>
-                    <div>
+                    <div className="m-1">
                         Quầy bắp nước
                         <input type="range" className="form-range" id="customRange"/>
                     </div>
+                    <br/>
+                    <button type="button" className="btn btn-info m-1">
+                        Lưu
+                    </button>
                 </div>
             </div>
         </>
@@ -46,10 +50,10 @@ const Shift = (props) => {
 const DateInWeek = (props) => {
     return (
         <>
-            <div className="col-sm m-2 p-2 border border-success rounded">
-                <div className="bg-success rounded-pill text-white p-3">
+            <div className="col-xxl col-lg-2 col-md-3 col-sm-4 m-3 border border-success border-2 rounded">
+                <div className="bg-success rounded-pill text-white p-2 my-2">
                     <span className="h5">{props.name}</span><br/>
-                    <span className="h5">{props.num}</span>
+                    <span className="h5">{props.date}</span>
                 </div>
                 <Shift shift="Ca sáng" time="08:00 - 12:00"/>
                 <Shift shift="Ca trưa" time="12:00 - 16:00"/>
@@ -66,13 +70,13 @@ export default function Board () {
             <SelectWeek/>
             <div className="container-fluid text-center p-4">
                 <div className="row">
-                    <DateInWeek name="Thứ Hai" num="03/10/2022"/>
-                    <DateInWeek name="Thứ Ba" num="04/10/2022"/>
-                    <DateInWeek name="Thứ Tư" num="05/10/2022"/>
-                    <DateInWeek name="Thứ Năm" num="06/10/2022"/>
-                    <DateInWeek name="Thứ Sáu" num="07/10/2022"/>
-                    <DateInWeek name="Thứ Bảy" num="08/10/2022"/>
-                    <DateInWeek name="Chủ Nhật" num="09/10/2022"/>
+                    <DateInWeek name="Thứ Hai" date="03/10/2022"/>
+                    <DateInWeek name="Thứ Ba" date="04/10/2022"/>
+                    <DateInWeek name="Thứ Tư" date="05/10/2022"/>
+                    <DateInWeek name="Thứ Năm" date="06/10/2022"/>
+                    <DateInWeek name="Thứ Sáu" date="07/10/2022"/>
+                    <DateInWeek name="Thứ Bảy" date="08/10/2022"/>
+                    <DateInWeek name="Chủ Nhật" date="09/10/2022"/>
                 </div>
             </div>
         </>
