@@ -1,11 +1,11 @@
 import React from "react";
-import { confirmAlert } from 'react-confirm-alert';
-import "react-confirm-alert/src/react-confirm-alert.css";
+// import { confirmAlert } from 'react-confirm-alert';
+// import "react-confirm-alert/src/react-confirm-alert.css";
 import './NewFeedbackForm.css'
 import DropdownPL from "../../components/DropdownPL/DropdownPL";
 
 function New_feedback_form() {
-    const submit = () => {
+    /* const submit = () => {
     confirmAlert({
       title: 'Thông báo',
       message: 'Bạn có chắc chắn muốn gửi không',
@@ -20,7 +20,7 @@ function New_feedback_form() {
         }
       ]
     });
-    };
+    }; */
     return (
         <div className='New_feedback_form'>
                 <div>
@@ -45,7 +45,7 @@ function New_feedback_form() {
                     </div>
                 </div>
                 <div>
-                    <button className="Confirm_Button" onClick={submit}>
+                    <button className="Confirm_Button">
                         Xác nhận
                     </button>
                 </div>
