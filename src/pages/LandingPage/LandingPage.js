@@ -3,8 +3,49 @@ import './LandingPage.css';
 import HamburgerLogo from '../../Asset/Hamburger.png';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Modal from 'react-bootstrap/Modal';
+
+
+
+function LoginPopup(props) {
+    return (
+      <Modal
+        {...props}
+        className="LoginPopup"
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Đăng nhập
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <ButtonGroup vertical >
+                <Button className="LoginOption">
+                Đăng nhập với tư cách Khách hàng
+                </Button>
+                <Button className="LoginOption">
+                Đăng nhập với tư cách Nhân viên
+                </Button>
+                <Button className="LoginOption">
+                Đăng nhập với tư cách Quản lý
+                </Button>
+            </ButtonGroup> 
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer> */}
+      </Modal>
+    );
+  }
 
 function Header() {
+    const [loginShow, setLoginShow] = React.useState(false);
+
     return(
         <ul className="Header">
             <ul className="Left_header">
@@ -18,13 +59,20 @@ function Header() {
                 </li>
             </ul>
             <li>
-                <button className="LoginButton">
+                <Button className="LoginButton" onClick={() => setLoginShow(true)}>
                     Đăng nhập
-                </button>
+                </Button>
+
+                <LoginPopup
+                    show={loginShow}
+                    onHide={() => setLoginShow(false)}
+                />
             </li>
         </ul>
     )
 }
+
+// function 
 
 function LandingPage() {
     return (
@@ -33,7 +81,6 @@ function LandingPage() {
             <div className="LandingPage_main">
                 <FilmBanner/>
             </div>
-            
             <Footer/>
         </div>
     )
