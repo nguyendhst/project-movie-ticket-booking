@@ -1,0 +1,19 @@
+.Work_space {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.Side {
+    margin: 10px 10px 10px 0;
+}
+
+.Main {
+    flex: 1;
+    background-color: #63C2D2;
+    border-radius: 20px;
+    margin: 0px 10px 10px 10px;
+    justify-content: center;
+}
