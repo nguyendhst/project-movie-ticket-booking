@@ -54,16 +54,26 @@
 }
 
 .LoginButton:hover{
-    background-color: #B7EDFF;
+    background-color: #DFF2ED;
     color: #003C4B;
 }
 
 .modal-content{
     background-color: #B7EDFF;
+    border-radius: 16px;
 }
 
 .modal-header{
     color: #000000;
+    border-width: 0px;
+}
+
+.modal-title{
+    padding-left: 10%;
+}
+
+.modal-body{
+    padding-top: 0px
 }
 
 .btn-group-vertical{
@@ -85,6 +95,22 @@
     /* margin-bottom: 16px; */
 
     border-radius: 16px;
+    border-width: 0px;
+}
+
+.LoginOption:hover {
+    background-color: #B7EDFF;
+    color: #003C4B;
+}
+
+.LoginOption:active {
+    background-color: #B7EDFF;
+    color: #003C4B;
+}
+
+.btn-primary {
+    --bs-btn-focus-shadow-rgb: 0,0,0;
+    --bs-btn-active-bg: #003C4B;
     border-width: 0px;
 }
 

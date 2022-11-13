@@ -20,19 +20,19 @@ function LoginPopup(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Đăng nhập
+            Đăng nhập với tư cách:
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <ButtonGroup vertical >
                 <Button className="LoginOption">
-                Đăng nhập với tư cách Khách hàng
+                    Khách hàng
                 </Button>
                 <Button className="LoginOption">
-                Đăng nhập với tư cách Nhân viên
+                    Nhân viên
                 </Button>
                 <Button className="LoginOption">
-                Đăng nhập với tư cách Quản lý
+                    Quản lý
                 </Button>
             </ButtonGroup> 
         </Modal.Body>
