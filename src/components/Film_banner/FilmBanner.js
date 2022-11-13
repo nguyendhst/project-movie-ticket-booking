@@ -6,6 +6,7 @@ import banner_2 from '../../Asset/banner_2.png'
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
 
 import Card from 'react-bootstrap/esm/Card';
+// import { Button } from "react-bootstrap/esm";
 
 function BannerHorizontal() {
     return (
@@ -34,6 +35,7 @@ function FilmBanner() {
                 <BannerHorizontal/>
                 <BannerHorizontal/>
             </div>
+            
         </div>
     )
 }

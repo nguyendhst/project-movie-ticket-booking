@@ -39,25 +39,67 @@
 }
 
 .LoginButton{
-    background-color: #003C4B;
-
-    text-align: center;
-    text-justify: auto;
-    color: #FFFFFF;
     font-size: 20px;
     font-weight: bold;
 
-    margin: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-right: 120px;
+    margin-left: 0px;
+
     height: 56px;
-    width: 180px;
+    max-width: 180px;
+    width: 100%;
     border-radius: 8px;
 }
 
 .LoginButton:hover{
-    background-color: #B7EDFF;
-    color: #003C4B;
+    background-color: #DFF2ED;
 }
 
+.modal-content{
+    background-color: #B7EDFF;
+    border-radius: 16px;
+}
+
+.modal-header{
+    color: #000000;
+    border-width: 0px;
+}
+
+.modal-title{
+    padding-left: 10%;
+}
+
+.modal-body{
+    padding-top: 0px
+}
+
+.btn-group-vertical{
+    width: 80%;
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.LoginOption{
+    border-radius: 16px;
+}
+
+.btn-primary {
+    text-align: center;
+    text-justify: auto;
+    font-size: 20px;
+    font-weight: bold;
+
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #003c48;
+    --bs-btn-hover-color: #003c48;
+    --bs-btn-hover-bg: #B7EDFF;
+    --bs-btn-focus-shadow-rgb: 0,0,0;
+    --bs-btn-active-bg: #003C4B;
+    border-width: 0px;
+}
 
 .LandingPage{
     background-color: #B7EDFF;
