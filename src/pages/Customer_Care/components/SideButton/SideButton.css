@@ -1,0 +1,35 @@
+.Side_Button{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.New_feedbacks, .View_feedbacks{
+	background-color: #63C2D2;
+	min-width: 272px;
+	min-height: 52px;
+    text-align: center;
+    text-justify: auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+.New_feedbacks {
+	background-image: url("https://i.postimg.cc/mg70YDFf/new.png");
+  	background-size: 24px;
+  	background-repeat: no-repeat;
+  	background-position: 16px 48%;
+}
+.View_feedbacks {
+	background-image: url("https://i.postimg.cc/4yT8NvBY/haved.png");
+  	background-size: 24px;
+  	background-repeat: no-repeat;
+  	background-position: 16px 48%;
+}
+
+.New_feedbacks:hover, .View_feedbacks:hover{
+	background-color: #2EB19F;
+	color: white;
+}

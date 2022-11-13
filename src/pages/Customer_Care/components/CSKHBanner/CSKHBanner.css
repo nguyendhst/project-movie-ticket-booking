@@ -1,0 +1,9 @@
+.CSKH_Banner {
+    display: flex;
+    flex-direction: column;
+}
+
+.CSKH_Banner > img{
+	width: 100%;
+	border-radius: 16px;
+}

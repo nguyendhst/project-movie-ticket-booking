@@ -1,0 +1,21 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contact_us{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.contact_inf > p {
+	margin: 0 40px 40px 40px;
+	font-style: italic;
+}
+
+.contact_inf{
+	text-align: justify;
+	margin: 10px;
+}
