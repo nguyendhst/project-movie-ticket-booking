@@ -4,14 +4,12 @@ import HamburgerLogo from '../../Asset/Hamburger.png';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
 
-
-
 function Header() {
     return(
         <ul className="Header">
             <ul className="Left_header">
                 <li id="Ham-icon">
-                    <img src={HamburgerLogo} alt="Hamburger icon" width="40px" height="40px"></img>
+                    <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
                 </li>
                 <li>
                     <button className="CinemaLogo">
@@ -33,10 +31,9 @@ function LandingPage() {
         <div className="LandingPage">
             <Header/>
             <div className="LandingPage_main">
-                <h1>Welcome</h1>
-                If you can read this, KYS
                 <FilmBanner/>
             </div>
+            
             <Footer/>
         </div>
     )
