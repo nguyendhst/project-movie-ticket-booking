@@ -1,8 +1,10 @@
 import React from "react"
 import './LandingPage.css';
+
 import HamburgerLogo from '../../Asset/Hamburger.png';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
+
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Modal from 'react-bootstrap/Modal';

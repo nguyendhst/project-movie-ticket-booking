@@ -19,7 +19,7 @@
     box-sizing: border-box;
 }
 
-.LoginButton{
+.LogoutButton{
     font-size: 20px;
     font-weight: bold;
 
@@ -34,7 +34,7 @@
     border-radius: 8px;
 }
 
-.LoginButton:hover{
+.LogoutButton:hover{
     background-color: #DFF2ED;
 }
 
@@ -63,7 +63,7 @@
     margin-right: 10%;
 }
 
-.LoginOption{
+.LogoutOption{
     border-radius: 16px;
 }
 
@@ -83,14 +83,14 @@
     border-width: 0px;
 } */
 
-.LandingPage{
+.Content{
     background-color: #B7EDFF;
     min-height: 1000px;
 
     /* padding-bottom: ; */
 }
 
-.LandingPage_main{
+.ContentMain{
     padding-top: 100px;
     padding-bottom: 60px;
 }
