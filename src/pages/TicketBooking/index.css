@@ -1,0 +1,65 @@
+.ticket-item {
+  border: 3px solid #121111;
+  border-radius: 10px;
+  margin-top: 20px;
+  position: relative;
+  height: 200px;
+}
+
+.ticket-item__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.ticket-item__week-time {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  border: #121111 3px solid;
+}
+
+.ticket-item__price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.ticket-item__price--value {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.ticket-item__empty-seats {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  padding-top: 20px;
+}
+
+.ticket-item__empty-seats--value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+div#collapse-booking {
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
+  height: 550px;
+  position: relative;
+}
+
+div#collapse-detail {
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
+}
+
+.container {
+  margin-top: 50px;
+  padding: 0 15px;
+  margin-bottom: 250px;
+}

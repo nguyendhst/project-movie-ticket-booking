@@ -1,0 +1,9 @@
+.CSKHPage{
+    min-height: 1000px;
+}
+
+.CSKHPage_main{
+    display: flex;
+    flex-direction: column;
+    padding-top:80px;
+}

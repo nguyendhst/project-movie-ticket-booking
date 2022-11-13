@@ -1,0 +1,12 @@
+.filter-box {
+    padding-top:30px;
+    position: sticky;
+    top: 0;
+}
+
+form.sticky {
+    border: 3px solid #121111;
+    border-radius: 10px;
+    padding: 20px;
+    padding-right: 50px;
+}
