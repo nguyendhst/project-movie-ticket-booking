@@ -114,7 +114,7 @@ class MasterForm extends Component {
     } else if (currentStep === 4) {
       return (
         <button
-          className="btn btn btn-submit prev-expand"
+          className="btn btn btn-info prev-expand"
           type="button"
           onClick={this._finish}
         >

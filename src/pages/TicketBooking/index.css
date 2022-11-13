@@ -3,7 +3,7 @@
   border-radius: 10px;
   margin-top: 20px;
   position: relative;
-  height: 200px;  
+  height: 200px;
 }
 
 .ticket-item__button {
@@ -53,9 +53,9 @@ div#collapse-booking {
   position: relative;
 }
 
-div#collapse-detail{
-    border: 2px solid #6b6b6b;
-    border-radius: 10px;
+div#collapse-detail {
+  border: 2px solid #6b6b6b;
+  border-radius: 10px;
 }
 
 .container {
