@@ -31,6 +31,8 @@ const LandingPage = () => {
         <div className="LandingPage">
             <Header/>
             <div className="LandingPage_main">
+                <h1>Welcome</h1>
+                If you can read this...
                 <FilmBanner/>
             </div>
             <Footer/>
