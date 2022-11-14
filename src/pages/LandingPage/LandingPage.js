@@ -2,6 +2,7 @@ import React from "react"
 import './LandingPage.css';
 
 import HamburgerLogo from '../../Asset/Hamburger.png';
+import House from '../../Asset/house.svg';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
 
@@ -33,14 +34,11 @@ function LoginPopup(props) {
                 <Button className="LoginOption">
                     Nhân viên
                 </Button>
-                <Button className="LoginOption">
+                <Button className="LoginOption" href="/manager">
                     Quản lý
                 </Button>
             </ButtonGroup> 
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer> */}
       </Modal>
     );
   }
@@ -54,10 +52,10 @@ function Header() {
                 <li id="Ham-icon">
                     <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
                 </li>
-                <li>
-                    <button className="CinemaLogo">
-                        Home Page
-                    </button>
+                <li id="Home-logo">
+                    <a href="/#">
+                        <img src={House} width='40px' height='40px' alt="Home logo"></img>
+                    </a>
                 </li>
             </ul>
             <li>
