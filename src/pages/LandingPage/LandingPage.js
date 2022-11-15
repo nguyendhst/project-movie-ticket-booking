@@ -5,7 +5,6 @@ import HamburgerLogo from '../../Asset/Hamburger.png';
 import House from '../../Asset/house.svg';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
-
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Modal from 'react-bootstrap/Modal';
@@ -43,14 +42,13 @@ function LoginPopup(props) {
     );
   }
 
-function Header() {
-    const [loginShow, setLoginShow] = React.useState(false);
 
+function Header() {
     return(
         <ul className="Header">
             <ul className="Left_header">
                 <li id="Ham-icon">
-                    <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
+                    <img src={HamburgerLogo} alt="Hamburger icon" width="40px" height="40px"></img>
                 </li>
                 <li id="Home-logo">
                     <a href="/#">
@@ -59,20 +57,13 @@ function Header() {
                 </li>
             </ul>
             <li>
-                <Button className="LoginButton" onClick={() => setLoginShow(true)}>
+                <button className="LoginButton">
                     Đăng nhập
-                </Button>
-
-                <LoginPopup
-                    show={loginShow}
-                    onHide={() => setLoginShow(false)}
-                />
+                </button>
             </li>
         </ul>
     )
 }
-
-// function 
 
 function LandingPage() {
     return (
