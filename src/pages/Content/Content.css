@@ -70,14 +70,17 @@
 }
 
 .ContentMain{
-    padding-top: calc(10% + 60px);
-    padding-bottom: 60px;
+    margin-top: calc(10% + 60px);
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
 
     width: 80%;
-    margin: auto;
+    min-height: 660px;
 
     background-color: #003C4B;
     color: #ffffff;
+    border-radius: 16px 16px 16px 16px;
 
     display: flex;
     flex-direction: column;
@@ -85,21 +88,20 @@
 }
 
 .ContentHeader {
+    min-height: 80px;
+    width: 100%;
 
-  max-height: 80px;
-  height: 100%;
-  width: 100%;
-  /* top: 0; */
-  background-color: #DFF2ED;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px;
-  padding: 0px; 
-  list-style-type: none;
-  /* position: fixed; */
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 16px 16px;
+    background-color: #DFF2ED;
+    margin: 0px;
+    padding: 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px 16px 0px 0px;
 
-
-}
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    }
+/* 
+.ContentBody {
+    
+} */
