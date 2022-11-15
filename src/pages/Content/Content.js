@@ -1,43 +1,35 @@
 import React from "react";
+
 import Button from "react-bootstrap/esm/Button";
 
 import './Content.css';
+import Footer from "../../components/Footer/Footer";
 
-import HamburgerLogo from '../../Asset/Hamburger.png';
-import Footer from '../../components/Footer/Footer';
-
+import House from "../../Asset/house.svg"
 
 
 
 
 
 function Header() {
-    // const [loginShow, setLoginShow] = React.useState(false);
 
     return(
         <ul className="Header">
             <ul className="Left_header">
-                <li id="Ham-icon">
-                    <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
-                </li>
-                <li>
-                    <button className="CinemaLogo">
-                        Home Page
-                    </button>
+                <li id="Home-logo">
+                    <a href="/manager">
+                        <img src={House} width='40px' height='40px' alt="Home logo"></img>
+                    </a>
                 </li>
             </ul>
             <li>
+                <a href='/#'>
                 <Button
                 className="LogoutButton"
-                // onClick={() => setLoginShow(true)}
                 >
-                    Đăng nhập
+                    Đăng xuất
                 </Button>
-
-                {/* <LoginPopup
-                    show={loginShow}
-                    onHide={() => setLoginShow(false)}
-                /> */}
+                </a>
             </li>
         </ul>
     )
@@ -48,7 +40,13 @@ function Content() {
         <div className="Content">
             <Header/>
             <div className="ContentMain">
-
+                <div>aa</div>
+                <div className="ContentHeader">
+                    a
+                </div>
+                <div className="ContentBody">
+                    b
+                </div>
             </div>
             <Footer/>
         </div>
