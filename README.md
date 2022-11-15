@@ -1,12 +1,7 @@
-## Folder structure
-
-    .
-    ├── App.js                 # Main app component
-    ├── components/            # React components
-        ├── header/            # Header component
-        ├── footer/            # Footer component
-        ├── body/              # Body component
-
-    ├── index.js               # Entry point
-    ├── pages/                 # React pages
-        ├── LandingPage/       # Landing page
+## Start Dev Environment
+```bash
+npm i --legacy-peer-deps
+```
+```bash
+npm run build
+```
