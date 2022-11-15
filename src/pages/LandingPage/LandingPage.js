@@ -11,7 +11,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-function LoginPopup(props) {
+/*function LoginPopup(props) {
     return (
       <Modal
         {...props}
@@ -41,7 +41,7 @@ function LoginPopup(props) {
       </Modal>
     );
   }
-
+*/
 
 function Header() {
     return(
