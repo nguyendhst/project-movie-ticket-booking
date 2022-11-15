@@ -1,0 +1,104 @@
+.Left_header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+}
+
+
+#Home-logo{
+    /* border: 1px solid #003C4B;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+    margin-left: 20px;
+    /* box-sizing: border-box; */
+}
+
+.LogoutButton{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-right: 120px;
+    margin-left: 0px;
+
+    height: 56px;
+    max-width: 180px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.LogoutButton:hover{
+    background-color: #DFF2ED;
+}
+/* 
+.modal-content{
+    background-color: #B7EDFF;
+    border-radius: 16px;
+}
+
+.modal-header{
+    color: #000000;
+    border-width: 0px;
+}
+
+.modal-title{
+    padding-left: 10%;
+}
+
+.modal-body{
+    padding-top: 0px
+} */
+/* 
+.btn-group-vertical{
+    width: 80%;
+    max-width: 1400px;
+
+    margin-left: 10%;
+    margin-right: 10%;
+} */
+
+.ManagerOptionBtn {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.ManagerOptions {
+    min-height: 200px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.ManagerLP{
+    background-color: #B7EDFF;
+    min-height: 1000px;
+
+    display: flex;
+    justify-content: center;
+    
+    /* padding-bottom: ; */
+}
+
+.ManagerLPMain{
+    padding-top: calc(10% + 60px);
+    
+    display: grid;
+    justify-items: center;
+    
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    row-gap: 32px;
+    grid-column-gap: 2%;
+}

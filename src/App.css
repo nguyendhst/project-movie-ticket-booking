@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.Header{
+  max-height: 80px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+
+  background-color: #DFF2ED;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 0px; 
+  list-style-type: none;
+  position: fixed;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 16px 16px;
+}
+
+.btn-primary {
+  text-align: center;
+  text-justify: auto;
+  font-size: 20px;
+  font-weight: bold;
+
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #003c48;
+  --bs-btn-hover-color: #003c48;
+  --bs-btn-hover-bg: #B7EDFF;
+  --bs-btn-focus-shadow-rgb: 0,0,0;
+  --bs-btn-active-bg: #003C4B;
+  border-width: 0px;
+}
