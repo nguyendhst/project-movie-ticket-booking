@@ -10,13 +10,7 @@
 }
 
 #Home-logo{
-    /* border: 1px solid #003C4B;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px; */
     margin-left: 20px;
-    /* box-sizing: border-box; */
 }
 
 .LoginButton{
@@ -58,28 +52,10 @@
     border-radius: 16px;
 }
 
-/* 
-.btn-primary {
-    text-align: center;
-    text-justify: auto;
-    font-size: 20px;
-    font-weight: bold;
-
-    --bs-btn-color: #ffffff;
-    --bs-btn-bg: #003c48;
-    --bs-btn-hover-color: #003c48;
-    --bs-btn-hover-bg: #B7EDFF;
-    --bs-btn-focus-shadow-rgb: 0,0,0;
-    --bs-btn-active-bg: #003C4B;
-    border-width: 0px;
-} */
-
-
 .LandingPage{
     background-color: #B7EDFF;
     min-height: 1000px;
     height: 100%;
-    /* padding-bottom: ; */
 }
 
 .LandingPage_main{
