@@ -1,63 +1,42 @@
 import React, { useState } from "react";
 import "./Tabs.css";
 
-function TabView({ title, tabs = [], editable = false }) {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const [allTabs, setAllTabs] = useState(tabs);
+import Button from "react-bootstrap/esm/Button";
 
-  const NewTabButton = (
-    <div className="btn" onClick={() => createNewTab()}>
-      +
-    </div>
-  );
+function Tabs({tabs = [], editable = false }) { 
+    const [activeTabIndex, setActiveTabIndex] = useState(0)
+    
+    const activateTab = (index) => {
+            setActiveTabIndex(index);
+    }
 
-  const NewTab = (
-    <div>
-      <label>New Tab</label>
-      <p>This is a new tab.</p>
-    </div>
-  );
-
-  const createNewTab = () => {
-    const newTabs = allTabs;
-    newTabs.push({ name: "New Tab", content: NewTab });
-    setAllTabs(newTabs);
-    setActiveTabIndex(newTabs.length - 1);
-  };
-
-  const activateTab = (index) => {
-    setActiveTabIndex(index);
-  };
-
-  return (
-    <div className="TabView">
-      {title && <h4 className="title">{title}</h4>}
-      <div className="body">
-        {allTabs.length === 0 ? (
-          <div className="tabs">
-            <div>No Tabs</div>
-            {editable ? NewTabButton : null}
-          </div>
-        ) : (
-          <div>
-            <div className="tabs">
-              {allTabs.map((tab, index) => (
-                <label
-                  key={index}
-                  className={index === activeTabIndex ? "active-tab" : "tab"}
-                  onClick={() => activateTab(index)}
-                >
-                  {tab.name}
-                </label>
-              ))}
-              {editable ? NewTabButton : null}
-            </div>
-            <div className="content">{allTabs[activeTabIndex].content}</div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+    return(
+        <div className="Tabs">
+                {Object.keys(tabs).length === 0 ?
+                    <div> No Tabs</div>
+                :    
+                    (
+                    <>
+                    <div className="Tab">
+                        {
+                            
+                            tabs.map((tab, index) => (
+                                <Button
+                                    key = {index}
+                                    className={index === activeTabIndex ? "tab-btn active-tab-btn" : "tab-btn"}
+                                    onClick={() => activateTab(index)}
+                                >
+                                    {tab.name}
+                                </Button>
+                        ))}
+                    </div>
+                    <div className="TabContent">
+                        {tabs[activeTabIndex].content}
+                    </div>
+                    </>
+                )}
+        </div>
+    )
 }
 
-export default TabView;
+export default Tabs;

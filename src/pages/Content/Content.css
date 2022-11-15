@@ -100,8 +100,8 @@
     display: flex;
     justify-content: stretch;
     align-items: center;
-    }
-/* 
-.ContentBody {
-    
-} */
+}
+
+.Tabs {
+    width: 100%;
+}
