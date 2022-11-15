@@ -4,10 +4,9 @@ import Button from "react-bootstrap/esm/Button";
 
 import './Content.css';
 import Footer from "../../components/Footer/Footer";
+import TabGroup from "./Tabs/Tabs"
 
 import House from "../../Asset/house.svg"
-
-
 
 
 
@@ -40,12 +39,11 @@ function Content() {
         <div className="Content">
             <Header/>
             <div className="ContentMain">
-                <div>aa</div>
-                <div className="ContentHeader">
+                {/* <div className="ContentHeader">
                     a
-                </div>
+                </div> */}
                 <div className="ContentBody">
-                    b
+                    <TabGroup/>
                 </div>
             </div>
             <Footer/>

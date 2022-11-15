@@ -89,7 +89,7 @@
 }
 
 .ManagerLPMain{
-    padding-top: calc(10% + 60px);
+    margin-top: calc(10% + 60px);
 
     display: grid;
     justify-items: center;
