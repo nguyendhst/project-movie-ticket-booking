@@ -49,11 +49,6 @@ function Header() {
                 <li id="Ham-icon">
                     <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
                 </li>
-                <li>
-                    <button className="CinemaLogo">
-                        Home Page
-                    </button>
-                </li>
                 <li id="Home-logo">
                     <a href="/#">
                         <img src={House} width='40px' height='40px' alt="Home logo"></img>
