@@ -4,7 +4,7 @@ import Button from "react-bootstrap/esm/Button";
 
 import './Content.css';
 import Footer from "../../components/Footer/Footer";
-import Tabs from "./Tabs/Tabs"
+import Tabs from "../../components/Tabs/Tabs"
 
 import House from "../../Asset/house.svg"
 
@@ -34,7 +34,7 @@ function Header() {
     )
 }
 
-const Students = ["a", "b", "c", "d"]
+const Students = ["a", "b", "c", "d", ]
 const Hello = ["e", "f", "g", "h"]
 
 
@@ -53,7 +53,6 @@ function Content() {
                             {name: "Hello2", content:    Hello.map((hellu, index)        => <div key={index}>{(hellu)}</div>)}
                         ]
                     }
-                    className="Tabs"
                 />
             </div>
             <Footer/>

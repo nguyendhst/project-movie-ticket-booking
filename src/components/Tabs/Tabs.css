@@ -1,9 +1,12 @@
 .Tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 
 }
 
 .Tab {
-  min-height: 80px;
+  height: 80px;
   width: 100%;
 
   background-color: #DFF2ED;
