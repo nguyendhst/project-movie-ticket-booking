@@ -26,7 +26,7 @@ function App() {
           <Route path="/customer-care" element={<CustomerCare />}>
               <Route path='customer-care/new-feedback' element={<NewFeedbacks />} />
           </Route>
-        </Routes>
+        </Routes> 
       </main>
     </React.Fragment>
     
