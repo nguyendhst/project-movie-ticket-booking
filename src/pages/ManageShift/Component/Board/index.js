@@ -44,7 +44,7 @@ const Shift = (props) => {
             <div className="my-2">
                 <button type="button"
                         id="select-shift"
-                        className="btn btn-primary position-relative rounded border-0 text-white my-3 p-1 w-100"
+                        className="btn btn-secondary position-relative rounded border-0 text-white my-3 p-1 w-100"
                         data-bs-toggle="collapse"
                         data-bs-target={'#' + date_name + shift_title}>
                     {props.shift_title}<br/>
