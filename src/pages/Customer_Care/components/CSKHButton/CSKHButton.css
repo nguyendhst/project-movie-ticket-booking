@@ -1,0 +1,21 @@
+.CSKH_Button{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.New_feedback, .View_feedback{
+	background-color: #2EB19F;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    font-size: 32px;
+    margin: 20px;
+    padding: 20px 40px 20px 40px;
+}
+
+.New_feedback:hover, .View_feedback:hover{
+	background-color: #3D9A8B;
+}

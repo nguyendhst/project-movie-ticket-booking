@@ -1,0 +1,24 @@
+.Footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #DFF2ED;
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px 16px 0px 0px;
+
+    color: #59858C;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}

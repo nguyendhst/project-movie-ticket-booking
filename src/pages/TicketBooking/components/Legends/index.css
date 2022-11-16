@@ -4,6 +4,18 @@ div.legends {
     flex-direction: row;
 }
 
+div.seat.available {
+    background-color: #00ccff;
+}
+
+div.seat.selected {
+    background-color: #04c555;
+}
+
+div.seat.occupied {
+    background-color: #e0e0e0;
+}
+
 div.legend {
     margin-right: 30px;
 }
