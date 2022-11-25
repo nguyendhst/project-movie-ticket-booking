@@ -8,7 +8,7 @@
 }
 
 .Tab {
-  height: 80px;
+  min-height: 80px;
   width: 100%;
 
   background-color: #DFF2ED;
@@ -22,7 +22,7 @@
   align-items: stretch;
 }
 
-.tab-btn{
+.tab-btn {
   flex: 1;
   background-color: #DFF2ED;
   color: #000000;
@@ -44,14 +44,43 @@
   background-color: #003C48;
 }
 
-.TabContent {
-  width: 80%;
-  max-height: 50vh;
-  margin-top: 40px;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 40px;
+.add-btn {
+  background-color: #DFF2ED;
+  color: #000000;
   
+  width: 100%;
+  margin-top: 0px;
+}
+
+.add-btn:hover {
+  background-color: #59858c;
+  color: #ffffff;
+}
+
+.TabBody {
+  width: 100%;
+  
+  max-height: 55vh;
+  padding-bottom: 40px;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.TabToolbar {
+  /* display: flex; */
+
+  padding-top: 40px;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.TabContent {  
+  max-height: 50vh;
+
+  padding-top: 40px;
+  padding-right: 4%;
+
   display: grid;
   grid-template-columns: repeat(6, minmax(10px, 1fr));
   justify-items: center;

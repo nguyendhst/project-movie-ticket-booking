@@ -172,7 +172,7 @@ function Content() {
                                     (film, index) => 
                                     <Card 
                                     key={film.id}
-                                    deleted={film.deleted}
+                                    // deleted={film.deleted}
                                     className="FilmBanner">
                                     <Card.Img variant="top" src={film.poster}> 
                                     </Card.Img>
