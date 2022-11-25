@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Tabs.css";
 
-import { Modal, Button, ButtonGroup } from "react-bootstrap";
+import { Modal, Button/*, ButtonGroup*/ } from "react-bootstrap";
 
 
 function AddModal(props) {
@@ -18,7 +18,7 @@ function AddModal(props) {
               Thêm phim mới
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body closeButton>
+          <Modal.Body >
             a
             b
             c
