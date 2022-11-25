@@ -16,12 +16,18 @@ function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto">
+                        <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item">
-                                <a className="nav-link bg-success text-white rounded-pill m-1 px-3" href="#/manage">Quản lý</a>
+                                <button type="button"
+                                        className="btn btn-success position-relative rounded-pill m-1 px-3">
+                                    Quản lý
+                                </button>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link bg-success text-white rounded-pill m-1 px-3" href="#/logout">Đăng xuất</a>
+                                <button type="button"
+                                        className="btn btn-success position-relative rounded-pill m-1 px-3">
+                                    Đăng xuất
+                                </button>
                             </li>
                         </ul>
                     </div>
