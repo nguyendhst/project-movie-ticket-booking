@@ -180,7 +180,7 @@ class MasterForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>Step {this.state.currentStep} </p>
+        {/* <p>Step {this.state.currentStep} </p> */}
 
         <form onSubmit={this.handleSubmit}>
           {/* 
@@ -211,8 +211,12 @@ class MasterForm extends Component {
           <Step4
             currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            currentSum={this.state.total}
+            total={this.state.total}
             payment={this.state.payment}
+            seats={this.state.seats}
+            snacks={this.state.selectedMenu}
+            time = {this.props.time}
+            date = {this.props.date}
           />
         </form>
         <div className="total-box">

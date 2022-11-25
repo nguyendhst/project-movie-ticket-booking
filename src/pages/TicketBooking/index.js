@@ -181,18 +181,20 @@ class TicketBooking extends Component {
       />
     ));
     return (
-      <Container>
+      <React.Fragment>
         <Banner />
-        <Row>
-          <Col sm={4}>
-            <Filter
-              sortByPrice={this.sortByPriceRegister}
-              sortByTime={this.sortByTimeRegister}
-            />
-          </Col>
-          <Col sm={8}>{ticketItem}</Col>
-        </Row>
-      </Container>
+        <Container>
+          <Row>
+            <Col sm={4}>
+              <Filter
+                sortByPrice={this.sortByPriceRegister}
+                sortByTime={this.sortByTimeRegister}
+              />
+            </Col>
+            <Col sm={8}>{ticketItem}</Col>
+          </Row>
+        </Container>
+      </React.Fragment>
     );
   }
 }
@@ -251,48 +253,63 @@ class TicketItem extends Component {
     return (
       <Row>
         <div className="ticket-item">
-          <div className="ticket-item__week-time">
-            <div className="ticket-item__time--short">
-              {this.props.timeShort}
-            </div>
-          </div>
-          <div className="ticket-item__time--long">{this.props.timeLong}</div>
+          <Row className="align-items-center h-100">
+            <Col sm={2}>
+              <div className="ticket-item__week-time">
+                <div className="ticket-item__time--short">
+                  {this.props.timeShort}
+                </div>
+              </div>
+            </Col>
+            <Col sm={4}>
+              <div className="ticket-item__time">
+                <div className="ticket-item__time--long">
+                  {this.props.timeLong}
+                </div>
 
-          <div className="ticket-item__price">
-            <div className="ticket-item__price--value">
-              {intToVND(this.props.price)}đ
-            </div>
-          </div>
-          <div className="ticket-item__empty-seats">
-            <div className="ticket-item__empty-seats--text">Empty Seats</div>
-            <div className="ticket-item__empty-seats--value">
-              {this.props.emptySeats}
-            </div>
-          </div>
-          <div className="ticket-item__time">
-            <div className="ticket-item__time--text">Time</div>
-            <div className="ticket-item__time--value">{this.props.time}</div>
-          </div>
-          <div className="ticket-item__button">
-            <ButtonGroup>
-              <Button
-                variant="outline-info"
-                onClick={() => this.detailsClickHandler()}
-                aria-controls="collapse-text"
-                aria-expanded={this.state.openDetails}
-              >
-                Details
-              </Button>
-              <Button
-                variant="info"
-                onClick={() => this.bookingClickHandler()}
-                aria-controls="collapse-text"
-                aria-expanded={this.state.openBooking}
-              >
-                Book Now
-              </Button>
-            </ButtonGroup>
-          </div>
+                <div className="ticket-item__time--value">
+                  {this.props.time}
+                </div>
+              </div>
+            </Col>
+
+            <Col sm={6}>
+              <div className="ticket-item__price">
+                <div className="ticket-item__price--value">
+                  {intToVND(this.props.price)}đ
+                </div>
+              </div>
+              <div className="ticket-item__empty-seats">
+                <div className="ticket-item__empty-seats--text">
+                  Empty Seats
+                </div>
+                <div className="ticket-item__empty-seats--value">
+                  {this.props.emptySeats}
+                </div>
+              </div>
+
+              <div className="ticket-item__button">
+                <ButtonGroup>
+                  <Button
+                    variant="outline-info"
+                    onClick={() => this.detailsClickHandler()}
+                    aria-controls="collapse-text"
+                    aria-expanded={this.state.openDetails}
+                  >
+                    Details
+                  </Button>
+                  <Button
+                    variant="info"
+                    onClick={() => this.bookingClickHandler()}
+                    aria-controls="collapse-text"
+                    aria-expanded={this.state.openBooking}
+                  >
+                    Book Now
+                  </Button>
+                </ButtonGroup>
+              </div>
+            </Col>
+          </Row>
         </div>
         <Collapse
           in={this.state.openBooking && this.props.active}

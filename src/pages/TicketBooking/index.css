@@ -13,13 +13,8 @@
   margin: 10px;
 }
 
-.ticket-item__week-time {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 80px;
-  height: 80px;
-  border: #121111 3px solid;
+.ticket-item__time--short {
+  font-size: 24px;
 }
 
 .ticket-item__price {
@@ -35,10 +30,7 @@
 }
 
 .ticket-item__empty-seats {
-  position: absolute;
   right: 0;
-  margin: 10px;
-  padding-top: 20px;
 }
 
 .ticket-item__empty-seats--value {

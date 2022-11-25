@@ -1,6 +1,8 @@
 import { React } from "react";
 import { Form } from "react-bootstrap";
 
+import "./index.css";
+
 const paymentMethods = [
   {
     id: 1,
@@ -24,7 +26,6 @@ const paymentMethods = [
   },
 ];
 function Step3(props) {
-
   const handleChange = (e) => {
     console.log("handleChange", e.target.value);
     props.updatePayment(e);
@@ -35,18 +36,19 @@ function Step3(props) {
   }
   return (
     <div className="form-group">
-      <h2>Payment</h2>
-      <Form.Group>
-        {paymentMethods.map((item) => (
-          <Form.Check
-            type="radio"
-            label={item.name}
-            name="payment"
-            value={item.value}
-            onChange={handleChange}
-          />
-        ))}
-      </Form.Group>
+      <div className="payment-methods">
+          <Form.Group>
+            {paymentMethods.map((item) => (
+              <Form.Check
+                type="radio"
+                label={item.name}
+                name="payment"
+                value={item.value}
+                onChange={handleChange}
+              />
+            ))}
+          </Form.Group>
+        </div>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import SeatMenu from "../SeatPicket";
 import Legends from "../Legends";
 
+import './index.css';
+
 const seatData = [
   [
     null,
@@ -161,9 +163,15 @@ function Step1(props) {
 
   return (
     <React.Fragment>
+      <div className="info">
+        <div className="info__title">Select your seats</div>
+        <div className="info__subtitle">
+          A user can only select 3 seats at a time. A selected seat is reserved for 15 minutes.
+        </div>
+      </div>
       <div className="form-group">
         <h5>
-          Selected seats: 
+          Selected seats:   
           {selected.length > 0 ? (
             <span className="selected-seats">
               {selected.map((item) => (

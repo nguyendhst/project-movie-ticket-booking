@@ -1,0 +1,10 @@
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    /* center  */
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+

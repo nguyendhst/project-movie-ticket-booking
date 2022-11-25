@@ -1,5 +1,7 @@
-import { React, useEffect, useState } from "react";
+import React,{useEffect, useState} from "react";
 import { Form } from "react-bootstrap";
+
+import './index.css';
 
 const menuData = [
   {
@@ -21,15 +23,6 @@ const menuData = [
 // Display the snack menu
 function Step2(props) {
   const [selected, setSelected] = useState([]);
-
-  // destructuring the props
-  // currentStep={this.state.currentStep}
-  // handleChange={this.handleChange}
-  // currentSum={this.state.total}
-  // basePrice={this.state.step1Total}
-  // updateSum={this.updateSum}
-  // selectedMenu={this.state.selectedMenu}
-  // updateMenu={this.updateMenu}
 
   const {
     currentStep,
@@ -61,6 +54,13 @@ function Step2(props) {
   }
 
   return (
+    <React.Fragment>
+    <div className="info">
+      <div className="info__title">Select your snacks</div>
+      <div className="info__subtitle">
+        You can add snacks to your order for an additional cost
+      </div>
+    </div>
     <div className="form-group">
       <div className="menu-container">
         {menuData.map((item) => (
@@ -89,6 +89,7 @@ function Step2(props) {
         ))}
       </div>
     </div>
+    </React.Fragment>
   );
 }
 
