@@ -1,15 +1,13 @@
 import React from "react";
 import './FilmBanner.css';
-// import banner_1 from '../../Asset/banner_1.png'
+
 import banner_2 from '../../Asset/banner_2.png'
 
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
-
 import Card from 'react-bootstrap/esm/Card';
 
 function BannerHorizontal() {
     return (
-        // <img src={banner_2} alt="A movie banner that is horizontal and relatively small." className="Banner_horizontal"/>
         <Card className="Banner_horizontal">
             <Card.Img variant="top" src={banner_2} />
             <Card.Body>

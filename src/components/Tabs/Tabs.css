@@ -46,14 +46,16 @@
 
 .TabContent {
   width: 80%;
+  max-height: 50vh;
   margin-top: 40px;
   margin-left: 10%;
-  margin-right: auto;
+  margin-right: 10%;
   margin-bottom: 40px;
   
   display: grid;
   grid-template-columns: repeat(6, minmax(10px, 1fr));
   justify-items: center;
 
+  column-gap: 2%;
   row-gap: 32px;
 }
