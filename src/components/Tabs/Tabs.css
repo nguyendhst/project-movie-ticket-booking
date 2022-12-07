@@ -1,3 +1,8 @@
+#contained-modal-title-vcenter {
+  font-size: 32px;
+  font-weight: 700;
+}
+
 .Tabs {
   width: 100%;
 
@@ -87,4 +92,215 @@
 
   column-gap: 2%;
   row-gap: 32px;
+}
+
+.addModal {
+  width: 90%;
+  max-width: 1400px;
+}
+
+.addModalBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  grid-auto-rows: minmax(52px, auto);
+  grid-template-areas: 
+  "bnn fname iName iName iName"
+  "bnn dur iDur cate iCat"
+  "bnn shtime iStm strt iStrt"
+  "bnn dir iDir pro iPro"
+  "act iA iA iA iA"
+  "ctxt iCt iCt iCt iCt";
+}
+
+.iLabel {
+  color: #3D9A8B;
+  /* vertical-align: middle; */
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.form-control {
+  border: 1px solid #D0D4D9;
+  min-width: 50px;
+}
+
+.BannerPic {
+  grid-area: bnn;
+  background-color: #3D9A8B;
+  border-radius: 16px;
+  margin: 5%;
+}
+
+.FilmName {
+  grid-area: fname;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.InputName {
+  grid-area: iName;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Duration {
+  grid-area: dur;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputDuration {
+  grid-area: iDur;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  column-gap: 5%;
+}
+
+#inputDuration {
+  width: 60%;
+}
+
+.dimension {
+  width: 35%;
+  text-align: left;
+}
+
+.Categories {
+  grid-area: cate;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputCategories {
+  grid-area: iCat;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  display: flex;
+  align-items: center;
+}
+
+.CategoriesOption {
+  color: #3D9A8B;
+  border: 1px solid #D0D4D9;
+  /* vertical-align: middle; */
+  font-weight: 700;
+}
+
+.Showtime {
+  grid-area: shtime;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputShowtime {
+  grid-area: iStm;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  column-gap: 5%;
+}
+
+#inputShowtime{
+  width: 60%;
+  text-align: center;
+  color: hsl(170, 43%, 42%);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.Startdate {
+  grid-area: strt;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputStartdate {
+  grid-area: iStrt;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Director {
+  grid-area: dir;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputDirector {
+  grid-area: iDir;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Producer {
+  grid-area: pro;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.InputProducer {
+  grid-area: iPro;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Actor {
+  grid-area: act;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.InputActor {
+  grid-area: iA;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Description {
+  grid-area: ctxt;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.InputDescription {
+  grid-area: iCt;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.footerBtn {
+  width: 200px;
+  font-weight: 700;
 }
