@@ -224,6 +224,7 @@ function Content() {
                             }
                         ]
                     }
+                    type = {1}
                 />
             </div>
             <Footer/>
