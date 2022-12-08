@@ -5,9 +5,8 @@ import HamburgerLogo from '../../Asset/Hamburger.png';
 import House from '../../Asset/house.svg';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Modal from 'react-bootstrap/Modal';
+
+import {Modal, Button, ButtonGroup} from "react-bootstrap";
 
 function LoginPopup(props) {
     return (

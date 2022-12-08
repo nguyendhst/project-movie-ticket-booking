@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/esm/Carousel';
 import './CarouselBanner.css';
-import banner_1 from '../../../Asset/banner_1.png';
-import banner_1p from '../../../Asset/banner_1p.jpg';
+
+import films from '../../../data/films.json'
 
 function CarouselBanner() {
   const [index, setIndex] = useState(0);
@@ -11,22 +11,24 @@ function CarouselBanner() {
     setIndex(selectedIndex);
   };
 
+  let trendFilms = films.Trend;
+  let OnGoingFilms = films.OnGoing;
   return (
     <Carousel className="Banner_vertical" activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
-        <img
-          className='d-block w-100 rounded'
-          src={banner_1p}
-          alt="First slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className='d-block w-100 rounded'
-          src={banner_1}
-          alt="Second slide"
-        />
-      </Carousel.Item>
+      {trendFilms.map((trend) => 
+      OnGoingFilms.filter((Ongoing) => Ongoing.id.toString() === trend.toString()).map(
+        (trendFilms) =>
+        // console.log(trendFilms)
+        <Carousel.Item>
+          <img
+            className='d-block w-100 rounded'
+            src={trendFilms.verticalPoster}
+            alt="First slide"
+          />
+        </Carousel.Item>
+      )
+      // console.log(trend)
+      )}
     </Carousel>
   );
 }
