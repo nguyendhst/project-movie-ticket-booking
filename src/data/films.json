@@ -1,0 +1,137 @@
+{
+    "Trend": [
+        1,10
+    ],
+    "OnGoing" : [
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/b/l/black-panther-2-poster-1.jpg",
+            "id": 1,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 2,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 3,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 4,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 5,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 6,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 7,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 8,
+            "deleted": false
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
+            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "id": 9,
+            "deleted": false
+        },
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 10,
+            "deleted": false
+        }
+    ],
+    "UpComing" : [
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 11,
+            "deleted": false
+        },
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 12,
+            "deleted": false
+        },
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 13,
+            "deleted": false
+        },
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 14,
+            "deleted": false
+        },
+        {
+            "name": "One Piece Film: RED",
+            "poster": "https://img.techplanet.today/800x,jpeg/https://techplanet.today/storage/posts/2022/11/11/94/Sfntrf0wwm98LeOxHjrnoyDD4O4ZagX0hvduWJHs.jpg",
+            "verticalPoster": "https://cdn.alsgp0.fds.api.mi-img.com/middle.community.micommunityph.bkt/5419cd29bf021fe9fe51ef86f6828042",
+            "id": 15,
+            "deleted": false
+        }
+    ],
+    "Archived" : [
+        {
+            "name": "Fight Club",
+            "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyeaSt9zi9vRoYABgwC-k-yYYQSdQSuCWrZg&usqp=CAU",
+            "verticalPoster": "https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0073_1024x1024.jpeg?v=1571444280",
+            "id": 16,
+            "deleted": false
+        },
+        {
+            "name": "Fight Club",
+            "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyeaSt9zi9vRoYABgwC-k-yYYQSdQSuCWrZg&usqp=CAU",
+            "verticalPoster": "https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0073_1024x1024.jpeg?v=1571444280",
+            "id": 17,
+            "deleted": false
+        },
+        {
+            "name": "Fight Club",
+            "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyeaSt9zi9vRoYABgwC-k-yYYQSdQSuCWrZg&usqp=CAU",
+            "verticalPoster": "https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0073_1024x1024.jpeg?v=1571444280",
+            "id": 18,
+            "deleted": false
+        }
+    ]
+}

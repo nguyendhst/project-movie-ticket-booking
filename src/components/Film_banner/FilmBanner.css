@@ -32,3 +32,8 @@
     row-gap: 32px;
 
 }
+
+#posterImage{
+    height: 250px;
+    width: 200px;
+}
