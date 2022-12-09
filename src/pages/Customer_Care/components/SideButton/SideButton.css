@@ -1,35 +1,29 @@
-.Side_Button{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.New_feedbacks, .View_feedbacks{
+.sideOption{
+	text-decoration: none;
+	display: block;
 	background-color: #63C2D2;
-	min-width: 272px;
-	min-height: 52px;
-    text-align: center;
-    text-justify: auto;
+	color: #000000;
+    text-align: left;
     border: none;
     border-radius: 20px;
     font-size: 20px;
     margin: 10px;
+	padding: 10px 20px 10px 20px;
 }
 
-.New_feedbacks {
-	background-image: url("https://i.postimg.cc/mg70YDFf/new.png");
-  	background-size: 24px;
-  	background-repeat: no-repeat;
-  	background-position: 16px 48%;
-}
-.View_feedbacks {
-	background-image: url("https://i.postimg.cc/4yT8NvBY/haved.png");
-  	background-size: 24px;
-  	background-repeat: no-repeat;
-  	background-position: 16px 48%;
+.newFb_img, .myFb_img {
+  	width: 24px;
+	height: 24px;
+	margin-right: 20px;
+	
 }
 
-.New_feedbacks:hover, .View_feedbacks:hover{
+.sideOption:hover{
+	background-color: #2EB19F;
+	color: white;
+}
+
+.active{
 	background-color: #2EB19F;
 	color: white;
 }
