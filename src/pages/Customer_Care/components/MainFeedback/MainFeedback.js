@@ -46,7 +46,7 @@ function Feedback(props) {
         </Col>
       </Row>
       {props.resultFeedback === props.post.id &&
-      props.post.result == "Đã có kết quả" ? (
+      props.post.result === "Đã có kết quả" ? (
         <FeedbackResult resp={props.post.resp}></FeedbackResult>
       ) : null}
     </Row>
@@ -202,7 +202,6 @@ function MainFeedback() {
 
   const [resultFeedback, setResultFeedback] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage, setResultsPerPage] = useState(3);
   const [query, setQuery] = useState("")
 
   function checkQuery(post) {
@@ -229,16 +228,13 @@ function MainFeedback() {
   }
 
   
-  const indexOfLastPost = currentPage * resultsPerPage;
-  const indexOfFirstPost = indexOfLastPost - resultsPerPage;
+  const indexOfLastPost = currentPage * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
   const feedbackToDisplay = feedbacks.filter(post => {
-    if (query === '') {
-      return post;
-    } else if (checkQuery(post)) {
-      return post;
-    }
+    if (query === '') return post;
+    if (checkQuery(post)) return post;
   });
-  const totalPage = Math.ceil(feedbackToDisplay.length / resultsPerPage);
+  const totalPage = Math.ceil(feedbackToDisplay.length / 3);
 
   return (
     <Row className="mb-3 me-0">

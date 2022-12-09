@@ -42,7 +42,6 @@ function NotifyEvent() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage, setResultsPerPage] = useState(3);
   const [query, setQuery] = useState("")
 
   function checkQuery(post) {
@@ -58,17 +57,14 @@ function NotifyEvent() {
     setCurrentPage(currentPage + 1);
   }
 
-  const indexOfLastPost = currentPage * resultsPerPage;
-  const indexOfFirstPost = indexOfLastPost - resultsPerPage;
+  const indexOfLastPost = currentPage * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
 
   const eventToDisplay = events.filter(post => {
-    if (query === '') {
-      return post;
-    } else if (checkQuery(post)) {
-      return post;
-    }
+    if (query === '') return post;
+    if (checkQuery(post)) return post;
   });
-  const totalPage = Math.ceil(eventToDisplay.length / resultsPerPage);
+  const totalPage = Math.ceil(eventToDisplay.length / 3);
 
   return (
     <Container fluid>
@@ -129,7 +125,7 @@ function NotifyEvent() {
                   <p>{post.title}</p>
                 </Col>
                 <Col xs={12} className="eventImg">
-                  <img className="" src={post.eventImage} />
+                  <img alt="eventImage" src={post.eventImage} />
                 </Col>
               </Row>
             ))

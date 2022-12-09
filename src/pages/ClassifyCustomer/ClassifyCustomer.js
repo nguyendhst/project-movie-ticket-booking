@@ -7,7 +7,6 @@ import './ClassifyCustomer.css';
 
 function ClassifyCustomer() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage, setResultsPerPage] = useState(3);
   const [query, setQuery] = useState("")
   const [filterCustomer, setFilterCustomer] = useState(customers.filter(post => post.cclass === "Khách hàng mới"));
 
@@ -28,18 +27,15 @@ function ClassifyCustomer() {
     setFilterCustomer(customers.filter(post => post.cclass === cclass));
   }
   
-  const indexOfLastPost = currentPage * resultsPerPage;
-  const indexOfFirstPost = indexOfLastPost - resultsPerPage;
+  const indexOfLastPost = currentPage * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
 
   const customerToDisplay = filterCustomer.filter(post => {
-    if (query === '') {
-      return post;
-    } else if (checkQuery(post)) {
-      return post;
-    }
+    if (query === '') return post;
+    if (checkQuery(post)) return post;
   });
   
-  const totalPage = Math.ceil(customerToDisplay.length / resultsPerPage);
+  const totalPage = Math.ceil(customerToDisplay.length / 3);
 
   return (
     <Container fluid>
@@ -55,7 +51,7 @@ function ClassifyCustomer() {
                 <Col md={12}>
                   <button className="classBtn" onClick={() => handleFilterFeedback(classbtn.name)}> 
                       <span>
-                          <img class="class_img" src={classbtn.icon} />
+                          <img class="class_img" alt="class" src={classbtn.icon} />
                       </span>
                       {classbtn.name}
                   </button>
