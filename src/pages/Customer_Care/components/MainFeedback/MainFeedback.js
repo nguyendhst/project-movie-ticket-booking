@@ -232,7 +232,7 @@ function MainFeedback() {
   const indexOfFirstPost = indexOfLastPost - 3;
   const feedbackToDisplay = feedbacks.filter(post => {
     if (query === '') return post;
-    if (checkQuery(post)) return post;
+    return checkQuery(post) ? post : null;
   });
   const totalPage = Math.ceil(feedbackToDisplay.length / 3);
 

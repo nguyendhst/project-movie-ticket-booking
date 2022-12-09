@@ -89,11 +89,11 @@ function Feedback(props) {
         </Col>
       </Row>
       {props.resultFeedback === props.post.id &&
-      props.post.result == "Đã phản hồi" ? (
+      props.post.result === "Đã phản hồi" ? (
         <FeedbackResult resp={props.post.resp}></FeedbackResult>
       ) : null}
       {props.resultFeedback === props.post.id &&
-      props.post.result == "Chưa phản hồi" ? (
+      props.post.result === "Chưa phản hồi" ? (
         <AnswerFeedback/>
       ) : null}
     </Row>
@@ -265,17 +265,17 @@ function ReplyFeedback() {
 
   const [resultFeedback, setResultFeedback] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage, setResultsPerPage] = useState(3);
   const [query, setQuery] = useState("")
   const [filterFeedback, setFilterFeedback] = useState(feedbacks.filter(post => post.result === "Chưa phản hồi"));
 
   function checkQuery(post) {
+    const postName = post.name.toLowerCase().includes(query.toLowerCase());
     const postResult = post.result.toLowerCase().includes(query.toLowerCase());
     const postTopic = post.topic.toLowerCase().includes(query.toLowerCase());
     const postTitle = post.title.toLowerCase().includes(query.toLowerCase());
     const postContent = post.content.toLowerCase().includes(query.toLowerCase());
     const postDate = post.date.toLowerCase().includes(query.toLowerCase());
-    return postResult || postTopic || postTitle || postContent || postDate;
+    return postName || postResult || postTopic || postTitle || postContent || postDate;
   }
 
   const toggleResult = (id) => {
@@ -295,17 +295,14 @@ function ReplyFeedback() {
   }
 
   
-  const indexOfLastPost = currentPage * resultsPerPage;
-  const indexOfFirstPost = indexOfLastPost - resultsPerPage;
+  const indexOfLastPost = currentPage * 3;
+  const indexOfFirstPost = indexOfLastPost - 3;
 
   const feedbackToDisplay = filterFeedback.filter(post => {
-    if (query === '') {
-      return post;
-    } else if (checkQuery(post)) {
-      return post;
-    }
+    if (query === '') return post;
+    return checkQuery(post) ? post : null;
   });
-  const totalPage = Math.ceil(feedbackToDisplay.length / resultsPerPage);
+  const totalPage = Math.ceil(feedbackToDisplay.length / 3);
 
   return (
     <Container fluid>
@@ -319,7 +316,7 @@ function ReplyFeedback() {
             <Col md={12} >
                 <button className="filterBtn" onClick={() => handleFilterFeedback("Chưa phản hồi")}> 
                     <span>
-                        <img class="newFb_img" src="https://i.postimg.cc/mg70YDFf/new.png" />
+                        <img class="newFb_img" alt="newFb" src="https://i.postimg.cc/mg70YDFf/new.png" />
                     </span>
                     Phản hồi khách hàng
                 </button>
@@ -327,7 +324,7 @@ function ReplyFeedback() {
             <Col md={12}>
                 <button className="filterBtn" onClick={() => handleFilterFeedback("Đã phản hồi")}> 
                     <span>
-                        <img class="myFb_img" src="https://i.postimg.cc/4yT8NvBY/haved.png" />
+                        <img class="myFb_img" alt="myFb" src="https://i.postimg.cc/4yT8NvBY/haved.png" />
                     </span>
                     Phản hồi đã trả lời
                 </button>

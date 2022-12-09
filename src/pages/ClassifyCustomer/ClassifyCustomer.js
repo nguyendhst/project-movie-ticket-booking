@@ -32,7 +32,7 @@ function ClassifyCustomer() {
 
   const customerToDisplay = filterCustomer.filter(post => {
     if (query === '') return post;
-    if (checkQuery(post)) return post;
+    return checkQuery(post) ? post : null;
   });
   
   const totalPage = Math.ceil(customerToDisplay.length / 3);
