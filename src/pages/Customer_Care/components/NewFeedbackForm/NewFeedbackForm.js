@@ -1,55 +1,65 @@
-import React from "react";
-import { confirmAlert } from 'react-confirm-alert';
-import "react-confirm-alert/src/react-confirm-alert.css";
+import React, {useState} from "react";
 import './NewFeedbackForm.css'
-import DropdownPL from "../../components/DropdownPL/DropdownPL";
+import { Col, Row ,Form} from "react-bootstrap";
 
 function New_feedback_form() {
-    const submit = () => {
-    confirmAlert({
-      title: 'Thông báo',
-      message: 'Bạn có chắc chắn muốn gửi không',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => alert('Đã gửi phản hồi')
-        },
-        {
-          label: 'No',
-          onClick: () => alert('Click No')
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
         }
-      ]
-    });
+
+        setValidated(true);
     };
     return (
-        <div className='New_feedback_form'>
-                <div>
-                    <h2>Phản hồi mới</h2>
-                </div>
-                <div className='row'>
-                    <div className='col'>Phân loại</div>
-                    <div className='Dropdown_PL'>
-                        <DropdownPL/>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col'>Chủ đề</div>
-                    <div className='topic'>
-                        <input type="text"/>
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col'>Nội dung</div>
-                    <div className='content'> 
-                        <textarea name="Content"></textarea>
-                    </div>
-                </div>
-                <div>
-                    <button className="Confirm_Button" onClick={submit}>
-                        Xác nhận
-                    </button>
-                </div>
-        </div>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <h2>Phản hồi mới</h2>
+            <Form.Group as={Row} className="mb-3">
+                <Col md={2}>
+                    <Form.Select required aria-label="Default select example">
+                        <option value="">Phân loại</option>
+                        <option value="CSHT">Cơ sở hạ tầng</option>
+                        <option value="DV">Dịch vụ</option>
+                        <option value="NV">Nhân viên</option>
+                        <option value="TT">Thanh toán</option>
+                    </Form.Select>
+                    <Form.Control.Feedback type="invalid">
+                        Chọn loại phản hồi
+                    </Form.Control.Feedback>
+                </Col>
+                <Col md={10}>
+                    <Form.Control 
+                        required
+                        type="text" 
+                        placeholder="Chủ đề" 
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        Nhập chủ đề phản hồi.
+                    </Form.Control.Feedback>
+                </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3">
+                <Col md={12}>
+                <Form.Control
+                    required
+                    as="textarea"
+                    placeholder="Nội dung của phản hồi"
+                    style={{ height: '340px' }}
+                />
+                <Form.Control.Feedback type="invalid">
+                    Nhập nội dung phản hồi.
+                </Form.Control.Feedback>
+                </Col>
+            </Form.Group>
+            <Col className="Confirm">
+                <button className="Confirm_Button" type='submit'>
+                    Xác nhận
+                </button>
+            </Col>
+        </Form>
     )
 }
 

@@ -1,0 +1,64 @@
+.sendEventBtn{
+    background-color: #2EB19F;
+    text-align: center;
+    text-justify: auto;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.sendEventBtn:hover{
+  background-color: #3D9A8B;
+  color: white;
+}
+
+
+.prenext{
+	background-color: #2EB19F;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+}
+
+.prenext:hover{
+	background-color: #3D9A8B;
+}
+.main-event{
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fcontent {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.user_feedback_res{
+    background-color: #ffffff;
+    margin: 10px 0px 10px 20px;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;
+    padding: 30px 10px 40px 20px;
+}
+
+.main-event:hover{
+    -webkit-box-shadow: 0px 0px 31px -7px rgba(0,0,0,0.66);
+    -moz-box-shadow: 0px 0px 31px -7px rgba(0,0,0,0.66);
+    box-shadow: 0px 0px 31px -7px rgba(0,0,0,0.66);
+}
+
+.eventImg > img{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 20px;
+}
