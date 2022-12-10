@@ -1,6 +1,6 @@
 {
     "Trend": [
-        1,10
+        3,4,8,10
     ],
     "OnGoing" : [
         {
@@ -11,58 +11,58 @@
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Morbius",
+            "poster": "https://upload.wikimedia.org/wikipedia/vi/2/21/MorbiusPoster.jpeg",
+            "verticalPoster": "https://occ-0-58-38.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcKc0BNDMGUDOqk4cl1CTTtOT4v55YyovKcHQaZ_Ohc8csuxMm5AYrKw0Lwz_xyR7G-JD86h9AJ91vm50zmAOtRkL471iDQuuvw6.jpg?r=d58",
             "id": 2,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Doraemon: Stand by me 2",
+            "poster": "https://upload.wikimedia.org/wikipedia/vi/b/b0/Stand_by_Me_Doraemon_2_film_poster.jpg",
+            "verticalPoster": "https://ecdn.game4v.com/g4v-content/uploads/2019/12/Stand-By-Me-Doraemon-1.png",
             "id": 3,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Shin Movie 29: Bí Ẩn Bao Trùm! Những Đóa Hoa Của Học Viện Tenkasu | Shin Cậu Bé Bút Chì",
+            "poster": "https://media.funhub.net/media/image/id/6201ae710df938fc68942667_256x?type=webp",
+            "verticalPoster": "https://i.ytimg.com/vi/22ErTg7RM8A/maxresdefault.jpg",
             "id": 4,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Detective Conan Movie 24: The Scarlet Bullet",
+            "poster": "https://m.media-amazon.com/images/M/MV5BZjlmZTAyYmQtYjA1Ny00N2IwLTlmZTktNjc0OTM4OTQ2ZDE3XkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_.jpg",
+            "verticalPoster": "https://i.ytimg.com/vi/-jV9aLm_xCo/maxresdefault.jpg",
             "id": 5,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Your Name",
+            "poster": "https://cdn-amz.woka.io/images/I/81HFDSoLWtL.jpg",
+            "verticalPoster": "https://znews-photo.zingcdn.me/w660/Uploaded/xbhunku/2017_01_13/k5.jpg",
             "id": 6,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "My Neighbor Totoro",
+            "poster": "https://chiecnon.files.wordpress.com/2011/04/my-neighbor-totoro-1988.jpg",
+            "verticalPoster": "https://pic-bstarstatic.akamaized.net/ugc/2eddceb78795c416f3a25285fda67afd10dfaafa.jpg",
             "id": 7,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Minion: Sự trỗi dậy của Gru",
+            "poster": "https://khenphim.com/wp-content/uploads/2022/06/Minions-The-Raise-of-Gru-1-poster_KP.webp",
+            "verticalPoster": "https://www.studyphim.vn/system/movies/8801/thumbnails/original/The%20Rise%20of%20Gru%20(2022).jpg",
             "id": 8,
             "deleted": false
         },
         {
-            "name": "Black Panther: Wakanda Forever",
-            "poster": "https://ss-images.saostar.vn/wp700/pc/1636278972541/saostar-993imt2dz19vru6d.jpg",
-            "verticalPoster": "https://media-cdn-v2.laodong.vn/storage/newsportal/2022/7/26/1073031/Black-Panther4.jpg",
+            "name": "Ratatouille",
+            "poster": "https://i0.wp.com/rachelsreviews.net/wp-content/uploads/2015/07/ratatouille1.jpg?ssl=1",
+            "verticalPoster": "https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/9BE174E37613A1E9FE48ED48590466DC23562D30F3FB14890846E79423FDABDC/scale?width=1200&aspectRatio=1.78&format=jpeg",
             "id": 9,
             "deleted": false
         },
