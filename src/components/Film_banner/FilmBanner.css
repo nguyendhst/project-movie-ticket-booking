@@ -1,7 +1,7 @@
 
 .Banner_horizontal {
-    max-width: 280px;
-    /* max-height: 300px; */
+    max-width: 220px;
+    max-height: 380px;
 
     width: 100%;
 
@@ -10,7 +10,9 @@
 }
 
 .Banner_container{
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     justify-items: center;
     
     width: 100%;

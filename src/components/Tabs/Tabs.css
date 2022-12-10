@@ -80,20 +80,6 @@
   padding-right: 4%;
 }
 
-/* .TabContent {  
-  max-height: 50vh;
-
-  padding-top: 60px;
-  padding-right: 4%;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(10px, 1fr));
-  justify-items: center;
-
-  column-gap: 2%;
-  row-gap: 100px;
-} */
-
 .TabContent {  
   max-height: 50vh;
 
@@ -103,6 +89,7 @@
   display: flex;
   /* grid-template-columns: repeat(3, minmax(10px, 1fr)); */
   justify-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 
   column-gap: 2%;
