@@ -86,11 +86,11 @@
   padding-top: 60px;
   padding-right: 4%;
 
-  display: flex;
-  /* grid-template-columns: repeat(3, minmax(10px, 1fr)); */
-  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  /* justify-items: center; */
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 
   column-gap: 2%;
   row-gap: 100px;
