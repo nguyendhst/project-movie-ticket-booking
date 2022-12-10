@@ -80,7 +80,7 @@
   padding-right: 4%;
 }
 
-.TabContent {  
+/* .TabContent {  
   max-height: 50vh;
 
   padding-top: 60px;
@@ -89,6 +89,21 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(10px, 1fr));
   justify-items: center;
+
+  column-gap: 2%;
+  row-gap: 100px;
+} */
+
+.TabContent {  
+  max-height: 50vh;
+
+  padding-top: 60px;
+  padding-right: 4%;
+
+  display: flex;
+  /* grid-template-columns: repeat(3, minmax(10px, 1fr)); */
+  justify-items: center;
+  flex-wrap: wrap;
 
   column-gap: 2%;
   row-gap: 100px;
