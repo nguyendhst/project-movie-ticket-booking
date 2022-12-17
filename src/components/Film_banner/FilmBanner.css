@@ -1,9 +1,9 @@
 
 .Banner_horizontal {
-    max-width: 280px;
-    /* max-height: 300px; */
+    max-width: 220px;
+    max-height: 380px;
 
-    width: 100%;
+    width: 200px;
 
     border-radius: 8px;
 
@@ -11,12 +11,12 @@
 
 .Banner_container{
     display: grid;
-    justify-items: center;
+    justify-content: space-between;
     
     width: 100%;
     max-width: 1400px;
 
-    grid-template-columns: repeat(5, minmax(10px, 1fr));
+    grid-template-columns: repeat(auto-fill, 200px);
     row-gap: 32px;
     grid-column-gap: 2%;
 }

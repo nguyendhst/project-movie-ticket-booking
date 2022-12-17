@@ -61,7 +61,10 @@ function Content() {
                                     <Card.Img variant="top" src={film.poster}> 
                                     </Card.Img>
                                     <Card.Body>
-                                        <Card.Title style={{color: '#000000'}}>{film.name}</Card.Title>
+                                        <Card.Title style={{
+                                                    color: '#000000',
+                                                    textOverflow: 'ellipsis'
+                                            }}>{film.name}</Card.Title>
                                     </Card.Body>
                                     </Card>
                                 )
@@ -96,7 +99,10 @@ function Content() {
 
                                     </div>
                                             <Card.Body>
-                                                <Card.Title style={{color: '#000000'}}>{film.name}</Card.Title>
+                                                <Card.Title style={{
+                                                    color: '#000000',
+                                                    textOverflow: 'ellipsis'
+                                            }}>{film.name}</Card.Title>
                                             </Card.Body>
                                     </Card>
                                 )
