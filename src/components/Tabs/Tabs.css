@@ -83,15 +83,17 @@
 .TabContent {  
   max-height: 50vh;
 
-  padding-top: 40px;
+  padding-top: 60px;
   padding-right: 4%;
 
   display: grid;
-  grid-template-columns: repeat(6, minmax(10px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fill, 200px);
+  /* justify-items: center; */
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
 
   column-gap: 2%;
-  row-gap: 32px;
+  row-gap: 100px;
 }
 
 .addModal {

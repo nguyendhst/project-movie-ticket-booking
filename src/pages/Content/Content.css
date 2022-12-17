@@ -58,7 +58,7 @@
 
 .Content{
     background-color: #B7EDFF;
-    min-height: 1000px;
+    /* min-height: 1000px; */
 
     /* padding-bottom: ; */
 }
@@ -84,16 +84,17 @@
 
 
 .FilmBanner {
-    max-width: 133px;
-    width: 100%;
-    border-radius: 0px 0px 8px 8px;
-
+    width: 200px;
+    /* width: 100%; */
+    border-radius: 0px 0px 8px 8px;;
+    height: 360px;
     border-width: 0px;
 }
 
 .card-img-top {
     border-top-left-radius: 0; 
-    border-top-right-radius: 0
+    border-top-right-radius: 0;
+    /* max-height: 260px; */
 }
 
 .FilmBanner:hover .card-img-top{
@@ -113,4 +114,8 @@
     height: 20px;
     display: block;
     opacity: 1;
+}
+
+.card-body{
+    overflow: auto;
 }
