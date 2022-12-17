@@ -5,33 +5,33 @@ const app = express();
 
 // import .env.local
 dotenv.config({
-  path: `${__dirname}/../.env.local`,
+    path: `${__dirname}/../.env.local`,
 });
 
 // connection string
 // mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
 console.log(
-  "login info",
-  process.env.DB_USER,
-  process.env.DB_PASS,
-  process.env.DB_HOST,
-  process.env.DB_NAME
+    "login info",
+    process.env.DB_USER,
+    process.env.DB_PASS,
+    process.env.DB_HOST,
+    process.env.DB_NAME
 );
 
 // Initialize the database
 // SSL/TLS required
 const connection = db.createConnection({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  ssl: {},
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    ssl: {},
 });
 
 try {
-  connection.connect();
+    connection.connect();
 } catch (e) {
-  console.log(e);
+    console.log(e);
 }
 
 // tables in the database
@@ -40,91 +40,116 @@ try {
 // `timeslots` -- (movie_id, start_time, duration, price, empty_seats)
 
 const queryGetAllMovies = (dbname) => {
-  return `SELECT * FROM \`${dbname}\`.\`movies\`;`;
+    return `SELECT * FROM \`${dbname}\`.\`movies\`;`;
 };
 
 const queryGetMovieById = (dbname, id) => {
-  return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE id = ${id};`;
+    return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE id = ${id};`;
 };
 
 // Create a route
 app.get("/", async (req, res) => {
-  try {
-    connection.query(
-      queryGetAllMovies(process.env.DB_NAME),
-      function (err, results, fields) {
-        if (err) {
-          console.log(err);
-          res.send({ error: err });
-        } else {
-          console.log(results);
-          res.send({ results });
-        }
-      }
-    );
-  } catch (e) {
-    console.log(e);
-    res.send({ error: e });
-  }
+    try {
+        connection.query(
+            queryGetAllMovies(process.env.DB_NAME),
+            function (err, results, fields) {
+                if (err) {
+                    console.log(err);
+                    res.send({ error: err });
+                } else {
+                    console.log(results);
+                    res.send({ results });
+                }
+            }
+        );
+    } catch (e) {
+        console.log(e);
+        res.send({ error: e });
+    }
 });
 
 // GET /api/movies?genre=action&language=en&sort=release_date&order=desc&limit=10&offset=0
 
 // GET /api/movies?all=true
 app.get("/api/movies", async (req, res) => {
-  const { all, genre, language, sort, order, limit, offset } = req.query;
-  if (all) {
-    try {
-      connection.query(
-        queryGetAllMovies(process.env.DB_NAME),
-        function (err, results, fields) {
-          if (err) {
-            console.log(err);
-            res.send({ error: err });
-          } else {
-            console.log(results);
-            res.send({ results });
-          }
+    const { all, genre, language, sort, order, limit, offset } = req.query;
+    if (all) {
+        try {
+            connection.query(
+                queryGetAllMovies(process.env.DB_NAME),
+                function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                        res.send({ error: err });
+                    } else {
+                        console.log(results);
+                        res.send({ results });
+                    }
+                }
+            );
+        } catch (e) {
+            console.log(e);
+            res.send({ error: e });
         }
-      );
-    } catch (e) {
-      console.log(e);
-      res.send({ error: e });
     }
-  }
 });
 
 // GET /api/movies/:id
 app.get("/api/movies/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    connection.query(
-      queryGetMovieById(process.env.DB_NAME, id),
-      function (err, results, fields) {
-        if (err) {
-          console.log(err);
-          res.send({ error: err });
-        } else {
-          console.log(results);
+    const { id } = req.params;
+    try {
+        connection.query(
+            queryGetMovieById(process.env.DB_NAME, id),
+            function (err, results, fields) {
+                if (err) {
+                    console.log(err);
+                    res.send({ error: err });
+                } else {
+                    console.log(results);
 
-          res.send({ results });
-        }
-      }
-    );
-  } catch (e) {
-    console.log(e);
-    res.send({ error: e });
-  }
+                    res.send({ results });
+                }
+            }
+        );
+    } catch (e) {
+        console.log(e);
+        res.send({ error: e });
+    }
 });
 
+const queryGetTimeslotsByMovieId = (dbname, id) => {
+    return `SELECT * FROM \`${dbname}\`.\`timeslots\` WHERE movie_id = ${id};`;
+};
+
+// GET /api/movies/:id/timeslots
+app.get("/api/movies/:id/timeslots", async (req, res) => {
+    const { id } = req.params;
+    try {
+        connection.query(
+            queryGetTimeslotsByMovieId(process.env.DB_NAME, id),
+            function (err, results, fields) {
+                if (err) {
+                    console.log(err);
+                    res.send({ error: err });
+                } else {
+                    console.log(results);
+                    res.send({ results });
+                }
+            }
+        );
+    } catch (e) {
+        console.log(e);
+        res.send({ error: e });
+    }
+});
 
 // Start the server
 try {
-  app.listen(8080, () => {
-    console.log("Server listening on port 8080");
-  });
+    app.listen(8080, () => {
+        console.log("Server listening on port 8080");
+    });
 } catch (e) {
-  console.log(e);
+    console.log(e);
 }
 
 // BATCH INSERTION SCRIPT
@@ -238,7 +263,6 @@ try {
 // };
 
 // insert(ids);
-
 
 //// timeslots
 // const queryInsertTimeslots = (dbname, timeslots) => {
