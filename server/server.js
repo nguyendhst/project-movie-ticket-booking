@@ -37,10 +37,16 @@ try {
 // tables in the database
 // `movies` --  (id, title, adult, poster_path, vertical_poster_path, overview, genre_ids, language, release_date, status)
 // `genres` -- (id, name)
+// `timeslots` -- (movie_id, start_time, duration, price, empty_seats)
 
 const queryGetAllMovies = (dbname) => {
   return `SELECT * FROM \`${dbname}\`.\`movies\`;`;
 };
+
+const queryGetMovieById = (dbname, id) => {
+  return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE id = ${id};`;
+};
+
 // Create a route
 app.get("/", async (req, res) => {
   try {
@@ -88,6 +94,29 @@ app.get("/api/movies", async (req, res) => {
   }
 });
 
+// GET /api/movies/:id
+app.get("/api/movies/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    connection.query(
+      queryGetMovieById(process.env.DB_NAME, id),
+      function (err, results, fields) {
+        if (err) {
+          console.log(err);
+          res.send({ error: err });
+        } else {
+          console.log(results);
+
+          res.send({ results });
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+    res.send({ error: e });
+  }
+});
+
 
 // Start the server
 try {
@@ -97,8 +126,6 @@ try {
 } catch (e) {
   console.log(e);
 }
-
-
 
 // BATCH INSERTION SCRIPT
 //
@@ -211,3 +238,68 @@ try {
 // };
 
 // insert(ids);
+
+
+//// timeslots
+// const queryInsertTimeslots = (dbname, timeslots) => {
+//   const insert = () => {
+//     return `INSERT INTO \`${dbname}\`.\`timeslots\` (movie_id, start_time, duration, price, empty_seats) VALUES`;
+//   };
+//   const values = (movie_id, start_time, duration, price, empty_seats) => {
+//     return `(${movie_id}, '${start_time}', ${duration}, ${price}, ${empty_seats})`;
+//   };
+//   let query = insert();
+//   timeslots.forEach((timeslot) => {
+//     // if not last element
+//     if (timeslot !== timeslots[timeslots.length - 1]) {
+//       query += ` ${values(
+//         timeslot.movie_id,
+//         timeslot.start_time,
+//         timeslot.duration,
+//         timeslot.price,
+//         timeslot.empty_seats
+//       )},`;
+//     } else {
+//       query += `${values(
+//         timeslot.movie_id,
+//         timeslot.start_time,
+//         timeslot.duration,
+//         timeslot.price,
+//         timeslot.empty_seats
+//       )};`;
+//     }
+//   });
+//   return query;
+// };
+
+// // timeslots
+// const genMockTimeslots = (movie_id) => {
+//   const timeslots = [];
+//   // start time format: YYYY-MM-DD HH:MM (24-hour)
+//   const start_time = new Date();
+//   for (let i = 0; i < 10; i++) {
+//     timeslots.push({
+//       movie_id,
+//       start_time: start_time.toISOString().slice(0, 19).replace("T", " "),
+//       duration: Math.floor(Math.random() * 120) + 60,
+//       price: Math.floor(Math.random() * 5) * 10000 + 70000,
+//       empty_seats: Math.floor(Math.random() * 20),
+//     });
+//     start_time.setHours(start_time.getHours() + 2);
+//   }
+//   return timeslots;
+// };
+
+// for (let i = 0; i < 9; i++) {
+//   const timeslots = genMockTimeslots(i + 1);
+//   connection.query(
+//     queryInsertTimeslots(process.env.DB_NAME, timeslots),
+//     function (err, results, fields) {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log(results);
+//       }
+//     }
+//   );
+// }

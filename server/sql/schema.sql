@@ -33,3 +33,33 @@ CREATE TABLE IF NOT EXISTS genres (
   
   PRIMARY KEY (id)
 );
+
+-- Timeslots
+DROP TABLE IF EXISTS timeslots;
+CREATE TABLE IF NOT EXISTS timeslots (
+  id INT NOT NULL AUTO_INCREMENT,
+  movie_id INT NOT NULL,
+  start_time DATETIME NOT NULL,
+  duration INT NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  empty_seats INT NOT NULL,
+  
+  PRIMARY KEY (id)
+);
+
+
+INSERT INTO timeslots (movie_id, start_time, duration, price, empty_seats) VALUES (1, '2021-05-01 10:00:00', 120, 10.00, 100);
+
+-- Ticket table
+CREATE TABLE IF NOT EXISTS tickets (
+  id INT NOT NULL AUTO_INCREMENT,
+  movie_id INT NOT NULL,
+  seat_number VARCHAR(255) NOT NULL,
+  seat_row VARCHAR(255) NOT NULL,
+  seat_type ENUM('Regular', 'VIP') NOT NULL,
+  seat_price DECIMAL(10,2) NOT NULL,
+  seat_status ENUM('Available', 'Reserved', 'Sold') NOT NULL,
+  
+  PRIMARY KEY (id)
+);
+
