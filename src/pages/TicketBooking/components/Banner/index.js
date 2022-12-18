@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import "./index.css";
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image} from "react-bootstrap";
 
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,6 +19,8 @@ function Banner(props) {
             setBannerPoster(imgPath + movie.vertical_poster_path);
         }
     }, [movie]);
+
+    // hedonist or revolutionary
 
     return (
         <Container className="booking-banner" fluid>
@@ -50,9 +52,11 @@ function Banner(props) {
                                         color="white"
                                     />
                                 </div>
-                                <div className="booking-banner_trending-item-text">
-                                    <p>Trending</p>
-                                </div>
+                                {movie?.status === "Trending" ? (
+                                    <div className="booking-banner_trending-item-text">
+                                        <p>Trending</p>
+                                    </div>
+                                ) : null}
                             </div>
                         </div>
                     </Row>
