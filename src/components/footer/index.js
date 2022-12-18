@@ -1,9 +1,8 @@
-import React from 'react';
-import './index.css';
+import React from "react";
+import "./index.css";
 
 function Footer() {
     return (
-      
         <footer>
             <div className="container">
                 <div className="row">
@@ -11,34 +10,33 @@ function Footer() {
                         <h3>Company</h3>
                         <ul className="list-unstyled three_cols">
                             <li>
-                                <a href="#">About us</a>
+                                <a href="/about">About us</a>
                             </li>
                             <li>
-                                <a href="#">Contact us</a>
+                                <a href="/contact">Contact us</a>
                             </li>
                             <li>
-                                <a href="#">Terms and conditions</a>
+                                <a href="/toc">Terms and conditions</a>
                             </li>
                             <li>
-                                <a href="#">FAQ</a>
+                                <a href="/faq">FAQ</a>
                             </li>
-
                         </ul>
                     </div>
                     <div className="col-md-4">
                         <h3>Help</h3>
                         <ul className="list-unstyled three_cols">
                             <li>
-                                <a href="#">Shipping</a>
+                                <a href="/ship">Shipping</a>
                             </li>
                             <li>
-                                <a href="#">Returns</a>
+                                <a href="/returns">Returns</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
-   );
- }
- export default Footer;
+    );
+}
+export default Footer;
