@@ -1,11 +1,68 @@
+.banner {
+    width:auto;
+    height: 80%;
+}
+
+.banner-stats .booking-banner_trending {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+}
+
+.banner-stats .booking-banner_trending-item {
+    /* center items */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* flex */
+    display: flex;
+}
+
+.banner-stats svg {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner-stats p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+}
+
 .booking-banner {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    margin-bottom: 150px;
+    width: auto;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .booking-banner img {
     width: 100%;
     height: auto;
+}
+
+.booking-banner_details {
+    /* dim background image */
+    background-blend-mode: darken;
+    
+    /* height fill container */
+    height: 80%;
+    /* center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* text */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+
 }
