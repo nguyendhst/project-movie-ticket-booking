@@ -1,3 +1,9 @@
+.ticket-booking {
+  background-color: #fdfdfd;
+  padding: 30px;
+  height: 100%;
+}
+
 .ticket-item {
   border: 3px solid #121111;
   border-radius: 10px;

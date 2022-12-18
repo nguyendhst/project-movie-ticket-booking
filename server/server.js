@@ -2,6 +2,9 @@ const db = require("mysql2");
 const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 
 // import .env.local
 dotenv.config({
