@@ -13,10 +13,17 @@ import MainFeedbacks from "./pages/Customer_Care/components/MainFeedback/MainFee
 import ReplyFeedback from "./pages/ReplyFeedback/ReplyFeedback";
 import NotifyEvent from "./pages/NotifyEvent/NotifyEvent";
 import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
+
+
+
 
 function App() {
     return (
         <React.Fragment>
+            <Header />
             <main>
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
@@ -39,6 +46,7 @@ function App() {
                     />
                 </Routes>
             </main>
+            <Footer />
         </React.Fragment>
     );
 }

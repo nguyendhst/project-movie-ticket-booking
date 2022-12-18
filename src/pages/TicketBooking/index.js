@@ -85,11 +85,6 @@ const legacyParser = (data) => {
 const timeslotsAPI = "http://localhost:8080/api/movies/:id/timeslots";
 const movieAPI = "http://localhost:8080/api/movies/:id";
 
-// const refs = ticketData.reduce((acc, ticket) => {
-//   acc[ticket.id] = React.createRef();
-//   return acc;
-// }, {});
-
 const priceToVND = (decimal102) => {
     // convert '70000.00' to '70.000 VND'
     // convert to integer
@@ -177,8 +172,10 @@ function TicketBooking() {
 
     return (
         <React.Fragment>
-            <Banner movie={movie} />
-            <Container>
+            <Container className="booking-banner" fluid>
+                <Banner movie={movie} />
+            </Container>
+            <Container className="timeslots-container">
                 <Row className="ticket-booking">
                     <Col sm={4} className="filter">
                         <Filter
@@ -208,156 +205,6 @@ function TicketBooking() {
     );
 }
 
-// class TicketBooking extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             originalTicketData: [],
-//             ticketData: [],
-//             activeID: null,
-//             priceFilter: false,
-//             timeFilter: false,
-//             movieID: null,
-//         };
-
-//         this.activeTicket = this.activeTicket.bind(this);
-//         this.sortByPriceRegister = this.sortByPriceRegister.bind(this);
-//         this.sortByTimeRegister = this.sortByTimeRegister.bind(this);
-//         this.applyAllFilter = this.applyAllFilter.bind(this);
-//     }
-
-//     componentDidMount() {
-//         // get movie id from url
-//         const movieID = this.props.match.params.id;
-//         this.setState({ movieID: movieID });
-//         console.log("movieID: " + movieID);
-
-//         // get timeslots from API
-//         axios
-//             .get(timeslotsAPI.replace(":id", movieID))
-//             .then((res) => {
-//                 // console.log(res.data);
-//                 this.setState({
-//                     originalTicketData: legacyParser(res.results),
-//                     ticketData: legacyParser(res.results),
-//                 });
-//             })
-//             .catch((err) => {
-//                 console.log(err);
-//             });
-//     }
-
-//     applyAllFilter = () => {
-//         console.log("applyAllFilter");
-//         let base = this.state.originalTicketData.map((ticket) => ticket);
-//         console.log(base[0].price);
-//         console.log(this.state.priceFilter);
-//         if (this.state.priceFilter === true) {
-//             this.sortByPrice(base);
-//         }
-//         if (this.state.timeFilter === true) {
-//             this.sortByTime(base);
-//         }
-
-//         this.setState(
-//             {
-//                 ticketData: base,
-//             },
-//             () => {
-//                 console.log("list updated" + this.state.ticketData[0].price);
-//             }
-//         );
-//     };
-
-//     sortByPrice = (base) => {
-//         console.log("sortByPrice");
-//         base.sort((a, b) => {
-//             return a.price - b.price;
-//         });
-//     };
-
-//     sortByPriceRegister = () => {
-//         console.log("sortByPriceRegister");
-//         console.log("before: " + this.state.priceFilter);
-//         this.setState(
-//             {
-//                 priceFilter: !this.state.priceFilter,
-//             },
-//             () => {
-//                 console.log("after: " + this.state.priceFilter);
-//                 this.applyAllFilter();
-//             }
-//         );
-//     };
-
-//     sortByTimeRegister = () => {
-//         console.log("sortByTimeRegister");
-//         console.log("before: " + this.state.timeFilter);
-//         this.setState(
-//             {
-//                 timeFilter: !this.state.timeFilter,
-//             },
-//             () => {
-//                 console.log("after: " + this.state.timeFilter);
-//                 this.applyAllFilter();
-//             }
-//         );
-//     };
-
-//     sortByTime = (base) => {
-//         // time format: "18:00-20:00"
-//         base.sort((a, b) => {
-//             let aHour = parseInt(a.time.split(":")[0]);
-//             let bHour = parseInt(b.time.split(":")[0]);
-//             return aHour - bHour;
-//         });
-//     };
-
-//     activeTicket = (id) => {
-//         this.setState({ activeID: id });
-//         console.log("active ticket " + id);
-//     };
-
-//     // scrollToTicket = id => {
-//     //   refs[id].current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-//     // }
-
-//     render() {
-//         console.log("render: " + this.state.activeID);
-//         const ticketItem = this.state.ticketData.map((ticket) => (
-//             <TicketItem
-//                 keya={ticket.id}
-//                 timeShort={ticket.timeShort}
-//                 timeLong={ticket.timeLong}
-//                 price={ticket.price}
-//                 emptySeats={ticket.emptySeats}
-//                 time={ticket.time}
-//                 onPress={this.activeTicket}
-//                 active={this.state.activeID === ticket.id}
-//                 // refProp={refs[ticket.id]}
-//                 // scrollTo={this.scrollToTicket}
-//             />
-//         ));
-//         return (
-//             <React.Fragment>
-//                 <Banner />
-//                 <Container>
-//                     <Row>
-//                         <Col sm={4}>
-//                             <Filter
-//                                 sortByPrice={this.sortByPriceRegister}
-//                                 sortByTime={this.sortByTimeRegister}
-//                             />
-//                         </Col>
-//                         <Col sm={8}>{ticketItem}</Col>
-//                     </Row>
-//                 </Container>
-//             </React.Fragment>
-//         );
-//     }
-// }
-
-// refactor TicketItem to functional component
 function TicketItem(props) {
     const {
         timeShort,
