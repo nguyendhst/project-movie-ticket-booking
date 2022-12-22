@@ -1,5 +1,6 @@
 import React from "react";
-import "./index.css"
+import { useState } from "react";
+import '../Assets/style.css';
 
 const shift_list = [
     {
@@ -20,23 +21,23 @@ const shift_list = [
     }
 ]
 
+const week_list = ["Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"]
+
 const SelectWeek = () => {
     return (
         <>
             <div className="container-fluid d-flex justify-content-center m-3">
-                <select className="form-select-md p-2 rounded-pill" defaultValue="unselected">
-                    <option value="unselected">Chọn tuần làm việc</option>
-                    <option value="week1">03/10/2022 - 09/10/2022</option>
-                    <option value="week2">10/10/2022 - 16/10/2022</option>
-                    <option value="week3">17/10/2022 - 23/10/2022</option>
-                    <option value="week4">24/10/2022 - 30/10/2022</option>
-                </select>
+                <input id="week-select" type="week" className="rounded p-2 border border-success"/>
             </div>
         </>
     );
 }
 
 const Shift = (props) => {
+    const [color, setColor] = useState("btn-secondary");
+    const CheckValue = () => {
+        let ticket_seller_id = "ticket-seller-" + props.shift_title + "-" + props.shift_time;
+    }
     const date_name = props.date_name.split(" ").join("")
     const shift_title = props.shift_title.split(" ").join("")
     return (
@@ -44,7 +45,7 @@ const Shift = (props) => {
             <div className="my-2">
                 <button type="button"
                         id="select-shift"
-                        className="btn btn-secondary position-relative rounded border-0 text-white my-3 p-1 w-100"
+                        className={color + " btn position-relative rounded border-0 text-white my-1 p-1 w-100"}
                         data-bs-toggle="collapse"
                         data-bs-target={'#' + date_name + shift_title}>
                     {props.shift_title}<br/>
@@ -56,7 +57,7 @@ const Shift = (props) => {
                         <div className="m-1">
                             Quầy bán vé
                             <input type="number"
-                                   id="ticket-seller"
+                                   id={"ticket-seller-" + props.shift_title + "-" + props.shift_time}
                                    className="form-control my-1"
                                    min="0"
                                    max="10"
@@ -80,7 +81,7 @@ const Shift = (props) => {
                                    max="10"
                                    defaultValue="0"/>
                         </div>
-                        <button type="button" className="btn btn-info position-relative my-1">
+                        <button type="button" className="btn btn-info position-relative my-1" onClick={CheckValue}>
                             Lưu
                         </button>
                     </div>
@@ -94,35 +95,29 @@ const DateInWeek = (props) => {
     return (
         <>
             <div className="col-xxl col-lg-2 col-md-3 col-sm-4 m-3">
-                <div className="bg-success border rounded text-white p-2 my-2 ">
+                <div className="bg-success border rounded text-white p-2 my-2">
                     <span className="h5">{props.date_name}</span><br/>
                     <span className="h5">{props.date_num}</span><br/>
                 </div>
                 {shift_list.map(item =>
                     <Shift
-                    key={props.date_name + item.shift_title}
-                    shift_title={item.shift_title}
-                    shift_time={item.shift_time}
-                    date_name={props.date_name}
+                        key={props.date_name + item.shift_title}
+                        shift_title={item.shift_title}
+                        shift_time={item.shift_time}
+                        date_name={props.date_name}
                     />)}
             </div>
         </>
     );
 }
 
-export default function Board () {
+export default function Dashboard () {
     return (
-        <>/
+        <>
             <SelectWeek/>
             <div className="container-fluid text-center p-4">
                 <div className="row">
-                    <DateInWeek date_name="Thứ Hai" date_num= "03/10/2022"/>
-                    <DateInWeek date_name="Thứ Ba" date_num= "04/10/2022"/>
-                    <DateInWeek date_name="Thứ Tư" date_num= "05/10/2022"/>
-                    <DateInWeek date_name="Thứ Năm" date_num= "06/10/2022"/>
-                    <DateInWeek date_name="Thứ Sáu" date_num= "07/10/2022"/>
-                    <DateInWeek date_name="Thứ Bảy" date_num= "08/10/2022"/>
-                    <DateInWeek date_name="Chủ Nhật" date_num= "09/10/2022"/>
+                    {week_list.map(item => <DateInWeek date_name={item} key={item}/>)}
                 </div>
             </div>
         </>

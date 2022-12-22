@@ -6,7 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import ManagerLP from "./pages/ManagerLP/ManagerLP";
 import Content from "./pages/Content/Content";
 import TicketBooking from "./pages/TicketBooking";
-import ManageShift from "./pages/ManageShift";
+import ManageShift from "./pages/HumanResource/ManageShift/manage_shift";
 import CustomerCare from "./pages/Customer_Care/CustomerCare";
 import NewFeedbacks from "./pages/Customer_Care/NewFeedback";
 import MainFeedbacks from "./pages/Customer_Care/components/MainFeedback/MainFeedback";
