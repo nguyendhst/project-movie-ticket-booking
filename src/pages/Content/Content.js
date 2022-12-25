@@ -5,7 +5,7 @@ import Card from "react-bootstrap/esm/Card";
 
 import './Content.css';
 import films from '../../data/films.json'
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Tabs from "../../components/Tabs/Tabs";
 
 import House from "../../Asset/house.svg";

@@ -61,10 +61,3 @@ div#collapse-detail {
   padding: 0 15px;
   margin-bottom: 250px;
 }
-
-
-@media screen and (max-width: 650px) {
-  .timeslots-container {
-    margin-top: 350px;
-  }
-}

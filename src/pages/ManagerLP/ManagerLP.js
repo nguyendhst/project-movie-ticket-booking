@@ -9,7 +9,7 @@ import Button from "react-bootstrap/esm/Button";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import './ManagerLP.css';
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 
 import House from "../../Asset/house.svg"
 

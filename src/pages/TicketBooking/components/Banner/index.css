@@ -1,15 +1,7 @@
-.banner-main {
+.banner {
     width:auto;
     height: 80%;
 }
-
-@media screen and (max-width: 650px) {
-    .banner-main {
-        width:auto;
-        height: 100%;
-    }
-}
-
 
 .banner-stats .booking-banner_trending {
     justify-content: center;
