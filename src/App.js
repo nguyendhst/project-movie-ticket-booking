@@ -7,6 +7,7 @@ import ManagerLP from "./pages/ManagerLP/ManagerLP";
 import Content from "./pages/Content/Content";
 import TicketBooking from "./pages/TicketBooking";
 import ManageShift from "./pages/HumanResource/ManageShift/manage_shift";
+import StaffShift from "./pages/HumanResource/StaffShift/staff_shift";
 import CustomerCare from "./pages/Customer_Care/CustomerCare";
 import NewFeedbacks from "./pages/Customer_Care/NewFeedback";
 import MainFeedbacks from "./pages/Customer_Care/components/MainFeedback/MainFeedback";
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/content-manage" element={<Content />} />
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
+                    <Route path="/select-shift" element={<StaffShift />} />
                     <Route path="/customer-care" element={<CustomerCare />}>
                         <Route path="new-feedback" element={<NewFeedbacks />} />
                         <Route

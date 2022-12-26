@@ -11,13 +11,13 @@ const Page = () => {
     return (
         <>
             <NavBar/>
-            <Title title="TRANG QUẢN LÝ CA LÀM VIỆC CỦA NHÂN VIÊN"/>
+            <Title title="TRANG LỰA CHỌN CA LÀM VIỆC"/>
             <div className="h-100">
                 <div className="container-fluid p-5 h-100">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-xl">
                             <div className="card rounded-3 text-black p-1">
-                                <Dashboard role="manager"/>
+                                <Dashboard role="staff"/>
                             </div>
                         </div>
                     </div>
