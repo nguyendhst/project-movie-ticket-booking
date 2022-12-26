@@ -29,7 +29,7 @@ const date_rage = [
     "21/11/2022 - 27/11/2022"
 ]
 
-const Select_Week = () => {
+const SelectWeek = () => {
     return (
         <div className="d-flex justify-content-center mt-4">
             <select className="form-select border-success" id="select-week" defaultValue="unselected">
@@ -41,7 +41,7 @@ const Select_Week = () => {
     );
 }
 
-const Shift_Manager = (props) => {
+const ShiftManager = (props) => {
     const date_name = props.date_name.split(" ").join("")
     const shift_title = props.shift_title.split(" ").join("")
     return (
@@ -95,7 +95,7 @@ const Shift_Manager = (props) => {
     )
 }
 
-const Shift_Staff = (props) => {
+const ShiftStaff = (props) => {
     const date_name = props.date_name.split(" ").join("")
     const shift_title = props.shift_title.split(" ").join("")
     return (
@@ -155,7 +155,7 @@ const DateInWeek = (props) => {
                         <span className="h5">{props.date_name}</span><br/>
                     </div>
                     {shift_list.map(item =>
-                        <Shift_Manager
+                        <ShiftManager
                             key={props.date_name + item.shift_title}
                             shift_title={item.shift_title}
                             shift_time={item.shift_time}
@@ -172,7 +172,7 @@ const DateInWeek = (props) => {
                         <span className="h5">{props.date_name}</span><br/>
                     </div>
                     {shift_list.map(item =>
-                        <Shift_Staff
+                        <ShiftStaff
                             key={props.date_name + item.shift_title}
                             shift_title={item.shift_title}
                             shift_time={item.shift_time}
@@ -187,7 +187,7 @@ const DateInWeek = (props) => {
 export default function Dashboard (props) {
     return (
         <>
-            <Select_Week/>
+            <SelectWeek/>
             <div className="container-fluid text-center p-4">
                 <div className="row">
                     {week_list.map(item => <DateInWeek date_name={item} key={item} role={props.role}/>)}
