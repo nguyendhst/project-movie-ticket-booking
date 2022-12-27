@@ -6,7 +6,7 @@ export default function NavBar() {
             <nav className="navbar navbar-expand-sm navbar-light bg-dark p-2">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#/homepage">
-                        <span className="h2 text-white">RẠP CHIẾU PHIM</span>
+                        <span className="h2 text-white">NTTVN Theatre</span>
                     </a>
                     <button className="navbar-toggler m-1 bg-success" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
