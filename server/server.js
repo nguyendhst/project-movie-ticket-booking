@@ -2,9 +2,9 @@ const db = require("mysql2");
 const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
-const cors = require('cors')
+const cors = require("cors");
 
-app.use(cors())
+app.use(cors());
 
 // import .env.local
 dotenv.config({
@@ -146,6 +146,28 @@ app.get("/api/movies/:id/timeslots", async (req, res) => {
     }
 });
 
+// GET /api/genres?ids=[]
+app.get("/api/genres", async (req, res) => {
+    const { ids } = req.query;
+    try {
+        connection.query(
+            `SELECT * FROM \`${process.env.DB_NAME}\`.\`genres\` WHERE id IN (${ids});`,
+            function (err, results, fields) {
+                if (err) {
+                    console.log(err);
+                    res.send({ error: err });
+                } else {
+                    console.log(results);
+                    res.send({ results });
+                }
+            }
+        );
+    } catch (e) {
+        console.log(e);
+        res.send({ error: e });
+    }
+});
+
 // Start the server
 try {
     app.listen(8080, () => {
@@ -267,7 +289,7 @@ try {
 
 // insert(ids);
 
-//// timeslots
+// // timeslots
 // const queryInsertTimeslots = (dbname, timeslots) => {
 //   const insert = () => {
 //     return `INSERT INTO \`${dbname}\`.\`timeslots\` (movie_id, start_time, duration, price, empty_seats) VALUES`;
