@@ -18,11 +18,13 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-confirm-alert": "^3.0.6",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.0",
     "react-seat-picker": "^1.5.3",
     "react-select": "^5.6.0",
+    "react-slick": "^0.29.0",
     "react-tooltip": "^4.4.3",
     "serverless-mysql": "^1.5.4"
   },

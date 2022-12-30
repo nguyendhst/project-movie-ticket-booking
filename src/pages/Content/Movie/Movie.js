@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
 
 import films from "../../../data/films.json"
 
@@ -55,6 +57,8 @@ function Movie() {
         setBigbannerSrc(srcValue)
     }
 
+	
+
 	let {movie_id} = useParams();
 	movie_id = parseInt(movie_id)
 
@@ -68,10 +72,12 @@ function Movie() {
 	if (filter_result.length === 0) movie = null
 	else movie = filter_result[0]
 
-	// const [movie_value, setMovie_value] = useState(movie)
 	const [bannerSrc, setBannerSrc] = useState(movie.poster)
 	const [bigbannerSrc, setBigbannerSrc] = useState(movie.verticalPoster)
 
+	const [day, month, year] = movie.startdate.split('/');
+	const [dateselected, setDateselected] = useState(new Date(+year, +month - 1, +day))
+	
 	return (
 		<div className='MovieEdit'>
 			<Header/>
@@ -148,7 +154,14 @@ function Movie() {
 							</Form.Label>
 					</Form.Group>
 					<Form.Group className="InputStartdate">
-							<Form.Control defaultValue={movie.startdate} type="text" id="inputStartdate" disabled={!modifying}/>
+						<DatePicker dateFormat='dd/MM/yyyy'
+						defaultValue={movie.startdate}
+						className='form-control'
+						selected={dateselected}
+						onChange={date => setDateselected(date)}
+						id="inputStartdate"
+						disabled={!modifying}
+						/>
 					</Form.Group>
 
 					<Form.Group className="Director">
