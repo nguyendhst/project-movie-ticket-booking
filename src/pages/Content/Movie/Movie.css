@@ -1,0 +1,47 @@
+.MovieEditMain{
+    margin-top: calc(5% + 80px);
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: max(80%, 400px);
+
+    /* background-color: #003C4B; */
+    color: #ffffff;
+    border-radius: 16px 16px 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MovieEditForm{
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  /* grid-auto-rows: minmax(52px, auto); */
+  grid-template-areas: 
+  ". vbnn vbnn vbnn ."
+  "bnn fname iName iName iName"
+  "bnn dur iDur cate iCat"
+  "bnn shtime iStm strt iStrt"
+  "bnn dir iDir pro iPro"
+  "act iA iA iA iA"
+  "ctxt iCt iCt iCt iCt"
+  ". . . btn1 btn2";
+}
+
+.SubmitBtn {
+    grid-area: btn1;
+}
+
+.CancelBtn {
+    grid-area: btn2;
+}
+
+.BigBannerContainer {
+    grid-area: vbnn;
+}
+.BigBannerPreview {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+}
