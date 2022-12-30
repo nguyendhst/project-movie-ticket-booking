@@ -14,6 +14,8 @@ import MainFeedbacks from "./pages/Customer_Care/components/MainFeedback/MainFee
 import ReplyFeedback from "./pages/ReplyFeedback/ReplyFeedback";
 import NotifyEvent from "./pages/NotifyEvent/NotifyEvent";
 import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
+import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
+import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 
 function App() {
     return (
@@ -25,7 +27,9 @@ function App() {
                     <Route path="/content-manage" element={<Content />} />
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
+                    <Route path="/manage-staff" element={<ManageStaff />} />
                     <Route path="/select-shift" element={<StaffShift />} />
+                    <Route path="/admin" element={<ManagerDashboard />} />
                     <Route path="/customer-care" element={<CustomerCare />}>
                         <Route path="new-feedback" element={<NewFeedbacks />} />
                         <Route
