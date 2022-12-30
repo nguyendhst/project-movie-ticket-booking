@@ -9,7 +9,7 @@ import React, { Component } from "react";
 //   ButtonGroup,
 // } from "react-bootstrap";
 
-import "./index.css";
+// import "./index.css";
 
 import Step1 from "../Step1";
 import Step2 from "../Step2";

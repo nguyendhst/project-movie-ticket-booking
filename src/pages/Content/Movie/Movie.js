@@ -39,6 +39,15 @@ function Header() {
 	)
 }
 
+function getShowtimeDate(startDate, showtime=0){
+	let dates = []
+	let dateState = new Date(startDate)
+	for (let i = 0; i < parseInt(showtime); i++) {
+		dates[i] = new Date(dateState)
+		dateState = new Date(dateState.getTime() + 24*60*60*1000)
+	}
+	return dates
+}
 
 function Movie() {
 	const [modifying, setModifying] = useState(false);
@@ -46,16 +55,6 @@ function Movie() {
 		e.preventDefault();
 		setModifying(!modifying)
 	}
-    
-    function bannerChange(e) {
-        const srcValue =  e.target.value;
-        setBannerSrc(srcValue)
-    }
-
-	function bigBannerChange(e) {
-        const srcValue =  e.target.value;
-        setBigbannerSrc(srcValue)
-    }
 
 	
 	//Filter the selected film
@@ -74,13 +73,29 @@ function Movie() {
 	//Get state from selected film
 	const [bannerSrc, setBannerSrc] = useState(movie.poster)
 	const [bigbannerSrc, setBigbannerSrc] = useState(movie.verticalPoster)
-
+	const [showtimeInput, setShowtimeInput] = useState(movie.showtime)
 	const [day, month, year] = movie.startdate.split('/');
 	const [dateselected, setDateselected] = useState(new Date(+year, +month - 1, +day))
 	//Update date state and recalculate the showtime
+    
+    function bannerChange(e) {
+        const srcValue =  e.target.value;
+        setBannerSrc(srcValue)
+    }
+
+	function bigBannerChange(e) {
+        const srcValue =  e.target.value;
+        setBigbannerSrc(srcValue)
+    }
 	function dateChange(date) {
 		setDateselected(date)
 	}
+	function showtimeChange(e) {
+		const showtimeValue = e.target.value;
+		setShowtimeInput(showtimeValue);
+	}
+
+	let showtimeDates = getShowtimeDate(dateselected, showtimeInput)
 
 	return (
 		<div className='MovieEdit'>
@@ -148,7 +163,7 @@ function Movie() {
 							<Form.Label className="iLabel" htmlFor="inputShowtime">Thời gian chiếu</Form.Label>
 					</Form.Group>
 					<Form.Group className="InputShowtime">
-							<Form.Control defaultValue={movie.showtime} type="number" id="inputShowtime" disabled={!modifying}/>
+							<Form.Control defaultValue={movie.showtime} onChange={showtimeChange} type="number" id="inputShowtime" disabled={!modifying}/>
 							<h4 className="iLabel dimension">ngày</h4>
 					</Form.Group>
 
@@ -221,7 +236,10 @@ function Movie() {
 				
 			</div>
 			<div className='showtime'>
-			<ShowtimeTabs/>
+			<ShowtimeTabs
+				dates={showtimeDates}
+				filmID={movie.id}
+			/>
 			</div>
 			<Footer/>
 		</div>
