@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Tabs.css";
 import AddPreviewPic from "./addPreviewPic/addPreviewPic";
 
 import { Modal, Button, Form/*, ButtonGroup*/ } from "react-bootstrap";
-// import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 
 
 function AddModal(props) {
+    // const bnnRef = useRef();
+    const [bannerSrc, setBannerSrc] = useState("")
+    
+    function bannerChange(e) {
+        const srcValue =  e.target.value;
+        setBannerSrc(srcValue)
+    }
+
     return (
         props.type === 0?
         <Modal>
@@ -29,8 +36,9 @@ function AddModal(props) {
           <Modal.Body >
             <Form className="addModalBody overflow-auto">
             {/* // ======================// */}
-            <div className="BannerPic">
-                <AddPreviewPic />
+            <div className="BannerContainer">
+                <img className="BannerPreview" src={bannerSrc} alt="Please input film banner source"/>
+                <Form.Control onChange={bannerChange} type="text" id="BannerSrc"/>
             </div>
 
             <Form.Group className="FilmName">
@@ -185,9 +193,11 @@ function Tabs({tabs = [], editable = false , type = 0, sourceData = ""}) {
                             </Button>
                             {/* {console.log(addPopup)} */}
                         </div>
+                        
                         <div className="TabContent overflow-auto">
                         {tabs[activeTabIndex].content}
                         </div>
+
                         <AddModal
                             show={addPopup}
                             onHide={() => setAddPopup(false)}
