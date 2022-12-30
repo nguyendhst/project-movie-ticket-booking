@@ -1,0 +1,49 @@
+/* monitoring */
+th, td{
+    /* font-size: 5px; */
+    min-width: 3em;
+}
+.form-control:focus{
+    z-index: 5;
+}
+.m-centering{
+    text-align: center;
+}
+/* calendar */
+
+.m-header{
+    display:flex;
+    flex-direction: row;
+}
+.m-paginating,.quarter{
+    flex: 50%;
+}
+.unused{
+    color:#D3D3D3;
+}
+.used{
+    color: #000000;
+    font-weight: 700;
+}
+.year, .month{
+    flex: 33.3%;
+}
+/* modal */
+.m-close-bar{
+    display: flex;
+    justify-content: end;
+    background-color: #000000;
+    padding:0.3em;
+    padding-right:1em;
+}
+.m-close-bar svg{color:white;}
+.m-close-bar svg:hover{color:#B7EDFF;}
+#m-monitor-button{
+    position: fixed;
+    display: flex;
+    justify-content: end;
+    width:fit-content;
+    right: 0;
+    flex-wrap: wrap;
+    bottom: 70px;
+}
