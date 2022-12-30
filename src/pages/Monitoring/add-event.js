@@ -18,9 +18,9 @@ function AddEvent() {
                 code: e.target.code.value,
                 start_time: e.target.start_time.value,
                 end_time: e.target.end_time.value,
-                received: e.target.received.value,
-                spend: e.target.spend.value,
-                kpi: e.target.kpi.value,
+                received: parseInt(e.target.received.value),
+                spend: parseInt(e.target.spend.value),
+                kpi: parseInt(e.target.kpi.value),
                 descriptions: e.target.descriptions.value,
             })
             .then((res) => {
