@@ -2,12 +2,12 @@ import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 const insert_activity = "http://localhost:8080/api/monitoring/add";
-function checknumber(str){
-    if(parseInt(str)===NaN){
-        return false;
-    }
-    return true;
-}
+// function checknumber(str){
+//     if(parseInt(str)===NaN){
+//         return false;
+//     }
+//     return true;
+// }
 function AddEvent() {
     const submit = (e) => {
         e.preventDefault();
