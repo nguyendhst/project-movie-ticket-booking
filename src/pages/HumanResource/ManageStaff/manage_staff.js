@@ -27,15 +27,6 @@ function searchTable() {
     }
 }
 
-
-const DeleteStaff = (id) => {
-    return (
-        <>
-
-        </>
-    );
-}
-
 const Table = () => {
     let staffs = data.Staff;
     return (
