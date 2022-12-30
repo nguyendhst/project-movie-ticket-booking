@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Form} from "react-bootstrap";
 import Header from '../Customer_Care/components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import './NotifyEvent.css';
 
 function NotifyEvent() {
@@ -69,7 +70,7 @@ function NotifyEvent() {
   return (
     <Container fluid>
       <Header/>
-      <Row className="mb-3 me-0">
+      <Row className="me-0 mainwork">
         <Col lg={12} className="d-flex justify-content-center search-bar">
           <input type="text" placeholder="Tìm kiếm sự kiện" onChange={event => setQuery(event.target.value)} />
         </Col>
@@ -132,6 +133,7 @@ function NotifyEvent() {
           }
         </Col>
       </Row>
+      <Footer/>
     </Container>
     
   );

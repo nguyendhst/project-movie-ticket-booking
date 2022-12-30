@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Form } from "react-bootstrap";
 import Header from '../Customer_Care/components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import {customers, customerClass } from './data.js';
 import './ClassifyCustomer.css';
 
@@ -9,6 +10,7 @@ function ClassifyCustomer() {
   const [currentPage, setCurrentPage] = useState(1);
   const [query, setQuery] = useState("")
   const [filterCustomer, setFilterCustomer] = useState(customers.filter(post => post.cclass === "Khách hàng mới"));
+  const [curCustomer, setCurCustomer] = useState("Khách hàng mới");
 
   function checkQuery(post) {
     const postName = post.name.toLowerCase().includes(query.toLowerCase());
@@ -23,8 +25,9 @@ function ClassifyCustomer() {
     setCurrentPage(currentPage + 1);
   }
 
-  const handleFilterFeedback = (cclass) => {
+  const handleFilterCustomer = (cclass) => {
     setFilterCustomer(customers.filter(post => post.cclass === cclass));
+    setCurCustomer(cclass);
   }
   
   const indexOfLastPost = currentPage * 3;
@@ -40,7 +43,7 @@ function ClassifyCustomer() {
   return (
     <Container fluid>
       <Header/>
-      <Row className="mb-3 me-0">
+      <Row className="me-0 mainwork">
         <Col lg={12} className="search-bar">
           <input type="text" placeholder="Tìm kiếm khách hàng" onChange={event => setQuery(event.target.value)} />
         </Col>
@@ -49,7 +52,13 @@ function ClassifyCustomer() {
             {
               customerClass.map((classbtn) => (
                 <Col md={12}>
-                  <button className="classBtn" onClick={() => handleFilterFeedback(classbtn.name)}> 
+                  <button 
+                    style={{
+                      backgroundColor: curCustomer === classbtn.name ? '#2EB19F' : '',
+                      color: curCustomer === classbtn.name ? 'white' : '',
+                    }} 
+                    className="classBtn" 
+                    onClick={() => handleFilterCustomer(classbtn.name)}> 
                       <span>
                           <img class="class_img" alt="class" src={classbtn.icon} />
                       </span>
@@ -160,6 +169,7 @@ function ClassifyCustomer() {
           }
         </Col>
       </Row>
+      <Footer/>
     </Container>
     
   );
