@@ -50,6 +50,13 @@ const queryGetMovieById = (dbname, id) => {
     return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE id = ${id};`;
 };
 
+const queryGetMoviesByStatus = (dbname, status) => {
+    // ongoing -> Ongoing
+    // trending -> Trending
+    let statusCapitalized = status.charAt(0).toUpperCase() + status.slice(1);
+    return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE status = \'${statusCapitalized}\';`;
+};
+
 // Create a route
 app.get("/", async (req, res) => {
     try {
@@ -71,11 +78,10 @@ app.get("/", async (req, res) => {
     }
 });
 
-// GET /api/movies?genre=action&language=en&sort=release_date&order=desc&limit=10&offset=0
-
 // GET /api/movies?all=true
 app.get("/api/movies", async (req, res) => {
-    const { all, genre, language, sort, order, limit, offset } = req.query;
+    const { all, status, genre, language, sort, order, limit, offset } =
+        req.query;
     if (all) {
         try {
             connection.query(
@@ -93,6 +99,26 @@ app.get("/api/movies", async (req, res) => {
         } catch (e) {
             console.log(e);
             res.send({ error: e });
+        }
+    } else {
+        if (status) {
+            try {
+                connection.query(
+                    queryGetMoviesByStatus(process.env.DB_NAME, status),
+                    function (err, results, fields) {
+                        if (err) {
+                            console.log(err);
+                            res.send({ error: err });
+                        } else {
+                            console.log(results);
+                            res.send({ results });
+                        }
+                    }
+                );
+            } catch (e) {
+                console.log(e);
+                res.send({ error: e });
+            }
         }
     }
 });

@@ -1,21 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
+import axios from "axios";
 import "./FilmBanner.css";
 
-import films from "../../data/films.json";
+// import films from "../../data/films.json";
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
-import Card from "react-bootstrap/esm/Card";
+import { Card } from "react-bootstrap";
 
-function BannerHorizontal(props) {
+const ongoingMoviesAPI = "http://localhost:3000/movies?status=ongoing";
+const tredingMoviesAPI = "http://localhost:3000/movies?status=trending";
+const imgPath = "https://image.tmdb.org/t/p/original";
+
+function MoviePoster(props) {
+    const { film } = props;
     return (
         <Card className="Banner_horizontal">
-            <Card.Img variant="top" src={props.filmDetail.poster} />
+            <Card.Img variant="top" src={imgPath + film?.poster_path} />
             <Card.Body>
                 <Card.Title
                     style={{
                         textOverflow: "ellipsis",
                     }}
                 >
-                    {props.filmDetail.name}
+                    {film?.title}
                 </Card.Title>
             </Card.Body>
         </Card>
@@ -23,15 +30,41 @@ function BannerHorizontal(props) {
 }
 
 function FilmBanner() {
-    let OnGoingFilm = films.OnGoing;
+    const [ongoing, setOngoing] = React.useState([]);
+    const [trending, setTrending] = React.useState([]);
+
+    // fetch on-going movies
+    useEffect(() => {
+        axios
+            .get(ongoingMoviesAPI)
+            .then((response) => {
+                setOngoing(response.data.results);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
+    // fetch trending movies
+    useEffect(() => {
+        axios
+            .get(tredingMoviesAPI)
+            .then((response) => {
+                setTrending(response.data.results);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
     return (
         <div className="Film_Banner">
-            <CarouselBanner />
+            <CarouselBanner trending={trending} />
 
             <div className="Banner_container">
-                {OnGoingFilm.map((film, index) => (
-                    <BannerHorizontal filmDetail={film} key={index} />
-                ))}
+                {ongoing.forEach((film) => {
+                    <MoviePoster film={film} />;
+                })}
             </div>
         </div>
     );
