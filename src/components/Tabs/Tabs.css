@@ -83,7 +83,7 @@
 .TabContent {  
   max-height: 50vh;
 
-  padding-top: 60px;
+  padding-top: 40px;
   padding-right: 4%;
 
   display: grid;
@@ -282,6 +282,7 @@
   grid-area: iA;
   margin-right: 20px;
   margin-left: 20px;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
 }

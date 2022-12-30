@@ -1,0 +1,18 @@
+.MovieEditMain{
+    margin-top: calc(5% + 80px);
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 80%;
+    min-height: 660px;
+    max-height: 60vh;
+
+    /* background-color: #003C4B; */
+    color: #ffffff;
+    border-radius: 16px 16px 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

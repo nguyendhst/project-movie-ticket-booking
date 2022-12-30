@@ -185,9 +185,11 @@ function Tabs({tabs = [], editable = false , type = 0, sourceData = ""}) {
                             </Button>
                             {/* {console.log(addPopup)} */}
                         </div>
+                        
                         <div className="TabContent overflow-auto">
                         {tabs[activeTabIndex].content}
                         </div>
+
                         <AddModal
                             show={addPopup}
                             onHide={() => setAddPopup(false)}
