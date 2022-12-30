@@ -31,7 +31,7 @@ th, td{
 /* modal */
 .m-close-bar{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     background-color: #000000;
     padding:0.3em;
     padding-right:1em;
