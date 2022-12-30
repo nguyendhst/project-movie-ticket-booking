@@ -58,14 +58,18 @@ function Content() {
                                     key={film.id}
                                     // deleted={film.deleted}
                                     className="FilmBanner">
-                                    <Card.Img variant="top" src={film.poster}> 
-                                    </Card.Img>
-                                    <Card.Body>
-                                        <Card.Title style={{
-                                                    color: '#000000',
-                                                    textOverflow: 'ellipsis'
-                                            }}>{film.name}</Card.Title>
-                                    </Card.Body>
+                                    <a href={"/movie-manage/" + film.id} style={{ textDecoration: 'none' }}>
+                                        <div className="FilmBannerHovering">
+                                            <Card.Img variant="top" src={film.poster}> 
+                                            </Card.Img>
+                                        </div>
+                                        <Card.Body>
+                                            <Card.Title style={{
+                                                color: '#000000',
+                                                textOverflow: 'ellipsis'
+                                        }}>{film.name}</Card.Title>
+                                        </Card.Body>
+                                    </a>
                                     </Card>
                                 )
                             },
@@ -76,13 +80,18 @@ function Content() {
                                     <Card 
                                     key={film.id}
                                     className="FilmBanner">
-                                    <div className="FilmBannerHovering">
-                                        <Card.Img variant="top" src={film.poster}> 
-                                        </Card.Img>
-                                    </div>
-                                    <Card.Body style={{ height: '100%'}}>
-                                        <Card.Title style={{color: '#000000'}}>{film.name}</Card.Title>
-                                    </Card.Body>
+                                   <a href={"/movie-manage/" + film.id} style={{ textDecoration: 'none' }}>
+                                        <div className="FilmBannerHovering">
+                                            <Card.Img variant="top" src={film.poster}> 
+                                            </Card.Img>
+                                        </div>
+                                        <Card.Body>
+                                            <Card.Title style={{
+                                                color: '#000000',
+                                                textOverflow: 'ellipsis'
+                                        }}>{film.name}</Card.Title>
+                                        </Card.Body>
+                                    </a>
                                     </Card>
                                 )
                             },
@@ -93,17 +102,18 @@ function Content() {
                                     <Card 
                                     key={film.id}
                                     className="FilmBanner">
-                                    <div className="FilmBannerHovering">
-                                        <Card.Img variant="top" src={film.poster}> 
-                                        </Card.Img>
-
-                                    </div>
-                                            <Card.Body>
-                                                <Card.Title style={{
-                                                    color: '#000000',
-                                                    textOverflow: 'ellipsis'
-                                            }}>{film.name}</Card.Title>
-                                            </Card.Body>
+                                    <a href={"/movie-manage/" + film.id} style={{ textDecoration: 'none' }}>
+                                        <div className="FilmBannerHovering">
+                                            <Card.Img variant="top" src={film.poster}> 
+                                            </Card.Img>
+                                        </div>
+                                        <Card.Body>
+                                            <Card.Title style={{
+                                                color: '#000000',
+                                                textOverflow: 'ellipsis'
+                                        }}>{film.name}</Card.Title>
+                                        </Card.Body>
+                                    </a>
                                     </Card>
                                 )
                             }
