@@ -1,14 +1,12 @@
 import React from "react";
-import "./index.css";
-import Board from "./Component/Board";
 
-function NavBar() {
+export default function NavBar() {
     return (
         <>
-            <nav className="navbar navbar-expand-sm navbar-light bg-dark">
+            <nav className="navbar navbar-expand-sm navbar-light bg-dark p-2">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#/homepage">
-                        <span className="h2 text-white">RẠP CHIẾU PHIM</span>
+                        <span className="h2 text-white">NTTVN Theatre</span>
                     </a>
                     <button className="navbar-toggler m-1 bg-success" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -17,15 +15,15 @@ function NavBar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto align-items-center">
-                            <li className="nav-item">
+                            <li className="nav-item m-2">
                                 <button type="button"
-                                        className="btn btn-success position-relative rounded-pill m-1 px-3">
-                                    Quản lý
+                                        className="btn btn-info position-relative rounded-pill d-inline">
+                                    Trang chính
                                 </button>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item m-2">
                                 <button type="button"
-                                        className="btn btn-success position-relative rounded-pill m-1 px-3">
+                                        className="btn btn-warning position-relative rounded-pill d-inline">
                                     Đăng xuất
                                 </button>
                             </li>
@@ -36,27 +34,3 @@ function NavBar() {
         </>
     );
 }
-
-function Title() {
-    return (
-        <>
-            <div className="container-fluid d-flex justify-content-center m-3">
-                <h1 className="m-0">
-                    <span className="badge bg-success rounded-pill p-4">TRANG QUẢN LÝ CA LÀM VIỆC CỦA NHÂN VIÊN</span>
-                </h1>
-            </div>
-        </>
-    );
-}
-
-const Page = () => {
-    return (
-        <>
-            <NavBar/>
-            <Title/>
-            <Board/>
-        </>
-    );
-}
-
-export default Page
