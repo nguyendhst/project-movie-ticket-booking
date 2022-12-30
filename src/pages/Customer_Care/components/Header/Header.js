@@ -1,15 +1,30 @@
 import React from "react";
 import './Header.css'
+import { Button } from "react-bootstrap";
+import House from "../../../../Asset/house.svg"
+
 
 function Header() {
+
     return(
-        <div className="header">
-            <div>
-                <button className="LogoutButton">
+        <ul className="Header">
+            <ul className="Left_header">
+                <li id="Home-logo">
+                    <a href="/">
+                        <img src={House} width='40px' height='40px' alt="Home logo"></img>
+                    </a>
+                </li>
+            </ul>
+            <li>
+                <a href='/'>
+                <Button
+                className="LogoutButton"
+                >
                     Đăng xuất
-                </button>
-            </div>
-        </div>
+                </Button>
+                </a>
+            </li>
+        </ul>
     )
 }
 

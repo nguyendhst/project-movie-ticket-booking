@@ -237,7 +237,7 @@ function MainFeedback() {
   const totalPage = Math.ceil(feedbackToDisplay.length / 3);
 
   return (
-    <Row className="mb-3 me-0">
+    <Row className="me-0 mainwork">
       <Col lg={12} className="d-flex justify-content-center search-bar">
         <input type="text" placeholder="Tìm kiếm phản hồi" onChange={event => setQuery(event.target.value)} />
       </Col>

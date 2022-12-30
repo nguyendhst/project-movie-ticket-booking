@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, Row, Form } from "react-bootstrap";
 import Header from '../Customer_Care/components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 import './ReplyFeedback.css';
 
 function AnswerFeedback() {
@@ -19,6 +20,7 @@ function AnswerFeedback() {
     <Row className="reply_user_feedback">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group as={Row}>
+              <h3 className="text-center">Trả lời phản hồi</h3>
               <Col md={12}>
                 <Form.Control
                     required
@@ -267,6 +269,7 @@ function ReplyFeedback() {
   const [currentPage, setCurrentPage] = useState(1);
   const [query, setQuery] = useState("")
   const [filterFeedback, setFilterFeedback] = useState(feedbacks.filter(post => post.result === "Chưa phản hồi"));
+  const [curFeedback, setCurFeedback] = useState("Chưa phản hồi");
 
   function checkQuery(post) {
     const postName = post.name.toLowerCase().includes(query.toLowerCase());
@@ -292,6 +295,7 @@ function ReplyFeedback() {
 
   const handleFilterFeedback = (result) => {
     setFilterFeedback(feedbacks.filter(post => post.result === result));
+    setCurFeedback(result);
   }
 
   
@@ -307,14 +311,20 @@ function ReplyFeedback() {
   return (
     <Container fluid>
       <Header/>
-      <Row className="mb-3 me-0">
+      <Row className="me-0 mainwork">
         <Col lg={12} className="d-flex justify-content-center search-bar">
           <input type="text" placeholder="Tìm kiếm phản hồi" onChange={event => setQuery(event.target.value)} />
         </Col>
         <Col md={12} lg={2} className="ms-1 mt-3">
           <Row className="text-center">
             <Col md={12} >
-                <button className="filterBtn" onClick={() => handleFilterFeedback("Chưa phản hồi")}> 
+                <button
+                  style={{
+                    backgroundColor: curFeedback === "Chưa phản hồi" ? '#2EB19F' : '',
+                    color: curFeedback === "Chưa phản hồi" ? 'white' : '',
+                  }} 
+                  className="filterBtn" 
+                  onClick={() => handleFilterFeedback("Chưa phản hồi")}> 
                     <span>
                         <img class="newFb_img" alt="newFb" src="https://i.postimg.cc/mg70YDFf/new.png" />
                     </span>
@@ -322,7 +332,13 @@ function ReplyFeedback() {
                 </button>
             </Col>
             <Col md={12}>
-                <button className="filterBtn" onClick={() => handleFilterFeedback("Đã phản hồi")}> 
+                <button 
+                   style={{
+                    backgroundColor: curFeedback === "Đã phản hồi" ? '#2EB19F' : '',
+                    color: curFeedback === "Đã phản hồi" ? 'white' : '',
+                  }} 
+                  className="filterBtn" 
+                  onClick={() => handleFilterFeedback("Đã phản hồi")}> 
                     <span>
                         <img class="myFb_img" alt="myFb" src="https://i.postimg.cc/4yT8NvBY/haved.png" />
                     </span>
@@ -363,6 +379,7 @@ function ReplyFeedback() {
           }
         </Col>
       </Row>
+      <Footer/>
     </Container>
     
   );
