@@ -3,7 +3,7 @@ import React from "react";
 import NavBar from "../Components/navbar";
 import Dashboard from "../Components/dashboard";
 import Title from "../Components/title";
-import '../Assets/shift.css';
+import '../Assets/style.css';
 
 
 
@@ -11,8 +11,8 @@ const Page = () => {
     return (
         <>
             <NavBar/>
-            <div className="main-page">
-                <Title title="TRANG LỰA CHỌN CA LÀM VIỆC"/>
+            <div className="main-page-1">
+                <Title title="TRANG CHỌN CA LÀM VIỆC"/>
                 <div className="h-100">
                     <div className="container-fluid p-5 h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
