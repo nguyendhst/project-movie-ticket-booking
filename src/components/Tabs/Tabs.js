@@ -3,15 +3,19 @@ import "./Tabs.css";
 
 import { Modal, Button, Form/*, ButtonGroup*/ } from "react-bootstrap";
 
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
+
 
 function AddModal(props) {
     // const bnnRef = useRef();
     const [bannerSrc, setBannerSrc] = useState("")
-    
+    const [dateselected, setDateselected] = useState(new Date())
     function bannerChange(e) {
         const srcValue =  e.target.value;
         setBannerSrc(srcValue)
     }
+    
 
     return (
         props.type === 0?
@@ -100,7 +104,13 @@ function AddModal(props) {
                 </Form.Label>
             </Form.Group>
             <Form.Group className="InputStartdate">
-                <Form.Control type="text" id="inputStartdate" />
+                <DatePicker
+                dateFormat='dd/MM/yyyy'
+                className='form-control'
+                selected={dateselected}
+                onChange={date => setDateselected(date)}
+                id="inputStartdate"
+                />
             </Form.Group>
 
             <Form.Group className="Director">
