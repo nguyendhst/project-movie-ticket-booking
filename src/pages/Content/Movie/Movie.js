@@ -1,10 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css'
 
 import films from "../../../data/films.json"
 
 import Footer from "../../../components/Footer/Footer";
+import ShowtimeTabs from "./ShowtimeComponents/ShowtimeTabs.js"
 import House from "../../../Asset/house.svg";
 import {
 	Button,
@@ -41,7 +44,6 @@ function Movie() {
 	const [modifying, setModifying] = useState(false);
 	function onclick(e){
 		e.preventDefault();
-		console.log("Clicked")
 		setModifying(!modifying)
 	}
     
@@ -55,12 +57,13 @@ function Movie() {
         setBigbannerSrc(srcValue)
     }
 
+	
+	//Filter the selected film
 	let {movie_id} = useParams();
 	movie_id = parseInt(movie_id)
 
 	let movie;
 
-	console.log(films)
 	let filter_result = films.Archived.filter(film => film.id === movie_id)
 
 	if (filter_result.length === 0) filter_result = films.OnGoing.filter(film => film.id === movie_id)
@@ -68,15 +71,22 @@ function Movie() {
 	if (filter_result.length === 0) movie = null
 	else movie = filter_result[0]
 
-	// const [movie_value, setMovie_value] = useState(movie)
+	//Get state from selected film
 	const [bannerSrc, setBannerSrc] = useState(movie.poster)
 	const [bigbannerSrc, setBigbannerSrc] = useState(movie.verticalPoster)
+
+	const [day, month, year] = movie.startdate.split('/');
+	const [dateselected, setDateselected] = useState(new Date(+year, +month - 1, +day))
+	//Update date state and recalculate the showtime
+	function dateChange(date) {
+		setDateselected(date)
+	}
 
 	return (
 		<div className='MovieEdit'>
 			<Header/>
-			<div className='MovieEditMain overflow-x-auto'>
-				<Form className="MovieEditForm " aria-disabled={!modifying}>
+			<div className='MovieEditMain '>
+				<Form className="MovieEditForm" aria-disabled={!modifying}>
 					<div className="BigBannerContainer">
 						<img className="BigBannerPreview" src={bigbannerSrc} alt="Please input film banner source"/>
 						<Form.Control defaultValue={movie.verticalPoster} onChange={bigBannerChange} type="text" id="BigBannerSrc" disabled={!modifying}/>
@@ -148,7 +158,14 @@ function Movie() {
 							</Form.Label>
 					</Form.Group>
 					<Form.Group className="InputStartdate">
-							<Form.Control defaultValue={movie.startdate} type="text" id="inputStartdate" disabled={!modifying}/>
+						<DatePicker dateFormat='dd/MM/yyyy'
+						defaultValue={movie.startdate}
+						className='form-control'
+						selected={dateselected}
+						onChange={date => dateChange(date)}
+						id="inputStartdate"
+						disabled={!modifying}
+						/>
 					</Form.Group>
 
 					<Form.Group className="Director">
@@ -201,8 +218,11 @@ function Movie() {
 						Quay về
 					</Button>}
 				</Form>
+				
 			</div>
-
+			<div className='showtime'>
+			<ShowtimeTabs/>
+			</div>
 			<Footer/>
 		</div>
 	)

@@ -1,3 +1,4 @@
+
 .MovieEditMain{
     margin-top: calc(5% + 80px);
     margin-bottom: 60px;
@@ -15,7 +16,17 @@
     align-items: center;
 }
 
+.showtime {
+    width: 80vw;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .MovieEditForm{
+    min-width: 500px;
+    overflow-x: auto;
+
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   /* grid-auto-rows: minmax(52px, auto); */
