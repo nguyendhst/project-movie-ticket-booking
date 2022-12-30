@@ -1,5 +1,5 @@
 import React from "react";
-import '../Assets/shift.css';
+import '../Assets/style.css';
 
 const shift_list = [
     {
@@ -49,7 +49,7 @@ const ShiftManager = (props) => {
             <div className="my-2">
                 <button type="button"
                         id="select-shift"
-                        className="btn-secondary btn position-relative rounded border-0 text-white my-1 p-1 w-100"
+                        className="btn btn-secondary position-relative rounded border-0 text-white my-1 p-1 w-100"
                         data-bs-toggle="collapse"
                         data-bs-target={'#' + date_name + shift_title}>
                     {props.shift_title}<br/>
@@ -103,7 +103,7 @@ const ShiftStaff = (props) => {
             <div className="my-2">
                 <button type="button"
                         id="select-shift"
-                        className="btn-secondary btn position-relative rounded border-0 text-white my-1 p-1 w-100"
+                        className="btn btn-secondary position-relative rounded border-0 text-white my-1 p-1 w-100"
                         data-bs-toggle="collapse"
                         data-bs-target={'#' + date_name + shift_title}>
                     {props.shift_title}<br/>

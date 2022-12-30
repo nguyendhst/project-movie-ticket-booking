@@ -16,10 +16,12 @@ export default function NavBar() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item m-2">
-                                <button type="button"
-                                        className="btn btn-info position-relative rounded-pill d-inline">
-                                    Trang chính
-                                </button>
+                                <a href="/admin">
+                                    <button type="button"
+                                            className="btn btn-info position-relative rounded-pill d-inline">
+                                        Trang chính
+                                    </button>
+                                </a>
                             </li>
                             <li className="nav-item m-2">
                                 <button type="button"

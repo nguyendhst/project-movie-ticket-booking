@@ -1,8 +1,22 @@
-.main-page    {
-    overflow-y:scroll;
+.main-page-1    {
+    overflow: auto;
     background: #fccb90;
     background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
     background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+.main-page-2    {
+    overflow: auto;
+    background: #fccb90;
+    background: -webkit-linear-gradient(to right, #24b8ee, #3669d8, #1a369f, #9619e8);
+    background: linear-gradient(to right, #24b8ee, #3669d8, #1a369f, #9619e8);
+}
+
+.main-page-3    {
+    overflow: auto;
+    background: #fccb90;
+    background: -webkit-linear-gradient(to right, #e1df92, #e5de58, #e3b749, #b4b20b);
+    background: linear-gradient(to right, #e1df92, #e5de58, #e3b749, #b4b20b);
 }
 
 #select-week {
@@ -27,4 +41,31 @@
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #24b8ee, #3669d8, #1a369f, #9619e8);
+}
+
+tbody {
+    display:block;
+    max-height: 400px;
+    overflow-y:scroll;
+}
+thead tr, tbody tr {
+    display: table;
+    width:100%;
+    table-layout:fixed;
+}
+thead {
+    width:177px;
+}
+table {
+    width:200px;
+}
+
+.page {
+    width:100%;
+    height:600px;
+}
+
+.page-1 {
+    width:100%;
+    height:469px;
 }

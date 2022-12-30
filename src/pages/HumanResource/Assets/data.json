@@ -1,0 +1,103 @@
+{
+    "Staff" : [
+        {
+            "name" : "Dana A. Schneider",
+            "id" : "100000",
+            "username" : "schneider",
+            "password" : "123456",
+            "email" : "DanaASchneider@jourrapide.com",
+            "phone" : "937-530-2519",
+            "address" : "4442 Ingram Street Dayton, OH 45402"
+        },
+        {
+            "name" : "William B. Campbell",
+            "id" : "100001",
+            "username" : "campbell",
+            "password" : "123456",
+            "email" : "WilliamBCampbell@jourrapide.com",
+            "phone" : "508-439-7329",
+            "address" : "4747 Ferguson Street S Boston, MA 02127"
+        },
+        {
+            "name" : "James K. Aguirre",
+            "id" : "100002",
+            "username" : "aguirre",
+            "password" : "123456",
+            "email" : "JamesKAguirre@dayrep.com",
+            "phone" : "804-714-1713",
+            "address" : "3746 Fleming Way Richmond, VA 23234"
+        },
+        {
+            "name" : "Jack S. Davis",
+            "id" : "100003",
+            "username" : "davis",
+            "password" : "123456",
+            "email" : "JackSDavis@armyspy.com",
+            "phone" : "330-733-1963",
+            "address" : "1496 Wildwood Street Akron, OH 44312"
+        },
+        {
+            "name" : "Paul S. Moose",
+            "id" : "100004",
+            "username" : "Romay1967",
+            "password" : "123456",
+            "email" : "PaulSMoose@rhyta.com",
+            "phone" : "713-235-2353",
+            "address" : "522 Patterson Street Houston, TX 77026"
+        },
+        {
+            "name" : "Frances I. Yorke",
+            "id" : "100005",
+            "username" : "yorke1203",
+            "password" : "123456",
+            "email" : "FrancesIYorke@teleworm.us",
+            "phone" : "802-856-6788",
+            "address" : "117 Hardman Road South Burlington, VT 05403"
+        },
+        {
+            "name" : "Roger L. Carroll",
+            "id" : "100006",
+            "username" : "Wasill",
+            "password" : "123456",
+            "email" : "RogerLCarroll@jourrapide.com",
+            "phone" : "256-445-7843",
+            "address" : "1494 Maple Lane Huntsville, AL 35816"
+        },
+        {
+            "name" : "Ryan V. Olsen",
+            "id" : "100007",
+            "username" : "Theltorither",
+            "password" : "123456",
+            "email" : "RyanVOlsen@rhyta.com",
+            "phone" : "817-604-9079",
+            "address" : "4787 Sardis Sta Plano, TX 75074"
+        },
+        {
+            "name" : "Katherine J. Jones",
+            "id" : "100008",
+            "username" : "Shmis1996",
+            "password" : "123456",
+            "email" : "KatherineJJones@dayrep.com",
+            "phone" : "203-292-0937",
+            "address" : "2025 Colony Street Norwalk, CT 06851"
+        },
+        {
+            "name" : "Christina C. Valencia",
+            "id" : "100009",
+            "username" : "Reartand",
+            "password" : "123456",
+            "email" : "ChristinaCValencia@armyspy.com",
+            "phone" : "662-680-4940",
+            "address" : "2767 Rafe Lane Tupelo, MS 38801"
+        },
+        {
+            "name" : "Ross E. Bivens",
+            "id" : "100010",
+            "username" : "Bannionest",
+            "password" : "123456",
+            "email" : "RossEBivens@jourrapide.com",
+            "phone" : "630-863-0987",
+            "address" : "1045 Lewis Street Chicago, IL 60631"
+        }
+    ]
+}
