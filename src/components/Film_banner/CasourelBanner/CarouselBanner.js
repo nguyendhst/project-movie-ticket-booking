@@ -19,13 +19,15 @@ function CarouselBanner() {
       OnGoingFilms.filter((Ongoing) => Ongoing.id.toString() === trend.toString()).map(
         (trendFilms) =>
         // console.log(trendFilms)
-        <Carousel.Item>
-          <img
-            className='d-block w-100 rounded'
-            src={trendFilms.verticalPoster}
-            alt="First slide"
-          />
-        </Carousel.Item>
+          <Carousel.Item> 
+          <a href={"/movie/" + trendFilms.id}>
+            <img
+              className='d-block w-100 rounded'
+              src={trendFilms.verticalPoster}
+              alt="Film slide"
+            />
+            </a>
+          </Carousel.Item>
       )
       // console.log(trend)
       )}

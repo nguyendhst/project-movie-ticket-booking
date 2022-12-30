@@ -8,12 +8,14 @@ import Card from 'react-bootstrap/esm/Card';
 function BannerHorizontal(props) {
     return (
         <Card className="Banner_horizontal">
+            <a href={"/movie/" + props.filmDetail.id} style={{ textDecoration: 'none' , color: "inherit"}}>
             <Card.Img variant="top" src= {props.filmDetail.poster}/>
             <Card.Body>
                 <Card.Title style={{
                     textOverflow: "ellipsis"
                 }}>{props.filmDetail.name}</Card.Title>
             </Card.Body>
+            </a>
         </Card>
     )
 }
