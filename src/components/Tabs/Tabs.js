@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./Tabs.css";
-import AddPreviewPic from "./addPreviewPic/addPreviewPic";
 
 import { Modal, Button, Form/*, ButtonGroup*/ } from "react-bootstrap";
 
