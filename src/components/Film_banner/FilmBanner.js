@@ -5,10 +5,10 @@ import "./FilmBanner.css";
 
 // import films from "../../data/films.json";
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
-import { Card } from "react-bootstrap";
+import { Card, Row, Col, Container } from "react-bootstrap";
 
-const ongoingMoviesAPI = "http://localhost:3000/movies?status=ongoing";
-const tredingMoviesAPI = "http://localhost:3000/movies?status=trending";
+const ongoingMoviesAPI = "http://localhost:8080/api/movies?status=ongoing";
+const tredingMoviesAPI = "http://localhost:8080/api/movies?status=trending";
 const imgPath = "https://image.tmdb.org/t/p/original";
 
 function MoviePoster(props) {
@@ -50,6 +50,7 @@ function FilmBanner() {
         axios
             .get(tredingMoviesAPI)
             .then((response) => {
+                console.log(response.data.results);
                 setTrending(response.data.results);
             })
             .catch((error) => {
@@ -61,11 +62,33 @@ function FilmBanner() {
         <div className="Film_Banner">
             <CarouselBanner trending={trending} />
 
-            <div className="Banner_container">
-                {ongoing.forEach((film) => {
-                    <MoviePoster film={film} />;
-                })}
-            </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <h3>On-going</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    {ongoing.map((film, index) => (
+                        <Col key={film.id} xs={6} md={4} lg={3}>
+                            <MoviePoster film={film} />
+                        </Col>
+                    ))}
+                </Row>
+
+                <Row>
+                    <Col>
+                        <h3>Trending</h3>
+                    </Col>
+                </Row>
+                <Row>
+                    {trending.map((film, index) => (
+                        <Col key={film.id} xs={6} md={4} lg={3}>
+                            <MoviePoster film={film} />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
         </div>
     );
 }

@@ -5,7 +5,7 @@ import "./CarouselBanner.css";
 // import films from "../../../data/films.json";
 
 const imgPath = "https://image.tmdb.org/t/p/original";
-const moviePath = "http://localhost:3000/movies/";
+const moviePath = "http://localhost:3000/movie/";
 
 function CarouselBanner(props) {
     const { trending } = props;
@@ -13,7 +13,7 @@ function CarouselBanner(props) {
 
     const handleSelect = (selectedIndex, e) => {
         // navigate to movie page
-        window.open(moviePath + trending[selectedIndex].id, "_blank").focus();
+        window.open(moviePath + trending[selectedIndex].id, "_blank");
         setIndex(selectedIndex);
     };
 
@@ -23,15 +23,19 @@ function CarouselBanner(props) {
         <Carousel
             className="Banner_vertical"
             activeIndex={index}
-            onSelect={handleSelect}
+            fade
+            interval={3000}
+            variant="dark"
         >
             {trending.map((film, index) => (
                 <Carousel.Item key={film.id}>
-                    <img
-                        className="d-block w-100"
-                        src={imgPath + film.poster_path}
-                        alt={film.title}
-                    />
+                    <a onClick={handleSelect.bind(this, index)}>
+                        <img
+                            className="d-block w-100"
+                            src={imgPath + film.vertical_poster_path}
+                            alt={film.title}
+                        />
+                    </a>
                     <Carousel.Caption>
                         <h3>{film.title}</h3>
                     </Carousel.Caption>

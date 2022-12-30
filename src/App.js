@@ -29,8 +29,8 @@ function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
 
-                    <Route path="/content-manage" element={<Content />}/>
-                    <Route path="movie-manage/:movie_id" element={<Movie />}/>
+                    <Route path="/content-manage" element={<Content />} />
+                    <Route path="movie-manage/:movie_id" element={<Movie />} />
 
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
