@@ -25,13 +25,16 @@ function CarouselBanner(props) {
             activeIndex={index}
             onSelect={handleSelect}
         >
-            {trending.map((item) => (
-                <Carousel.Item>
+            {trending.map((film, index) => (
+                <Carousel.Item key={film.id}>
                     <img
-                        className="d-block w-100 rounded"
-                        src={imgPath + item?.poster_path}
-                        alt="Trending film poster"
+                        className="d-block w-100"
+                        src={imgPath + film.poster_path}
+                        alt={film.title}
                     />
+                    <Carousel.Caption>
+                        <h3>{film.title}</h3>
+                    </Carousel.Caption>
                 </Carousel.Item>
             ))}
         </Carousel>
