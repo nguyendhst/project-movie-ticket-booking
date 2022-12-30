@@ -144,6 +144,29 @@ function TicketBooking() {
             });
     }, [movieID]);
 
+    // apply filters
+    useEffect(() => {
+        console.log("apply filters");
+        let base = originalTicketData.map((ticket) => ticket);
+        if (priceFilter) {
+            base.sort((a, b) => a.price - b.price);
+        }
+        // format Tue 17-Dec-2022 17:41-19:41
+        if (timeFilter) {
+            base.sort((a, b) => {
+                const aTime = new Date(
+                    a.timeLong.slice(4, 14) + " " + a.time.slice(0, 5)
+                );
+                const bTime = new Date(
+                    b.timeLong.slice(4, 14) + " " + b.time.slice(0, 5)
+                );
+                return aTime - bTime;
+            });
+        }
+        setTicketData(base);
+    }, [priceFilter, timeFilter]);
+
+
     const activeTicket = (id) => {
         console.log("activeTicket", id);
         setActiveID(id);
@@ -157,23 +180,23 @@ function TicketBooking() {
         setTimeFilter(timeFilter);
     };
 
-    const applyAllFilter = () => {
-        console.log("applyAllFilter");
-        let base = originalTicketData.map((ticket) => ticket);
-        console.log(base[0].price);
-        console.log(priceFilter);
-        if (priceFilter) {
-            base.sort((a, b) => a.price - b.price);
-        }
-        if (timeFilter) {
-            base.sort((a, b) => {
-                const aTime = new Date("2022-12-17 " + a.time.slice(0, 5));
-                const bTime = new Date("2022-12-17 " + b.time.slice(0, 5));
-                return aTime - bTime;
-            });
-        }
-        setTicketData(base);
-    };
+    // const applyAllFilter = () => {
+    //     console.log("applyAllFilter");
+    //     let base = originalTicketData.map((ticket) => ticket);
+    //     console.log(base[0].price);
+    //     console.log(priceFilter);
+    //     if (priceFilter) {
+    //         base.sort((a, b) => a.price - b.price);
+    //     }
+    //     if (timeFilter) {
+    //         base.sort((a, b) => {
+    //             const aTime = new Date("2022-12-17 " + a.time.slice(0, 5));
+    //             const bTime = new Date("2022-12-17 " + b.time.slice(0, 5));
+    //             return aTime - bTime;
+    //         });
+    //     }
+    //     setTicketData(base);
+    // };
 
     return (
         <React.Fragment>
@@ -184,7 +207,6 @@ function TicketBooking() {
                         <Filter
                             sortByPriceRegister={sortByPriceRegister}
                             sortByTimeRegister={sortByTimeRegister}
-                            applyAllFilter={applyAllFilter}
                         />
                     </Col>
                     <Col sm={8}>
