@@ -6,7 +6,7 @@ import { Col, Row } from "react-bootstrap";
 
 function NewFeedbacks() {
      return (
-        <Row className="me-0">
+        <Row className="me-0 mainwork">
             <Col lg={12} className="search-bar">
                 <input type="text" placeholder="Tìm kiếm phản hồi" disabled/>
             </Col>
