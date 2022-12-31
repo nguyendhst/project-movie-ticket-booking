@@ -2,7 +2,7 @@ import React, {useState}  from "react";
 
 import Slider from "react-slick";
 import { Button,
-	//  OverlayTrigger, Popover
+	 OverlayTrigger, Popover
 	 } from "react-bootstrap";
 
 import "slick-carousel/slick/slick.css"; 
@@ -165,14 +165,26 @@ function ShowtimeTabs(props) {
 				<div className='startTimeContainer'>
 				{
 					screen[1].map((time, index) => 
-					<Button
+					<OverlayTrigger
 					key={index}
-					className = "startTime"
-					>
-						{time.film.name}
-						<br/>
-						<h4>{time["start-time"]}</h4>
+					trigger="click" placement="right" overlay={
+						<Popover id="popover-basic">
+						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
+						  <Popover.Body>
+							<div >
+							<img src={time.film.poster} style={{width: '100%'}}></img>
+
+							</div>
+						  </Popover.Body>
+						</Popover>}>
+					<Button
+						className = "startTime"
+						>
+							FilmID: {time.id}
+							<br/>
+							<h4>{time["start-time"]}</h4>
 					</Button>
+					</OverlayTrigger>
 					)
 				}
 				</div>
@@ -188,14 +200,26 @@ function ShowtimeTabs(props) {
 				<div className='startTimeContainer'>
 				{
 					screen[2].map((time, index) => 
-					<Button
+					<OverlayTrigger 
 					key={index}
-					className = "startTime"
-					>
-						{time.film.name}
-						<br/>
-						<h4>{time["start-time"]}</h4>
+					trigger="click" placement="right" overlay={
+						<Popover id="popover-basic">
+						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
+						  <Popover.Body>
+							<div >
+							<img src={time.film.poster} style={{width: '100%'}}></img>
+
+							</div>
+						  </Popover.Body>
+						</Popover>}>
+					<Button
+						className = "startTime"
+						>
+							FilmID: {time.id}
+							<br/>
+							<h4>{time["start-time"]}</h4>
 					</Button>
+					</OverlayTrigger>
 					)
 				}
 				</div>
@@ -211,14 +235,26 @@ function ShowtimeTabs(props) {
 				<div className='startTimeContainer'>
 				{
 					screen[3].map((time, index) => 
-					<Button
+					<OverlayTrigger
 					key={index}
-					className = "startTime"
-					>
-						{time.film.name}
-						<br/>
-						<h4 >{time["start-time"]}</h4>
+					trigger="click" placement="right" overlay={
+						<Popover id="popover-basic">
+						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
+						  <Popover.Body>
+							<div >
+							<img src={time.film.poster} style={{width: '100%'}}></img>
+
+							</div>
+						  </Popover.Body>
+						</Popover>}>
+					<Button
+						className = "startTime"
+						>
+							FilmID: {time.id}
+							<br/>
+							<h4>{time["start-time"]}</h4>
 					</Button>
+					</OverlayTrigger>
 					)
 				}
 				</div>

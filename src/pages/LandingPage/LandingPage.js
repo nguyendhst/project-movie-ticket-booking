@@ -70,7 +70,7 @@ function Header() {
                         <FontAwesomeIcon icon={faXmark} className="sidebar-logo" />
                     </a>
                     </li>
-                    <li className="nav-text">
+                    {/* <li className="nav-text">
                         <a href='/customer-care'>
                             Lịch chiếu phim
                         </a>
@@ -79,7 +79,7 @@ function Header() {
                         <a href='/customer-care'>
                             Ưu đãi
                         </a>
-                    </li>
+                    </li> */}
                     <li className="nav-text">
                         <a href='/customer-care'>
                             Contact us
