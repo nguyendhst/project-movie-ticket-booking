@@ -271,9 +271,8 @@ app.get("/api/genres", async (req, res) => {
             console.log(e);
             res.send({ error: e });
         }
-    } 
+    }
 });
-
 
 // Start the server
 try {
@@ -284,117 +283,120 @@ try {
     console.log(e);
 }
 
-// BATCH INSERTION SCRIPT
-//
+//BATCH INSERTION SCRIPT
 
-// const API_KEY = process.env.API_KEY;
-// const API_URL = "https://api.themoviedb.org/3/movie/";
-// const axios = require("axios");
+const API_KEY = process.env.API_KEY;
+const API_URL = "https://api.themoviedb.org/3/movie/";
+const axios = require("axios");
 
-// // get movie by id
-// const getMovie = async (id) => {
-//   try {
-//     const response = await axios.get(`${API_URL}${id}?api_key=${API_KEY}`);
-//     return response.data;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
+// get movie by id
+const getMovie = async (id) => {
+    try {
+        const response = await axios.get(`${API_URL}${id}?api_key=${API_KEY}`);
+        return response.data;
+    } catch (e) {
+        console.log(e);
+    }
+};
 
-// const processGenre = (genre_ids) => {
-//   const insertGenres = (gen_id, name) => {
-//     return `INSERT INTO \`${process.env.DB_NAME}\`.\`genres\` (id, name) VALUES ('${gen_id}', '${name}');`;
-//   };
-//   console.log("genre_ids", genre_ids);
-//   const data = genre_ids;
-//   try {
-//     for (const genre of data) {
-//       connection.query(
-//         insertGenres(genre.id, genre.name),
-//         function (err, results, fields) {
-//           if (err) {
-//             console.log(err);
-//           } else {
-//             console.log(results);
-//           }
-//         }
-//       );
-//     }
-//   } catch (e) {
-//     console.log(e);
-//   }
+const processGenre = (genre_ids) => {
+    const insertGenres = (gen_id, name) => {
+        return `INSERT INTO \`${process.env.DB_NAME}\`.\`genres\` (id, name) VALUES ('${gen_id}', '${name}');`;
+    };
+    console.log("genre_ids", genre_ids);
+    const data = genre_ids;
+    try {
+        for (const genre of data) {
+            connection.query(
+                insertGenres(genre.id, genre.name),
+                function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(results);
+                    }
+                }
+            );
+        }
+    } catch (e) {
+        console.log(e);
+    }
 
-//   // return array of ids as string
-//   return data.map((genre) => genre.id).join(",");
-// };
+    // return array of ids as string
+    return data.map((genre) => genre.id).join(",");
+};
 
-// const escape = (str) => {
-//   return str.replace(/'/g, "\\'");
-// };
+const escape = (str) => {
+    return str.replace(/'/g, "\\'");
+};
 
-// const customiseStatus = (status) => {
-//   console.log("[][][]", status);
-//   if (status === "Released") {
-//     return 1;
-//   } else if (status === "Rumored") {
-//     return 2;
-//   } else if (status === "Post Production") {
-//     return 3;
-//   } else {
-//     return 4;
-//   }
-// };
+const customiseStatus = (status) => {
+    console.log("[][][]", status);
+    if (status === "Released") {
+        return 1;
+    } else if (status === "Rumored") {
+        return 2;
+    } else if (status === "Post Production") {
+        return 3;
+    } else {
+        return 4;
+    }
+};
 
-// // insert
-// const insertQuery = (
-//   dbname,
-//   title,
-//   adult,
-//   poster_path,
-//   vertical_poster_path,
-//   overview,
-//   genre_ids,
-//   language,
-//   release_date,
-//   status
-// ) => {
-//   return `INSERT INTO \`${dbname}\`.\`movies\` (title, adult, poster_path, vertical_poster_path, overview, genre_ids, language, release_date, status) VALUES ('${title}', '${adult}', '${poster_path}', '${vertical_poster_path}', '${overview}', '${genre_ids}', '${language}', '${release_date}', '${status}');`;
-// };
-// // JUST EDIT THIS LINE
-// const ids = [1045944, 19995, 550, 505642, 436270, 736526, 724495, 76600, 873126];
-// // const ids = [1045944];
-// const insert = async (ids) => {
-//   try {
-//     for (const id of ids) {
-//       const movie = await getMovie(id);
-//       connection.query(
-//         insertQuery(
-//           process.env.DB_NAME,
-//           movie.title,
-//           movie.adult ? 1 : 0,
-//           escape(movie.poster_path),
-//           escape(movie.backdrop_path),
-//           escape(movie.overview),
-//           processGenre(movie.genres),
-//           movie.original_language,
-//           movie.release_date,
-//           customiseStatus(movie.status)
-//         ),
-//         function (err, results, fields) {
-//           if (err) {
-//             console.log(err);
-//           } else {
-//             console.log(results);
-//           }
-//         }
-//       );
-//     }
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
+// insert
+const insertQuery = (
+    dbname,
+    title,
+    adult,
+    poster_path,
+    vertical_poster_path,
+    overview,
+    genre_ids,
+    language,
+    release_date,
+    duration,
+    status
+) => {
+    return `INSERT INTO \`${dbname}\`.\`movies\` (title, adult, poster_path, vertical_poster_path, overview, genre_ids, language, release_date, duration, status) VALUES ('${title}', '${adult}', '${poster_path}', '${vertical_poster_path}', '${overview}', '${genre_ids}', '${language}', '${release_date}', ${duration},'${status}');`;
+};
+// JUST EDIT THIS LINE
+const ids = [
+    505642, 436270, 736526, 724495, 76600, 873126,
+];
+// const ids = [1045944];
+const insert = async (ids) => {
+    try {
+        for (const id of ids) {
+            const movie = await getMovie(id);
+            connection.query(
+                insertQuery(
+                    process.env.DB_NAME,
+                    movie.title,
+                    movie.adult ? 1 : 0,
+                    escape(movie.poster_path),
+                    escape(movie.backdrop_path),
+                    escape(movie.overview),
+                    processGenre(movie.genres),
+                    movie.original_language,
+                    movie.release_date,
+                    movie.runtime,
+                    customiseStatus(movie.status)
+                ),
+                function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(results);
+                    }
+                }
+            );
+        }
+    } catch (e) {
+        console.log(e);
+    }
+};
 
-// insert(ids);
+insert(ids);
 
 //// timeslots
 // const queryInsertTimeslots = (dbname, timeslots) => {

@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Barcode from "react-barcode";
 import "./index.css";
 

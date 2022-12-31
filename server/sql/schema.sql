@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS movies (
   genre_ids VARCHAR(255) NOT NULL,
   language VARCHAR(255) NOT NULL,
   release_date DATE NOT NULL,
+  duration INT NOT NULL,
   status ENUM('Trending', 'Ongoing', 'Upcoming', 'Archived') NOT NULL,
   
   PRIMARY KEY (id)
