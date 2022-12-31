@@ -12,7 +12,7 @@ import NewFeedbacks from "./NewFeedback";
 
 function Home(){
     return (
-        <Row className="me-0">
+        <Row className="me-0 ">
             <CSKHBanner/>
             <ContactUs/>
             <CSKHButton/>
@@ -20,7 +20,7 @@ function Home(){
     )
 }
 
-function LandingPage() {
+function CustomerCare() {
     return (
         <Container fluid>
             <Header/>
@@ -34,4 +34,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage;
+export default CustomerCare;
