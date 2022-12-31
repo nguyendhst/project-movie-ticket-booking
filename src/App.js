@@ -18,6 +18,8 @@ import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 import Monitoring from "./pages/Monitoring/monitoring";
+import Login from "./pages/User/Login";
+import Register from "./pages/User/Register";
 function App() {
     return (
         <React.Fragment>
@@ -34,6 +36,8 @@ function App() {
                     <Route path="/manage-staff" element={<ManageStaff />} />
                     <Route path="/select-shift" element={<StaffShift />} />
                     <Route path="/admin" element={<ManagerDashboard />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="/customer-care" element={<CustomerCare />}>
                         <Route path="new-feedback" element={<NewFeedbacks />} />
                         <Route

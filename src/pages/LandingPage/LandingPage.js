@@ -37,7 +37,11 @@ function LoginPopup(props) {
         </Modal.Body>
       </Modal>
     );
-  }
+}
+
+function Login () {
+    window.location.href = "/login";
+}
 
 function Header() {
     const [loginShow, setLoginShow] = React.useState(false);
@@ -55,7 +59,7 @@ function Header() {
                 </li>
             </ul>
             <li>
-                <Button className="LoginButton" onClick={() => setLoginShow(true)}>
+                <Button className="LoginButton" onClick={Login}>
                     Đăng nhập
                 </Button>
 
