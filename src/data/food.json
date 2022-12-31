@@ -1,0 +1,60 @@
+{
+    "foodList": [
+        {
+            "id": 1,
+            "name": "Bắp rang bơ Size M",
+            "price": 25000,
+            "image": "https://vn-live-01.slatic.net/p/efbee8fcfdd416b066b4437a57b09f10.jpg",
+            "type": 1
+        },
+        {
+            "id": 2,
+            "name": "Bắp rang bơ Size L",
+            "price": 40000,
+            "image": "https://vn-live-01.slatic.net/p/efbee8fcfdd416b066b4437a57b09f10.jpg",
+            "type": 1
+        },
+        {
+            "id": 3,
+            "name": "Poca vị bò nướng",
+            "price": 25000,
+            "image": "https://cdn.tgdd.vn/Products/Images/3364/234766/bhx/snack-khoai-tay-vi-bo-nuong-lua-hong-poca-goi-25g-202102222250043689.jpg",
+            "type": 1
+        },
+        {
+            "id": 4,
+            "name": "Oreo vị nguyên bản",
+            "price": 35000,
+            "image": "https://cdn.tgdd.vn/Products/Images/3357/79860/bhx/banh-quy-nhan-kem-vani-oreo-goi-133g-202208031516537634.jpg",
+            "type": 1
+        },
+        {
+            "id": 5,
+            "name": "Pepsi Size M",
+            "price": 35000,
+            "image": "https://cdn.brvn.vn/news/480px/2013/pepsilandan0_1372220188.jpg",
+            "type": 2
+        },
+        {
+            "id": 6,
+            "name": "Pepsi Size L",
+            "price": 45000,
+            "image": "https://cdn.brvn.vn/news/480px/2013/pepsilandan0_1372220188.jpg",
+            "type": 2
+        },
+        {
+            "id": 7,
+            "name": "7UP Size M",
+            "price": 35000,
+            "image": "https://jollibee.com.vn/uploads/dish/14a0814e94c7e1-1890002_7up.png",
+            "type": 2
+        },
+        {
+            "id": 8,
+            "name": "7UP Size L",
+            "price": 45000,
+            "image": "https://jollibee.com.vn/uploads/dish/14a0814e94c7e1-1890002_7up.png",
+            "type": 2
+        }
+    ]
+}

@@ -96,16 +96,34 @@
   row-gap: 100px;
 }
 
+.TabContent2 {  
+  max-height: 50vh;
+
+  padding-top: 40px;
+  padding-right: 4%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  /* justify-items: center; */
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+
+  column-gap: 2%;
+  row-gap: 100px;
+}
+
 .TabContent3 {  
   max-height: 50vh;
 
   padding-top: 40px;
   padding-right: 4%;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  justify-content: space-between;
   /* justify-items: center; */
   /* flex-wrap: wrap; */
+  column-gap: 2%;
 
   row-gap: 100px;
 }
@@ -249,14 +267,14 @@
   font-size: 1rem;
 }
 
-.Startdate {
+.StartdateMovie {
   grid-area: strt;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.InputStartdate {
+.InputStartdateMovie {
   grid-area: iStrt;
   margin-right: 20px;
   margin-left: 20px;

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Container, Row } from "react-bootstrap";
 import './CustomerCare.css';
 import Footer from '../../components/Footer/Footer';
-import Header from '../../components/header';
+import Header from './components/Header/Header';
 import CSKHBanner from "./components/CSKHBanner/CSKHBanner";
 import ContactUs from "./components/ContactUs/ContactUs";
 import CSKHButton from "./components/CSKHButton/CSKHButton";
@@ -12,7 +12,7 @@ import NewFeedbacks from "./NewFeedback";
 
 function Home(){
     return (
-        <Row className="me-0">
+        <Row className="me-0 ">
             <CSKHBanner/>
             <ContactUs/>
             <CSKHButton/>
@@ -20,7 +20,7 @@ function Home(){
     )
 }
 
-function LandingPage() {
+function CustomerCare() {
     return (
         <Container fluid>
             <Header/>
@@ -34,4 +34,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage;
+export default CustomerCare;
