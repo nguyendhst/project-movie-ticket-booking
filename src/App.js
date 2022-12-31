@@ -18,8 +18,8 @@ import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 import Monitoring from "./pages/Monitoring/monitoring";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 function App() {
     return (
