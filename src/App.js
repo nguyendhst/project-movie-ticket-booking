@@ -18,13 +18,9 @@ import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 import Monitoring from "./pages/Monitoring/monitoring";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-
 function App() {
     return (
         <React.Fragment>
-            <Header />
             <main>
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
@@ -53,7 +49,6 @@ function App() {
                     />
                 </Routes>
             </main>
-            <Footer />
         </React.Fragment>
     );
 }
