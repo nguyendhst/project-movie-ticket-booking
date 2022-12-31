@@ -2,7 +2,7 @@ const db = require("mysql2");
 const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
-const cors = require("cors");
+const cors = require('cors');
 
 app.use(cors())
 app.use(express.json({extended: false}));
@@ -50,13 +50,6 @@ const queryGetMovieById = (dbname, id) => {
     return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE id = ${id};`;
 };
 
-const queryGetMoviesByStatus = (dbname, status) => {
-    // ongoing -> Ongoing
-    // trending -> Trending
-    let statusCapitalized = status.charAt(0).toUpperCase() + status.slice(1);
-    return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE status = \'${statusCapitalized}\';`;
-};
-
 // Create a route
 app.get("/", async (req, res) => {
     try {
@@ -78,10 +71,11 @@ app.get("/", async (req, res) => {
     }
 });
 
+// GET /api/movies?genre=action&language=en&sort=release_date&order=desc&limit=10&offset=0
+
 // GET /api/movies?all=true
 app.get("/api/movies", async (req, res) => {
-    const { all, status, genre, language, sort, order, limit, offset } =
-        req.query;
+    const { all, genre, language, sort, order, limit, offset } = req.query;
     if (all) {
         try {
             connection.query(
@@ -99,26 +93,6 @@ app.get("/api/movies", async (req, res) => {
         } catch (e) {
             console.log(e);
             res.send({ error: e });
-        }
-    } else {
-        if (status) {
-            try {
-                connection.query(
-                    queryGetMoviesByStatus(process.env.DB_NAME, status),
-                    function (err, results, fields) {
-                        if (err) {
-                            console.log(err);
-                            res.send({ error: err });
-                        } else {
-                            console.log(results);
-                            res.send({ results });
-                        }
-                    }
-                );
-            } catch (e) {
-                console.log(e);
-                res.send({ error: e });
-            }
         }
     }
 });
@@ -221,28 +195,6 @@ app.post("/api/monitoring/add",async(req,res)=>{
         res.send({ error: e });
     }
 })
-
-// GET /api/genres?ids=[]
-app.get("/api/genres", async (req, res) => {
-    const { ids } = req.query;
-    try {
-        connection.query(
-            `SELECT * FROM \`${process.env.DB_NAME}\`.\`genres\` WHERE id IN (${ids});`,
-            function (err, results, fields) {
-                if (err) {
-                    console.log(err);
-                    res.send({ error: err });
-                } else {
-                    console.log(results);
-                    res.send({ results });
-                }
-            }
-        );
-    } catch (e) {
-        console.log(e);
-        res.send({ error: e });
-    }
-});
 
 // Start the server
 try {
@@ -365,7 +317,7 @@ try {
 
 // insert(ids);
 
-// // timeslots
+//// timeslots
 // const queryInsertTimeslots = (dbname, timeslots) => {
 //   const insert = () => {
 //     return `INSERT INTO \`${dbname}\`.\`timeslots\` (movie_id, start_time, duration, price, empty_seats) VALUES`;

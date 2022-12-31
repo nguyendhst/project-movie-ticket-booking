@@ -1,61 +1,88 @@
-import React from "react";
+import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import "./index.css";
 
+const filterCheck = [
+  {
+    id: 1,
+    name: "Price",
+    value: "price",
+    checked: false,
+  },
+  {
+    id: 2,
+    name: "Time",
+    value: "time",
+    checked: false,
+  },
+];
 
-// class Filter extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       filterCheck: filterCheck,
-//       filterRange: filterRange,
-//     };
+const filterRange = [
+  {
+    id: 1,
+    name: "Price",
+    value: "price",
+  },
+  {
+    id: 2,
+    name: "Seats",
+    value: "seats",
+  },
+];
 
-//     this.checkClickHandler = this.checkClickHandler.bind(this);
-//   }
+class Filter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterCheck: filterCheck,
+      filterRange: filterRange,
+    };
 
-//   checkClickHandler = (value) => {
-//     if (value === "price") {
-//       this.props.sortByPrice();
-//     } else if (value === "time") {
-//       this.props.sortByTime();
-//     }
-//   };
+    this.checkClickHandler = this.checkClickHandler.bind(this);
+  }
 
-//   render() {
-//     return (
-//       <div className="filter-box">
-//         <Form className="sticky">
-//           <div className="filter-radio">
-//             <Form.Label>Sort By</Form.Label>
-//             <FilterCheckList
-//               options={this.state.filterCheck}
-//               checkClickHandler={this.checkClickHandler}
-//             />
-//           </div>
-//           <div className="filter-range">
-//             <Form.Label>Filter By</Form.Label>
-//           </div>
-//         </Form>
-//       </div>
-//     );
-//   }
-// }
+  checkClickHandler = (value) => {
+    if (value === "price") {
+      this.props.sortByPrice();
+    } else if (value === "time") {
+      this.props.sortByTime();
+    }
+  };
 
-// const FilterCheckList = ({ options, checkClickHandler }) => {
-//   return (
-//     <div className="filter-check-list">
-//       {options.map((option) => (
-//         <Form.Check
-//           key={option.id}
-//           type="checkbox"
-//           label={option.name}
-//           onClick={() => {checkClickHandler(option.value)}}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
+  render() {
+    return (
+      <div className="filter-box">
+        <Form className="sticky">
+          <div className="filter-radio">
+            <Form.Label>Sort By</Form.Label>
+            <FilterCheckList
+              options={this.state.filterCheck}
+              checkClickHandler={this.checkClickHandler}
+            />
+          </div>
+          <div className="filter-range">
+            <Form.Label>Filter By</Form.Label>
+          </div>
+        </Form>
+      </div>
+    );
+  }
+}
+
+const FilterCheckList = ({ options, checkClickHandler }) => {
+  return (
+    <div className="filter-check-list">
+      {options.map((option) => (
+        <Form.Check
+          key={option.id}
+          type="checkbox"
+          label={option.name}
+          onClick={() => {checkClickHandler(option.value)}}
+        />
+      ))}
+    </div>
+  );
+};
 
 // class FilterRange extends Component {
 //   render() {
@@ -69,42 +96,5 @@ import "./index.css";
 //     );
 //   }
 // }
-
-function Filter(props) {
-    const { sortByPriceRegister, sortByTimeRegister } = props;
-
-    const sortByPriceRegisterHandler = () => {
-        sortByPriceRegister();
-    };
-
-    const sortByTimeRegisterHandler = () => {
-        sortByTimeRegister();
-    };
-
-    return (
-        <div className="filter-box">
-            <Form className="sticky">
-                <div className="filter-radio">
-                    <Form.Label>Sort By</Form.Label>
-                    <div className="filter-check-list">
-                        <Form.Check
-                            type="checkbox"
-                            label="Price"
-                            onClick={sortByPriceRegisterHandler}
-                        />
-                        <Form.Check
-                            type="checkbox"
-                            label="Time"
-                            onClick={sortByTimeRegisterHandler}
-                        />
-                    </div>
-                </div>
-                <div className="filter-range">
-                    <Form.Label>Filter By</Form.Label>
-                </div>
-            </Form>
-        </div>
-    );
-}
 
 export default Filter;
