@@ -3,7 +3,7 @@ import './CSKHButton.css'
 import { Link } from 'react-router-dom';
 import { Col, Row } from "react-bootstrap";
 
-function Index() {
+function CSKHButton() {
     return (
         <Row className="text-center">
             <Col md={6} >
@@ -24,4 +24,4 @@ function Index() {
     )
 }
 
-export default Index;
+export default CSKHButton;

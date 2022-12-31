@@ -1,4 +1,6 @@
 import React from "react";
+
+import NavBar from "../Components/navbar";
 import Dashboard from "../Components/dashboard";
 import Title from "../Components/title";
 import '../Assets/style.css';
@@ -8,6 +10,7 @@ import '../Assets/style.css';
 const Page = () => {
     return (
         <>
+            <NavBar/>
             <div className="main-page-1">
                 <Title title="TRANG CHỌN CA LÀM VIỆC"/>
                 <div className="h-100">

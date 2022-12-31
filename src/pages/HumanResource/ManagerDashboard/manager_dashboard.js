@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../Components/navbar";
 import '../Assets/style.css';
 import Title from "../Components/title";
 
@@ -6,6 +7,7 @@ export default function Page () {
     return (
         <>
             <div className="main-page-3">
+                <NavBar/>
                 <div className="">
                     <Title title="TRANG QUẢN TRỊ VIÊN"/>
                     <div className="page-1 d-flex justify-content-center mt-5">
