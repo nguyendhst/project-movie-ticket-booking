@@ -2,7 +2,7 @@ import React from "react";
 
 import events from '../../../data/event.json'
 
-import Button from "react-bootstrap/esm/Button";
+// import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
 import Tabs from "../../../components/Tabs/Tabs";
 import './Event.css'

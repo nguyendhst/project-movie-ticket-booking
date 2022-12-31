@@ -96,6 +96,22 @@
   row-gap: 100px;
 }
 
+.TabContent2 {  
+  max-height: 50vh;
+
+  padding-top: 40px;
+  padding-right: 4%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  /* justify-items: center; */
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+
+  column-gap: 2%;
+  row-gap: 100px;
+}
+
 .TabContent3 {  
   max-height: 50vh;
 

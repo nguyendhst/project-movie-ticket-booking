@@ -158,8 +158,45 @@ function AddModal(props) {
             </Modal.Footer>
         </Modal>
         : props.type === 2?
-        <Modal>
-            Từ từ add
+        <Modal {...props} centered
+        dialogClassName="addModal">
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                Thêm đồ ăn - thức uống mới
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+            <Form className="addModalBody2 overflow-auto">
+                <Form.Label className="iLabel eventName" htmlFor="inputName">Tên món ăn</Form.Label>
+                <Form.Group className="InputName">
+                    <Form.Control type="text" id="inputName"/>
+                </Form.Group>
+
+                <Form.Label className="iLabel price" htmlFor="inputPrice">Giá</Form.Label>
+                <Form.Group className="InputPrice">
+                    <Form.Control type="number" id="inputPrice" defaultValue={10000}/>
+                </Form.Group>
+
+                <Form.Label className="iLabel type" htmlFor="inputType">Sản phẩm</Form.Label>
+                <Form.Group className="InputType">
+                    <Form.Select id="inputType" className="CategoriesOption">
+                        <option value={1}>Đồ ăn</option>
+                        <option value={2}>Thức uống</option>
+                    </Form.Select>
+                </Form.Group>
+
+                <Form.Group className="BannerPreview">
+                    <Form.Control onChange={bannerChange} type="text" id="BannerSrc"/>
+                    <img className="BannerPreview" src={bannerSrc} alt="Please input film banner source"/>
+                </Form.Group>
+
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+                <Button onClick={props.onHide} className="footerBtn">Lưu</Button>
+                <Button onClick={props.onHide} className="footerBtn">Huỷ</Button>
+            </Modal.Footer>
+
         </Modal>
         : 
         <Modal {...props}
