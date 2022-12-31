@@ -82,7 +82,7 @@ function Monitoring() {
   const [unit,setUnit]=useState("Tháng");
   const [start_time,setStart_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, 1));
   const [end_time,setEnd_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, daysInMonth(date.getFullYear(), date.getMonth())));
-  const [yearpage,setYearPage]=useState(date.getFullYear());
+  const [yearpage,setYearPage]=useState(date.getFullYear()-(date.getMonth()-1<0?1:0));
   const handleAE=(e)=>{
     e.preventDefault();
     toggleAE(!addeventstate);
@@ -189,7 +189,7 @@ function Monitoring() {
       </Modal.Header>
       <Modal.Body>
       <h2 className='m-centering'>Xuất báo cáo</h2>
-        <ExportReport/>
+        <ExportReport activity_data={activity_data} name={display_time(unit,yearpage,start_time).replace("/","_")}/>
       </Modal.Body>
     </Modal>
     </Container>

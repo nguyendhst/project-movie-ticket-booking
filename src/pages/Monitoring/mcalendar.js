@@ -105,7 +105,7 @@ function MCalendar(){
                 <div className="m-month">
                     {
                         Months.map((month, idx) => {
-                            if (idx > date.getMonth()) {
+                            if (idx > date.getMonth() && yearpage>=date.getFullYear()) {
                                 return <button className="unused" value={idx} key={idx} disabled>{month}</button>;
                             } else if (idx===date.getMonth() && yearpage===date.getFullYear()){
                                 return <button className="unused m-cur" value={idx} key={idx} disabled>{month}</button>
@@ -141,7 +141,7 @@ function MCalendar(){
                 <div className="m-quarter">
                     {
                         Quarters.map((quarter, idx) => {
-                            if (idx*3+3 > date.getMonth()) {
+                            if (idx*3+3 > date.getMonth() && yearpage>=date.getFullYear()) {
                                 return <button className="unused" key={idx} value={idx} disabled>{quarter}</button>;
                             } else if(idx===Math.ceil(date.getMonth()/3) && yearpage===date.getFullYear()){
                                 return <button className="unused m-cur" key={idx} value={idx} disabled>{quarter}</button>;
