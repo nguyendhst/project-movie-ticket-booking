@@ -2,7 +2,7 @@ import React from "react"
 import { Routes, Route } from 'react-router-dom';
 import { Container, Row } from "react-bootstrap";
 import './CustomerCare.css';
-import Footer from '../../components/footer';
+import Footer from '../../components/Footer/Footer';
 import Header from '../../components/header';
 import CSKHBanner from "./components/CSKHBanner/CSKHBanner";
 import ContactUs from "./components/ContactUs/ContactUs";
