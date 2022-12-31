@@ -1,7 +1,9 @@
 import React, {useState}  from "react";
 
 import Slider from "react-slick";
-import { Button } from "react-bootstrap";
+import { Button,
+	//  OverlayTrigger, Popover
+	 } from "react-bootstrap";
 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -44,7 +46,50 @@ function getShowtime(activeDay, id) {
 	return shtimes
 }
 
+function getScreen(activeDay) {
+	let screen = []
+	screen[1] = []
+	screen[2] = []
+	screen[3] = []
+	showtimes.Screen1.forEach((date, index) =>
+		{
+			if (date.date.toString() === activeDay) 
+				screen[1] = date.showtime
+		}
+	)
+	showtimes.Screen2.forEach((date, index) =>
+		{
+			if (date.date.toString() === activeDay) 
+				screen[2] = date.showtime
+		}
+	)
+	showtimes.Screen3.forEach((date, index) =>
+		{
+			if (date.date.toString() === activeDay) 
+				screen[3] = date.showtime
+		}
+	)
+	return screen
+}
+
+// const popover = (
+// 	<Popover id="popover-basic">
+// 	  <Popover.Header as="h3">Popover right</Popover.Header>
+// 	  <Popover.Body>
+// 		And here's some <strong>amazing</strong> content. It's very engaging.
+// 		right?
+// 	  </Popover.Body>
+// 	</Popover>
+//   );
+
 function ShowtimeTabs(props) {
+	const [allShowtime, setAllShowtime] = useState(false)
+	function onClick_all(e) {
+		e.preventDefault();
+		setAllShowtime(!allShowtime)
+		console.log(allShowtime)
+	}
+
 	const dates = props.dates
 	const id = props.filmID
     const settings = {
@@ -58,7 +103,7 @@ function ShowtimeTabs(props) {
 	const [activeIndex, setActiveIndex] = useState(0)
 	let activeDay = dates[activeIndex].getDate() + '/' + (dates[activeIndex].getMonth() + 1) + '/' + dates[activeIndex].getFullYear()
 	let showtime = getShowtime(activeDay, id)
-
+	  let screen = getScreen(activeDay)
 	  return (
     <div >
         <Slider {...settings}>
@@ -75,9 +120,11 @@ function ShowtimeTabs(props) {
 			}
         </Slider>
 		<div className='showtimeTabBody'>
-		<div className='startTimeContainer'>
+		{
+			(allShowtime)? 
+			<div className='startTimeContainer'>
 			{	
-				(showtime.length === 0)?
+				(showtime[1].length === 0)?
 				<h3>
 					Không có lịch chiếu phim này trong ngày {activeDay}
 				</h3>:
@@ -87,10 +134,89 @@ function ShowtimeTabs(props) {
 					</Button>
 				)
 			}
-		</div>
-		<div className='manageShowtimeBtn'>
-			<Button>
-				Quản lý
+			</div>
+			:
+			<>
+			<h2 style={{textAlign: "center"}}>Screen 1</h2>
+			<div className='mb-4'>
+			{	
+				(screen[1].length === 0 )?
+				<h3>
+					Không có lịch chiếu phim trong ngày {activeDay}
+				</h3>:
+				<div className='startTimeContainer'>
+				{
+					screen[1].map((time, index) => 
+					<Button
+					key={index}
+					className = "startTime"
+					>
+						FilmID: {time.id}
+						<br/>
+						<h4>{time["start-time"]}</h4>
+					</Button>
+					)
+				}
+				</div>
+			}
+			</div>
+			<h2 style={{textAlign: "center"}}>Screen 2</h2>
+			<div className='mb-4'>
+			{	
+				(screen[2].length === 0 )?
+				<h3>
+					Không có lịch chiếu phim trong ngày {activeDay}
+				</h3>:
+				<div className='startTimeContainer'>
+				{
+					screen[2].map((time, index) => 
+					<Button
+					key={index}
+					className = "startTime"
+					>
+						FilmID: {time.id}
+						<br/>
+						<h4>{time["start-time"]}</h4>
+					</Button>
+					)
+				}
+				</div>
+			}
+			</div>
+			<h2 style={{textAlign: "center"}}>Screen 3</h2>
+			<div className=''>
+			{	
+				(screen[3].length === 0 )?
+				<h3>
+					Không có lịch chiếu phim trong ngày {activeDay}
+				</h3>:
+				<div className='startTimeContainer'>
+				{
+					screen[3].map((time, index) => 
+					<Button
+					key={index}
+					className = "startTime"
+					>
+						FilmID: {time.id}
+						<br/>
+						<h4>{time["start-time"]}</h4>
+					</Button>
+					)
+				}
+				</div>
+			}
+			</div>
+			</>
+		}
+		
+		<div className='manageShowtimeBtn mt-4'>
+			<Button onClick={onClick_all}>
+				{
+					(allShowtime)?
+					"Chỉ phim này"
+					:
+					"Tất cả lịch chiếu các phim"
+				}
 			</Button>
 		</div>
 		</div>

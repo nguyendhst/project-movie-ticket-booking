@@ -267,14 +267,14 @@
   font-size: 1rem;
 }
 
-.Startdate {
+.StartdateMovie {
   grid-area: strt;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.InputStartdate {
+.InputStartdateMovie {
   grid-area: iStrt;
   margin-right: 20px;
   margin-left: 20px;
