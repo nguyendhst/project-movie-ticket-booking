@@ -60,3 +60,16 @@ CREATE TABLE IF NOT EXISTS tickets (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS activities (
+  id INT NOT NULL AUTO_INCREMENT,
+  names VARCHAR(255) NOT NULL,
+  code VARCHAR(255) NOT NULL,
+  start_time DATE NOT NULL,
+  end_time DATE NOT NULL,
+  received DECIMAL(10,2) NOT NULL,
+  spend DECIMAL(10,2) NOT NULL,
+  kpi DECIMAL(10,2) NOT NULL,
+  descriptions VARCHAR(255) NOT NULL,
+  
+  PRIMARY KEY (id)
+);

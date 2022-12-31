@@ -17,6 +17,7 @@ import NotifyEvent from "./pages/NotifyEvent/NotifyEvent";
 import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
+import Monitoring from "./pages/Monitoring/monitoring";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -29,9 +30,9 @@ function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
 
-                    <Route path="/content-manage" element={<Content />} />
-                    <Route path="movie-manage/:movie_id" element={<Movie />} />
-
+                    <Route path="/content-manage" element={<Content />}/>
+                    <Route path="movie-manage/:movie_id" element={<Movie />}/>
+                    <Route path="monitoring" element={<Monitoring />}/>
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
                     <Route path="/manage-staff" element={<ManageStaff />} />

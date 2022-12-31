@@ -66,7 +66,7 @@
   width: 100%;
   
   max-height: 55vh;
-  padding-bottom: 40px;
+  padding-bottom: min(5%, 10px);
 
   display: grid;
   grid-template-columns: 1fr 3fr;
