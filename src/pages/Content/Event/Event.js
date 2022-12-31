@@ -7,11 +7,37 @@ import Card from "react-bootstrap/esm/Card";
 import Tabs from "../../../components/Tabs/Tabs";
 import './Event.css'
 
+import House from "../../../Asset/house.svg";
+import Footer from "../../../components/Footer/Footer";
+
+function Header() {
+	return(
+			<ul className="Header">
+					<ul className="Left_header">
+							<li id="Home-logo">
+									<a href="/manager">
+											<img src={House} width='40px' height='40px' alt="Home logo"></img>
+									</a>
+							</li>
+					</ul>
+					<li>
+							<a href='/#'>
+							<Button
+							className="LogoutButton"
+							>
+									Đăng xuất
+							</Button>
+							</a>
+					</li>
+			</ul>
+	)
+}
 
 function Event() {
   const eventList = events.eventList
   return (
     <div className="Event">
+      <Header />
       <div className="EventMain">
         <Tabs 
           tabs={
@@ -89,6 +115,7 @@ function Event() {
           type = {3}
         />
       </div>
+      <Footer/>
     </div>
   )
 }
