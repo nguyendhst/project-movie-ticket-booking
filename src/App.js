@@ -22,8 +22,6 @@ import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 import Monitoring from "./pages/Monitoring/monitoring";
-import Header from "./components/header";
-import Footer from "./components/footer";
 import Login from "./pages/User/Login";
 import Register from "./pages/User/Register";
 
