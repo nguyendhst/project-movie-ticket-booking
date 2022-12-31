@@ -5,6 +5,8 @@ import HamburgerLogo from '../../Asset/Hamburger.png';
 import House from '../../Asset/house.svg';
 import Footer from '../../components/Footer/Footer';
 import FilmBanner from "../../components/Film_banner/FilmBanner";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {Modal, Button, ButtonGroup} from "react-bootstrap";
 
@@ -45,12 +47,15 @@ function Login () {
 
 function Header() {
     const [loginShow, setLoginShow] = React.useState(false);
+    const [sidebar, setSidebar] = React.useState(false);
+
+    const showSidebar = () => setSidebar(!sidebar);
 
     return(
         <ul className="Header">
             <ul className="Left_header">
                 <li id="Ham-icon">
-                    <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px"></img>
+                    <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px" onClick={showSidebar}></img>
                 </li>
                 <li id="Home-logo">
                     <a href="/#">
@@ -58,6 +63,35 @@ function Header() {
                     </a>
                 </li>
             </ul>
+            <li className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <ul className='nav-menu-items' onClick={showSidebar}>
+                    <li className='navbar-toggle'>
+                    <a href='/#' className='menu-bars'>
+                        <FontAwesomeIcon icon={faXmark} className="sidebar-logo" />
+                    </a>
+                    </li>
+                    <li className="nav-text">
+                        <a href='/customer-care'>
+                            Lịch chiếu phim
+                        </a>
+                    </li>
+                    <li className="nav-text">
+                        <a href='/customer-care'>
+                            Ưu đãi
+                        </a>
+                    </li>
+                    <li className="nav-text">
+                        <a href='/customer-care'>
+                            Contact us
+                        </a>
+                    </li>
+                    <li className="nav-text">
+                        <a href='/customer-care'>
+                            About us
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <Button className="LoginButton" onClick={Login}>
                     Đăng nhập
