@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/esm/Carousel";
 import "./CarouselBanner.css";
+import { Link } from "react-router-dom";
 
 // import films from "../../../data/films.json";
 
@@ -23,19 +24,19 @@ function CarouselBanner(props) {
         <Carousel
             className="Banner_vertical"
             activeIndex={index}
-            fade
+            slide={true}
             interval={3000}
             variant="dark"
         >
             {trending.map((film, index) => (
                 <Carousel.Item key={film.id}>
-                    <a onClick={handleSelect.bind(this, index)}>
+                    <Link to={"/movie/" + film.id}>
                         <img
                             className="d-block w-100"
                             src={imgPath + film.vertical_poster_path}
-                            alt={film.title}
+                            alt="Posters"
                         />
-                    </a>
+                    </Link>
                     <Carousel.Caption>
                         <h3>{film.title}</h3>
                     </Carousel.Caption>

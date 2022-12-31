@@ -1,34 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import "./index.css";
 
-const filterCheck = [
-    {
-        id: 1,
-        name: "Price",
-        value: "price",
-        checked: false,
-    },
-    {
-        id: 2,
-        name: "Time",
-        value: "time",
-        checked: false,
-    },
-];
-
-const filterRange = [
-    {
-        id: 1,
-        name: "Price",
-        value: "price",
-    },
-    {
-        id: 2,
-        name: "Seats",
-        value: "seats",
-    },
-];
 
 // class Filter extends Component {
 //   constructor(props) {
