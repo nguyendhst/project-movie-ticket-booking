@@ -12,7 +12,7 @@ import NewFeedbacks from "./NewFeedback";
 
 function Home(){
     return (
-        <Row className="me-0">
+        <Row className="me-0 ">
             <CSKHBanner/>
             <ContactUs/>
             <CSKHButton/>
