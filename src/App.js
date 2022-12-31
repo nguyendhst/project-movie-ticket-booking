@@ -4,8 +4,12 @@ import { Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ManagerLP from "./pages/ManagerLP/ManagerLP";
+
 import Content from "./pages/Content/Content";
 import Movie from "./pages/Content/Movie/Movie";
+import Event from "./pages/Content/Event/Event";
+import Food from "./pages/Content/Food/Food";
+
 import TicketBooking from "./pages/TicketBooking";
 import ManageShift from "./pages/HumanResource/ManageShift/manage_shift";
 import StaffShift from "./pages/HumanResource/StaffShift/staff_shift";
@@ -32,6 +36,9 @@ function App() {
 
                     <Route path="/content-manage" element={<Content />}/>
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
+                    <Route path="/event-manage" element={<Event />} />
+                    <Route path="/food-manage" element={<Food />} />
+
                     <Route path="monitoring" element={<Monitoring />}/>
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
