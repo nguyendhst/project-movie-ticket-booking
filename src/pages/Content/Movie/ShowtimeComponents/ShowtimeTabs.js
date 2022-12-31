@@ -172,7 +172,7 @@ function ShowtimeTabs(props) {
 						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
 						  <Popover.Body>
 							<div >
-							<img src={time.film.poster} style={{width: '100%'}}></img>
+							<img src={time.film.poster} style={{width: '100%'}} alt="..."></img>
 
 							</div>
 						  </Popover.Body>
@@ -207,7 +207,7 @@ function ShowtimeTabs(props) {
 						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
 						  <Popover.Body>
 							<div >
-							<img src={time.film.poster} style={{width: '100%'}}></img>
+							<img src={time.film.poster} style={{width: '100%'}} alt="..."></img>
 
 							</div>
 						  </Popover.Body>
@@ -242,7 +242,7 @@ function ShowtimeTabs(props) {
 						  <Popover.Header as="h3">{time.film.name}</Popover.Header>
 						  <Popover.Body>
 							<div >
-							<img src={time.film.poster} style={{width: '100%'}}></img>
+							<img src={time.film.poster} style={{width: '100%'}} alt="..."></img>
 
 							</div>
 						  </Popover.Body>

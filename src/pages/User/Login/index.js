@@ -20,7 +20,7 @@ function HandleLogin() {
         if (accRole === "1") {
             window.location.href = "/manager";
         } else if (accRole === "2") {
-            window.location.href = "/select-shift";
+            window.location.href = "/staff";
         } else if (accRole === "3"){
             window.location.href = "/";
         }
