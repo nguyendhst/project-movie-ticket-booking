@@ -1,0 +1,94 @@
+.EventMain{
+    margin-top: calc(5% + 80px);
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 80%;
+    min-height: 660px;
+    max-height: 60vh;
+
+    background-color: #003C4B;
+    color: #ffffff;
+    border-radius: 16px 16px 16px 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.EventBanner{
+    min-height: 300px;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;;
+}
+
+.addModalBody3 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    grid-auto-rows: minmax(52px, auto);
+    grid-template-areas: 
+    "eName iName iName iName"
+    "dis iDis dison iDison"
+    "st iSt e iE"
+    "bnn bnn bnn bnn";
+}
+
+.eventName {
+    grid-area: eName
+}
+
+.discount {
+    grid-area: dis;
+}
+
+.InputDiscount {
+    grid-area: iDis;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.discountOn {
+    grid-area: dison;
+}
+
+.InputDiscountOn {
+    grid-area: iDison;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.Startdate{
+    grid-area: st;
+}
+
+.InputStartdate {
+    grid-area: iSt;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.Enddate{
+    grid-area: e;
+}
+
+.InputEnddate {
+    grid-area: iE;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.BannerPreview{
+    grid-area: bnn;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
