@@ -1,11 +1,13 @@
 .ticket-booking {
   background-color: #fdfdfd;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
   padding: 30px;
   height: 100%;
 }
 
 .ticket-item {
-  border: 3px solid #121111;
+  border: 1px solid #4c4545;
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.9);
   border-radius: 10px;
   margin-top: 20px;
   position: relative;

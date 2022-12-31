@@ -106,8 +106,9 @@ function TicketBooking() {
     const [originalTicketData, setOriginalTicketData] = useState([]);
     const [ticketData, setTicketData] = useState([]);
     const [activeID, setActiveID] = useState(-1);
-    const [priceFilter, setPriceFilter] = useState(false);
-    const [timeFilter, setTimeFilter] = useState(false);
+    const [priceFilter, setPriceFilter] = useState("off");
+    const [timeFilter, setTimeFilter] = useState("off");
+    const [seatFilter, setSeatFilter] = useState("off");
     const [movieID, setMovieID] = useState(null);
     const [movie, setMovie] = useState([]);
 
@@ -148,13 +149,17 @@ function TicketBooking() {
     useEffect(() => {
         console.log("apply filters");
         let base = originalTicketData.map((ticket) => ticket);
-        if (priceFilter) {
-            console.log("sorting prices ")
+        if (priceFilter === "asc") {
+            console.log("sorting prices asc");
             base.sort((a, b) => a.price - b.price);
+        } else if (priceFilter === "desc") {
+            console.log("sorting prices desc");
+            base.sort((a, b) => b.price - a.price);
         }
         // format Tue 17-Dec-2022 17:41-19:41
-        if (timeFilter) {
-            console.log("sorting times ")
+        console.log(timeFilter);
+        if (timeFilter === "asc") {
+            console.log("sorting times asc");
             base.sort((a, b) => {
                 const aTime = new Date(
                     a.timeLong.slice(4, 14) + " " + a.time.slice(0, 5)
@@ -164,53 +169,65 @@ function TicketBooking() {
                 );
                 return aTime - bTime;
             });
+        } else if (timeFilter === "desc") {
+            console.log("sorting times desc");
+            base.sort((a, b) => {
+                const aTime = new Date(
+                    a.timeLong.slice(4, 14) + " " + a.time.slice(0, 5)
+                );
+                const bTime = new Date(
+                    b.timeLong.slice(4, 14) + " " + b.time.slice(0, 5)
+                );
+                return bTime - aTime;
+            });
         }
+        if (seatFilter === "asc") {
+            console.log("sorting seats asc");
+            base.sort((a, b) => a.emptySeats - b.emptySeats);
+        } else if (seatFilter === "desc") {
+            console.log("sorting seats desc");
+            base.sort((a, b) => b.emptySeats - a.emptySeats);
+        }
+
         console.log("base: ", base);
         setTicketData(base);
-    }, [priceFilter, timeFilter]);
+    }, [priceFilter, timeFilter, seatFilter]);
 
     const activeTicket = (id) => {
         console.log("activeTicket", id);
         setActiveID(id);
     };
 
-    const sortByPriceRegister = () => {
+    const sortByPriceRegister = (dir) => {
         console.log("price sort");
-        setPriceFilter(!priceFilter);
+        setPriceFilter(dir);
     };
 
-    const sortByTimeRegister = () => {
+    const sortByTimeRegister = (dir) => {
         console.log("time sort");
-        setTimeFilter(!timeFilter);
+        setTimeFilter(dir);
     };
 
-    // const applyAllFilter = () => {
-    //     console.log("applyAllFilter");
-    //     let base = originalTicketData.map((ticket) => ticket);
-    //     console.log(base[0].price);
-    //     console.log(priceFilter);
-    //     if (priceFilter) {
-    //         base.sort((a, b) => a.price - b.price);
-    //     }
-    //     if (timeFilter) {
-    //         base.sort((a, b) => {
-    //             const aTime = new Date("2022-12-17 " + a.time.slice(0, 5));
-    //             const bTime = new Date("2022-12-17 " + b.time.slice(0, 5));
-    //             return aTime - bTime;
-    //         });
-    //     }
-    //     setTicketData(base);
-    // };
+    const sortBySeatRegister = (dir) => {
+        console.log("seat sort");
+        setSeatFilter(dir);
+    };
 
     return (
         <React.Fragment>
             <Banner movie={movie} />
             <Container>
+                <Row className="title">
+                    <Col>
+                        <h1>Đặt vé</h1>
+                    </Col>
+                </Row>
                 <Row className="ticket-booking">
                     <Col sm={4} className="filter">
                         <Filter
                             sortByPriceRegister={sortByPriceRegister}
                             sortByTimeRegister={sortByTimeRegister}
+                            sortBySeatRegister={sortBySeatRegister}
                         />
                     </Col>
                     <Col sm={8}>
@@ -334,7 +351,11 @@ function TicketItem(props) {
                     unmountOnExit={true}
                 >
                     <div id="collapse-booking">
-                        <MasterForm basePrice={price} />
+                        <MasterForm 
+                            basePrice={price}
+                            time={time}
+                            date={timeLong}
+                         />
                     </div>
                 </Collapse>
                 <Collapse

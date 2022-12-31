@@ -1,12 +1,17 @@
-.filter-box {
+.filter-wrapper {
     padding-top:40px;
     position: sticky;
     top: 0;
 }
 
+.filter-box {
+    margin: 30px 0;
+}
+
 form.sticky {
-    border: 3px solid #121111;
+    border: 1px solid #45cee0;
     border-radius: 10px;
     padding: 20px;
     padding-right: 50px;
+    box-shadow: 5px 5px 5px rgba(95, 91, 91, 0.9);
 }
