@@ -12,11 +12,11 @@ function CarouselBanner(props) {
     const { trending } = props;
     const [index, setIndex] = useState(0);
 
-    const handleSelect = (selectedIndex, e) => {
-        // navigate to movie page
-        window.open(moviePath + trending[selectedIndex].id, "_blank");
-        setIndex(selectedIndex);
-    };
+    // const handleSelect = (selectedIndex, e) => {
+    //     // navigate to movie page
+    //     window.open(moviePath + trending[selectedIndex].id, "_blank");
+    //     setIndex(selectedIndex);
+    // };
 
     // let trendFilms = films.Trend;
     // let OnGoingFilms = films.OnGoing;
