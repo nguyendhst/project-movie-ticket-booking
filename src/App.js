@@ -20,6 +20,8 @@ import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_das
 import Monitoring from "./pages/Monitoring/monitoring";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Login from "./pages/User/Login";
+import Register from "./pages//User/Register";
 
 function App() {
     return (
@@ -29,7 +31,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
-
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="/content-manage" element={<Content />}/>
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
                     <Route path="monitoring" element={<Monitoring />}/>

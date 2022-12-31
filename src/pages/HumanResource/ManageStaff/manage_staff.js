@@ -1,8 +1,7 @@
 import React from "react";
-import NavBar from "../Components/navbar";
 import '../Assets/style.css';
 import Title from "../Components/title";
-import data from '../Assets/data.json';
+import data from '../../../data/staff.json';
 
 
 function searchTable() {
@@ -26,6 +25,8 @@ function searchTable() {
         }
     }
 }
+
+
 
 const Table = () => {
     let staffs = data.Staff;
@@ -59,10 +60,11 @@ const Table = () => {
                                 <td className="text-center">{item.phone}</td>
                                 <td className="">{item.address}</td>
                                 <td>
-                                    <div className="d-flex justify-content-center align-items-center">
+                                    <div className="d-flex justify-content-center">
                                         <button
                                             type="button"
-                                            className="btn bg-primary position-relative text-white btn-sm btn-rounded rounded-3 m-1">
+                                            className="btn bg-primary position-relative text-white btn-sm btn-rounded rounded-3 m-1"
+                                            >
                                             Sửa
                                         </button>
                                         <button
@@ -87,14 +89,13 @@ const Table = () => {
 export default function Page () {
     return (
         <>
-            <NavBar/>
             <div className="main-page-2">
                 <Title title="TRANG QUẢN LÝ THÔNG TIN NHÂN VIÊN"/>
                 <div className="h-100">
                     <div className="container-fluid p-5 h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
                             <div className="page col-xl">
-                                <div className="card rounded-3 text-black p-5 d-flex justify-content-center">
+                                <div id="main-card" className="card rounded-3 text-black p-5 d-flex justify-content-center">
                                     <div className="form-outline mb-4 d-flex justify-content-center">
                                         <input type="search"
                                                className="form-control w-25"

@@ -12,8 +12,16 @@ import { Button, Nav } from "react-bootstrap";
 
 import LoginPopup from "../../services/LoginPopup";
 
+import {Navigate} from "react-router-dom";
+
 function Header() {
     const [loginShow, setLoginShow] = React.useState(false);
+
+    // redirect to /login
+    const handleLogin = () => {
+        console.log("ref")
+        window.location.href = "/login";
+    }
 
     return (
         <Navbar className="header-navbar" expand="lg">
@@ -35,7 +43,7 @@ function Header() {
                 <Nav>
                     <Button
                         className="header-login"
-                        onClick={() => setLoginShow(true)}
+                        onClick={handleLogin}
                     >
                         Đăng nhập
                     </Button>
