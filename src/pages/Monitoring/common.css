@@ -1,8 +1,4 @@
 /* monitoring */
-th, tr,td{
-    /* font-size: 5px; */
-    min-width: 3em;
-}
 .form-control:focus{
     z-index: 5;
 }
@@ -84,4 +80,14 @@ th, tr,td{
     right: 0;
     flex-wrap: wrap;
     bottom: 70px;
+}
+/* export file */
+.m-extension{
+    display: flex;
+    justify-content: flex-end;
+}
+#m-select-ext{
+    margin: auto;
+    width:75%;
+    padding:1em;
 }
