@@ -106,7 +106,7 @@ function AddEvent() {
                             />
                         </Form.Group>
                     </Row>
-                    <Row>
+                    <Row id='m-add-event-button'>
                         <Button variant="primary" type="submit" style={{width:"fit-content",margin: "1em"}}>
                             Thêm hoạt động
                         </Button>
