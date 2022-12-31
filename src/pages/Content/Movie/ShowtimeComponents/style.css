@@ -6,15 +6,30 @@
 }
 
 .startTimeContainer{
-    display: flex;
-    column-gap: 5%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+
+    justify-content: space-between;
+
+    column-gap: 2%;
+    row-gap: 20px;
 }
 .startTime {
     background-color: #DFF2ED;
     color: #003C4B;
+    width: 200px;
+    /* width: 100%; */
+    border-radius: 8px;
+    border-width: 0px;
 }
 
 .manageShowtimeBtn {
     display: flex;
     justify-content: flex-end;
+}
+
+.slick-slider {
+    background-color: #DFF2ED;
+    border-radius: 16px;
 }

@@ -1,5 +1,18 @@
 import React from "react";
 
+function Logout () {
+    window.location.href = "/";
+}
+
+function MainPage() {
+    let curURL = window.location.href;
+    if (curURL.includes("/manage-shift") || curURL.includes("/manage-staff")) {
+        window.location.href = "/manager";
+    } else if (curURL.includes("/select-shift")) {
+        window.location.href = "#";
+    }
+}
+
 export default function NavBar() {
     return (
         <>
@@ -16,16 +29,16 @@ export default function NavBar() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto align-items-center">
                             <li className="nav-item m-2">
-                                <a href="/admin">
-                                    <button type="button"
-                                            className="btn btn-info position-relative rounded-pill d-inline">
-                                        Trang chính
-                                    </button>
-                                </a>
+                                <button type="button"
+                                        className="btn btn-info position-relative rounded-pill d-inline"
+                                        onClick={MainPage}>
+                                    Trang chính
+                                </button>
                             </li>
                             <li className="nav-item m-2">
                                 <button type="button"
-                                        className="btn btn-warning position-relative rounded-pill d-inline">
+                                        className="btn btn-warning position-relative rounded-pill d-inline"
+                                        onClick={Logout}>
                                     Đăng xuất
                                 </button>
                             </li>

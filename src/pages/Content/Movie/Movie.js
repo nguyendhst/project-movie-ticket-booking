@@ -167,12 +167,12 @@ function Movie() {
 							<h4 className="iLabel dimension">ngày</h4>
 					</Form.Group>
 
-					<Form.Group className="Startdate">
+					<Form.Group className="StartdateMovie">
 							<Form.Label className="iLabel" htmlFor="inputStartdate">
 									Ngày khởi chiếu
 							</Form.Label>
 					</Form.Group>
-					<Form.Group className="InputStartdate">
+					<Form.Group className="InputStartdateMovie">
 						<DatePicker dateFormat='dd/MM/yyyy'
 						defaultValue={movie.startdate}
 						className='form-control'

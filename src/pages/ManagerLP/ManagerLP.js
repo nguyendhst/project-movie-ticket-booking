@@ -55,10 +55,10 @@ function ManagerLP() {
             <div className="ManagerLPMain">
                 <ManagerOptions content="Quản lý doanh thu" route="/#"/>
                 <ManagerOptions content="Quản lý ca làm việc" route="/manage-shift"/>
-                <ManagerOptions content="Quản lý nhân viên" route="/#"/>
+                <ManagerOptions content="Quản lý nhân viên" route="/manage-staff"/>
                 <ManagerOptions content="Lịch chiếu & Phim" route="/content-manage"/>
-                <ManagerOptions content="Khuyến mãi" route="/notify-event"/>
-                <ManagerOptions content="Đồ ăn & thức uống" route="/#"/>
+                <ManagerOptions content="Khuyến mãi" route="/event-manage"/>
+                <ManagerOptions content="Đồ ăn & thức uống" route="/food-manage"/>
             </div>
             <Footer/>
         </div>

@@ -5,7 +5,7 @@ import { Col, Row } from "react-bootstrap";
 
 function CSKHButton() {
     return (
-        <Row className="text-center">
+        <Row className="text-center mainwork">
             <Col md={6} >
                 <Link to='/customer-care/new-feedback'>
                     <button className="New_feedback"> 

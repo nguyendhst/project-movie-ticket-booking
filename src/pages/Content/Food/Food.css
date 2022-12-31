@@ -1,0 +1,39 @@
+.FoodBanner{
+    min-height: 300px;
+    width: 200px;
+    border-radius: 0px 0px 8px 8px;;
+}
+
+.addModalBody2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    grid-auto-rows: minmax(52px, auto);
+    grid-template-areas: 
+    "eName iName iName iName"
+    "pr iPr t iT"
+    "bnn bnn bnn bnn";
+}
+
+.price{
+    grid-area: pr;
+}
+
+.InputPrice {
+    grid-area: iPr;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.type {
+    grid-area: t;
+}
+
+.InputType{
+    grid-area: iT;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
