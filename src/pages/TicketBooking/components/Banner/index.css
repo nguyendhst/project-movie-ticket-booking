@@ -1,5 +1,5 @@
 .banner {
-    width: auto;
+    width:auto;
     height: 80%;
 }
 
@@ -10,44 +10,13 @@
     display: flex;
 }
 
-.banner-stats .booking-banner-item {
+.banner-stats .booking-banner_trending-item {
     /* center items */
     justify-content: center;
     align-items: center;
     flex-direction: column;
     /* flex */
     display: flex;
-}
-
-.booking-banner_genres {
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    display: flex;
-}
-
-.booking-banner_genres p {
-    /* center text */
-    text-align: center;
-
-}
-
-.booking-banner_genres p span {
-    margin: 5px;
-}
-
-.booking-banner_genres-item {
-    /* center items */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* flex */
-    display: flex;
-}
-
-.banner-stats {
-    flex-direction: row;
-    margin: 0 20px;
 }
 
 .banner-stats svg {
@@ -82,7 +51,7 @@
 .booking-banner_details {
     /* dim background image */
     background-blend-mode: darken;
-
+    
     /* height fill container */
     height: 80%;
     /* center vertically */
@@ -95,4 +64,5 @@
     font-size: 1.5rem;
     font-weight: 500;
     text-align: center;
+
 }

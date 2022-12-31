@@ -144,29 +144,6 @@ function TicketBooking() {
             });
     }, [movieID]);
 
-    // apply filters
-    useEffect(() => {
-        console.log("apply filters");
-        let base = originalTicketData.map((ticket) => ticket);
-        if (priceFilter) {
-            base.sort((a, b) => a.price - b.price);
-        }
-        // format Tue 17-Dec-2022 17:41-19:41
-        if (timeFilter) {
-            base.sort((a, b) => {
-                const aTime = new Date(
-                    a.timeLong.slice(4, 14) + " " + a.time.slice(0, 5)
-                );
-                const bTime = new Date(
-                    b.timeLong.slice(4, 14) + " " + b.time.slice(0, 5)
-                );
-                return aTime - bTime;
-            });
-        }
-        setTicketData(base);
-    }, [priceFilter, timeFilter]);
-
-
     const activeTicket = (id) => {
         console.log("activeTicket", id);
         setActiveID(id);
@@ -180,23 +157,23 @@ function TicketBooking() {
         setTimeFilter(timeFilter);
     };
 
-    // const applyAllFilter = () => {
-    //     console.log("applyAllFilter");
-    //     let base = originalTicketData.map((ticket) => ticket);
-    //     console.log(base[0].price);
-    //     console.log(priceFilter);
-    //     if (priceFilter) {
-    //         base.sort((a, b) => a.price - b.price);
-    //     }
-    //     if (timeFilter) {
-    //         base.sort((a, b) => {
-    //             const aTime = new Date("2022-12-17 " + a.time.slice(0, 5));
-    //             const bTime = new Date("2022-12-17 " + b.time.slice(0, 5));
-    //             return aTime - bTime;
-    //         });
-    //     }
-    //     setTicketData(base);
-    // };
+    const applyAllFilter = () => {
+        console.log("applyAllFilter");
+        let base = originalTicketData.map((ticket) => ticket);
+        console.log(base[0].price);
+        console.log(priceFilter);
+        if (priceFilter) {
+            base.sort((a, b) => a.price - b.price);
+        }
+        if (timeFilter) {
+            base.sort((a, b) => {
+                const aTime = new Date("2022-12-17 " + a.time.slice(0, 5));
+                const bTime = new Date("2022-12-17 " + b.time.slice(0, 5));
+                return aTime - bTime;
+            });
+        }
+        setTicketData(base);
+    };
 
     return (
         <React.Fragment>
@@ -207,6 +184,7 @@ function TicketBooking() {
                         <Filter
                             sortByPriceRegister={sortByPriceRegister}
                             sortByTimeRegister={sortByTimeRegister}
+                            applyAllFilter={applyAllFilter}
                         />
                     </Col>
                     <Col sm={8}>
@@ -229,6 +207,155 @@ function TicketBooking() {
         </React.Fragment>
     );
 }
+
+// class TicketBooking extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             originalTicketData: [],
+//             ticketData: [],
+//             activeID: null,
+//             priceFilter: false,
+//             timeFilter: false,
+//             movieID: null,
+//         };
+
+//         this.activeTicket = this.activeTicket.bind(this);
+//         this.sortByPriceRegister = this.sortByPriceRegister.bind(this);
+//         this.sortByTimeRegister = this.sortByTimeRegister.bind(this);
+//         this.applyAllFilter = this.applyAllFilter.bind(this);
+//     }
+
+//     componentDidMount() {
+//         // get movie id from url
+//         const movieID = this.props.match.params.id;
+//         this.setState({ movieID: movieID });
+//         console.log("movieID: " + movieID);
+
+//         // get timeslots from API
+//         axios
+//             .get(timeslotsAPI.replace(":id", movieID))
+//             .then((res) => {
+//                 // console.log(res.data);
+//                 this.setState({
+//                     originalTicketData: legacyParser(res.results),
+//                     ticketData: legacyParser(res.results),
+//                 });
+//             })
+//             .catch((err) => {
+//                 console.log(err);
+//             });
+//     }
+
+//     applyAllFilter = () => {
+//         console.log("applyAllFilter");
+//         let base = this.state.originalTicketData.map((ticket) => ticket);
+//         console.log(base[0].price);
+//         console.log(this.state.priceFilter);
+//         if (this.state.priceFilter === true) {
+//             this.sortByPrice(base);
+//         }
+//         if (this.state.timeFilter === true) {
+//             this.sortByTime(base);
+//         }
+
+//         this.setState(
+//             {
+//                 ticketData: base,
+//             },
+//             () => {
+//                 console.log("list updated" + this.state.ticketData[0].price);
+//             }
+//         );
+//     };
+
+//     sortByPrice = (base) => {
+//         console.log("sortByPrice");
+//         base.sort((a, b) => {
+//             return a.price - b.price;
+//         });
+//     };
+
+//     sortByPriceRegister = () => {
+//         console.log("sortByPriceRegister");
+//         console.log("before: " + this.state.priceFilter);
+//         this.setState(
+//             {
+//                 priceFilter: !this.state.priceFilter,
+//             },
+//             () => {
+//                 console.log("after: " + this.state.priceFilter);
+//                 this.applyAllFilter();
+//             }
+//         );
+//     };
+
+//     sortByTimeRegister = () => {
+//         console.log("sortByTimeRegister");
+//         console.log("before: " + this.state.timeFilter);
+//         this.setState(
+//             {
+//                 timeFilter: !this.state.timeFilter,
+//             },
+//             () => {
+//                 console.log("after: " + this.state.timeFilter);
+//                 this.applyAllFilter();
+//             }
+//         );
+//     };
+
+//     sortByTime = (base) => {
+//         // time format: "18:00-20:00"
+//         base.sort((a, b) => {
+//             let aHour = parseInt(a.time.split(":")[0]);
+//             let bHour = parseInt(b.time.split(":")[0]);
+//             return aHour - bHour;
+//         });
+//     };
+
+//     activeTicket = (id) => {
+//         this.setState({ activeID: id });
+//         console.log("active ticket " + id);
+//     };
+
+//     // scrollToTicket = id => {
+//     //   refs[id].current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+//     // }
+
+//     render() {
+//         console.log("render: " + this.state.activeID);
+//         const ticketItem = this.state.ticketData.map((ticket) => (
+//             <TicketItem
+//                 keya={ticket.id}
+//                 timeShort={ticket.timeShort}
+//                 timeLong={ticket.timeLong}
+//                 price={ticket.price}
+//                 emptySeats={ticket.emptySeats}
+//                 time={ticket.time}
+//                 onPress={this.activeTicket}
+//                 active={this.state.activeID === ticket.id}
+//                 // refProp={refs[ticket.id]}
+//                 // scrollTo={this.scrollToTicket}
+//             />
+//         ));
+//         return (
+//             <React.Fragment>
+//                 <Banner />
+//                 <Container>
+//                     <Row>
+//                         <Col sm={4}>
+//                             <Filter
+//                                 sortByPrice={this.sortByPriceRegister}
+//                                 sortByTime={this.sortByTimeRegister}
+//                             />
+//                         </Col>
+//                         <Col sm={8}>{ticketItem}</Col>
+//                     </Row>
+//                 </Container>
+//             </React.Fragment>
+//         );
+//     }
+// }
 
 // refactor TicketItem to functional component
 function TicketItem(props) {
@@ -343,5 +470,140 @@ function TicketItem(props) {
         </React.Fragment>
     );
 }
+
+// class TicketItem extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             openBooking: false,
+//             setOpenBooking: false,
+//             openDetails: false,
+//             setOpenDetails: false,
+//         };
+
+//         this.detailsClickHandler = this.detailsClickHandler.bind(this);
+//         this.bookingClickHandler = this.bookingClickHandler.bind(this);
+//     }
+
+//     handleButtonClick = (ticketID) => {
+//         console.log("button clicked " + ticketID);
+//         this.props.onPress(ticketID);
+//         // this.props.scrollTo(ticketID);
+//     };
+
+//     detailsClickHandler = () => {
+//         if (this.state.openBooking) {
+//             this.setState({ openBooking: false });
+//         }
+//         this.setState(
+//             {
+//                 openDetails: !this.state.openDetails,
+//             },
+//             () => {
+//                 this.handleButtonClick(this.props.keya);
+//             }
+//         );
+//     };
+
+//     bookingClickHandler = () => {
+//         if (this.state.openDetails) {
+//             this.setState({
+//                 openDetails: !this.state.openDetails,
+//             });
+//         }
+//         this.setState(
+//             {
+//                 openBooking: !this.state.openBooking,
+//             },
+//             () => {
+//                 this.handleButtonClick(this.props.keya);
+//             }
+//         );
+//     };
+
+//     render() {
+//         return (
+//             <Row>
+//                 <div className="ticket-item">
+//                     <Row className="align-items-center h-100">
+//                         <Col sm={2}>
+//                             <div className="ticket-item__week-time">
+//                                 <div className="ticket-item__time--short">
+//                                     {this.props.timeShort}
+//                                 </div>
+//                             </div>
+//                         </Col>
+//                         <Col sm={4}>
+//                             <div className="ticket-item__time">
+//                                 <div className="ticket-item__time--long">
+//                                     {this.props.timeLong}
+//                                 </div>
+
+//                                 <div className="ticket-item__time--value">
+//                                     {this.props.time}
+//                                 </div>
+//                             </div>
+//                         </Col>
+
+//                         <Col sm={6}>
+//                             <div className="ticket-item__price">
+//                                 <div className="ticket-item__price--value">
+//                                     {intToVND(this.props.price)}đ
+//                                 </div>
+//                             </div>
+//                             <div className="ticket-item__empty-seats">
+//                                 <div className="ticket-item__empty-seats--text">
+//                                     Empty Seats
+//                                 </div>
+//                                 <div className="ticket-item__empty-seats--value">
+//                                     {this.props.emptySeats}
+//                                 </div>
+//                             </div>
+
+//                             <div className="ticket-item__button">
+//                                 <ButtonGroup>
+//                                     <Button
+//                                         variant="outline-info"
+//                                         onClick={() =>
+//                                             this.detailsClickHandler()
+//                                         }
+//                                         aria-controls="collapse-text"
+//                                         aria-expanded={this.state.openDetails}
+//                                     >
+//                                         Details
+//                                     </Button>
+//                                     <Button
+//                                         variant="info"
+//                                         onClick={() =>
+//                                             this.bookingClickHandler()
+//                                         }
+//                                         aria-controls="collapse-text"
+//                                         aria-expanded={this.state.openBooking}
+//                                     >
+//                                         Book Now
+//                                     </Button>
+//                                 </ButtonGroup>
+//                             </div>
+//                         </Col>
+//                     </Row>
+//                 </div>
+//                 <Collapse
+//                     in={this.state.openBooking && this.props.active}
+//                     unmountOnExit={true}
+//                 >
+//                     <div id="collapse-booking">
+//                         <MasterForm basePrice={this.props.price} />
+//                     </div>
+//                 </Collapse>
+//                 <Collapse
+//                     in={this.state.openDetails && this.props.active}
+//                     unmountOnExit={true}
+//                 >
+//                     <div id="collapse-detail">Details</div>
+//                 </Collapse>
+//             </Row>
+//         );
+//     }
+// }
 
 export default TicketBooking;
