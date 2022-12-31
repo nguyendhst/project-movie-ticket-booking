@@ -12,38 +12,29 @@ function CarouselBanner(props) {
     const { trending } = props;
     const [index, setIndex] = useState(0);
 
-    // const handleSelect = (selectedIndex, e) => {
-    //     // navigate to movie page
-    //     window.open(moviePath + trending[selectedIndex].id, "_blank");
-    //     setIndex(selectedIndex);
-    // };
 
-    // let trendFilms = films.Trend;
-    // let OnGoingFilms = films.OnGoing;
-    return (
-        <Carousel
-            className="Banner_vertical"
-            activeIndex={index}
-            slide={true}
-            interval={3000}
-            variant="dark"
-        >
-            {trending.map((film, index) => (
-                <Carousel.Item key={film.id}>
-                    <Link to={"/movie/" + film.id}>
-                        <img
-                            className="d-block w-100"
-                            src={imgPath + film.vertical_poster_path}
-                            alt="Posters"
-                        />
-                    </Link>
-                    <Carousel.Caption>
-                        <h3>{film.title}</h3>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            ))}
-        </Carousel>
-    );
+  let trendFilms = films.Trend;
+  let OnGoingFilms = films.OnGoing;
+  return (
+    <Carousel className="Banner_vertical" activeIndex={index} onSelect={handleSelect}>
+      {trendFilms.map((trend) => 
+      OnGoingFilms.filter((Ongoing) => Ongoing.id.toString() === trend.toString()).map(
+        (trendFilms) =>
+        // console.log(trendFilms)
+          <Carousel.Item> 
+          <a href={"/movie/" + trendFilms.id}> 
+            <img
+              className='d-block w-100 rounded'
+              src={trendFilms.verticalPoster}
+              alt="Film slide"
+            />
+            </a>
+          </Carousel.Item>
+      )
+      // console.log(trend)
+      )}
+    </Carousel>
+  );
 }
 
 // render(<CarouselBanner />);
