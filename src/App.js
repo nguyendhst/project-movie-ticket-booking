@@ -18,14 +18,21 @@ import ClassifyCustomer from "./pages/ClassifyCustomer/ClassifyCustomer";
 import ManageStaff from "./pages/HumanResource/ManageStaff/manage_staff";
 import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_dashboard";
 import Monitoring from "./pages/Monitoring/monitoring";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Login from "./pages/User/Login";
+import Register from "./pages//User/Register";
+
 function App() {
     return (
         <React.Fragment>
+            <Header />
             <main>
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
-
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="/content-manage" element={<Content />}/>
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
                     <Route path="monitoring" element={<Monitoring />}/>
@@ -49,6 +56,7 @@ function App() {
                     />
                 </Routes>
             </main>
+            <Footer />
         </React.Fragment>
     );
 }
