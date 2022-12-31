@@ -20,7 +20,7 @@ function CarouselBanner() {
         (trendFilms) =>
         // console.log(trendFilms)
           <Carousel.Item> 
-          <a href={"/movie/" + trendFilms.id}>
+          <a href={"/movie/" + trendFilms.id}> 
             <img
               className='d-block w-100 rounded'
               src={trendFilms.verticalPoster}
