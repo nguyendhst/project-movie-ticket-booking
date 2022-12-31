@@ -2,6 +2,7 @@ import React from "react";
 
 import events from '../../../data/event.json'
 
+import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/esm/Card";
 import Tabs from "../../../components/Tabs/Tabs";
 import './Event.css'
@@ -26,8 +27,7 @@ function Event() {
                               color: '#000000',
                               textOverflow: 'ellipsis'
                       }}>
-                        {event.eventName}
-                        <br/>
+                        <h3>{event.eventName}</h3>
                         Giảm giá: {event.discount * 100}% cho các sản phẩm {event.discount_on === 1 ? "vé xem phim" : "đồ ăn & thức uống"} 
                         <br/>
                         Từ {event.eventStart} đến {event.eventEnd}
