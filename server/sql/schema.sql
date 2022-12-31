@@ -47,9 +47,6 @@ CREATE TABLE IF NOT EXISTS timeslots (
   PRIMARY KEY (id)
 );
 
-
-INSERT INTO timeslots (movie_id, start_time, duration, price, empty_seats) VALUES (1, '2021-05-01 10:00:00', 120, 10.00, 100);
-
 -- Ticket table
 CREATE TABLE IF NOT EXISTS tickets (
   id INT NOT NULL AUTO_INCREMENT,

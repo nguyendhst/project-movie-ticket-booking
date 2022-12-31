@@ -1,26 +1,39 @@
 import { React, useEffect, useState } from "react";
 import "./index.css";
-import { Container, Row, Col, Image} from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
-import { faFire } from "@fortawesome/free-solid-svg-icons";
+import { faFire, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const imgPath = "https://image.tmdb.org/t/p/original";
+const genresPath = "http://localhost:8080/api/genres?ids=";
 
 function Banner(props) {
     const { movie } = props;
     console.log("movie", movie);
     const [bannerPoster, setBannerPoster] = useState({});
+    const [genres, setGenres] = useState([]);
 
     // get big poster
     useEffect(() => {
         console.log("movie", movie);
+        console.log("status", movie?.status);
         if (movie) {
             setBannerPoster(imgPath + movie.vertical_poster_path);
         }
     }, [movie]);
 
-    // hedonist or revolutionary
+    // get genres
+    useEffect(() => {
+        if (movie) {
+            fetch(genresPath + movie.genre_ids)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log("genres", data.results);
+                    setGenres(data.results);
+                });
+        }
+    }, [movie]);
 
     return (
         <Container className="booking-banner" fluid>
@@ -44,21 +57,62 @@ function Banner(props) {
                         </div>
                     </Row>
                     <Row className="banner-stats">
-                        <div className="booking-banner_trending">
-                            <div className="booking-banner_trending-item">
-                                <div className="booking-banner_trending-item-icon">
-                                    <FontAwesomeIcon
-                                        icon={faFire}
-                                        color="white"
-                                    />
-                                </div>
-                                {movie?.status === "Trending" ? (
-                                    <div className="booking-banner_trending-item-text">
-                                        <p>Trending</p>
+                        <Col>
+                            <div className="booking-banner_showing">
+                                <div className="booking-banner-item">
+                                    <div className="booking-banner_showing-item-icon">
+                                        <FontAwesomeIcon
+                                            icon={faFilm}
+                                            color="white"
+                                        />
                                     </div>
-                                ) : null}
+                                    {(movie?.status &&
+                                        movie?.status === "Ongoing") ||
+                                    movie?.status === "Trending" ? (
+                                        <div className="booking-banner_showing-item-text">
+                                            <p>Ongoing</p>
+                                        </div>
+                                    ) : null}
+                                </div>
                             </div>
-                        </div>
+                        </Col>
+                        <Col>
+                            <div className="booking-banner_trending">
+                                <div className="booking-banner-item">
+                                    <div className="booking-banner_trending-item-icon">
+                                        <FontAwesomeIcon
+                                            icon={faFire}
+                                            color="white"
+                                        />
+                                    </div>
+                                    {movie?.status &&
+                                    movie?.status === "Trending" ? (
+                                        <div className="booking-banner_trending-item-text">
+                                            <p>Trending</p>
+                                        </div>
+                                    ) : null}
+                                </div>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="booking-banner_genres">
+                                <div className="booking-banner_genres-item">
+                                    <p className="booking-banner_genres-item-text">
+                                        {genres
+                                            ? genres.map((genre) => {
+                                                  if (
+                                                      genres.indexOf(genre) !==
+                                                      genres.length - 1
+                                                  ) {
+                                                      return genre.name + ", ";
+                                                  }
+                                                  return genre.name;
+                                              })
+                                            : null}
+                                    </p>
+                                </div>
+                            </div>
+                        </Col>
                     </Row>
                 </Col>
             </Row>
