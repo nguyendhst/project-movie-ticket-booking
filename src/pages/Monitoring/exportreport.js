@@ -6,7 +6,6 @@ var XLSX=require("xlsx");
 
 const file_extensions = [
     {value:'.xlsx',label:'.xlsx'},
-    {value:'.pdf',label:'.pdf'},
     {value:'.csv',label:'.csv'}
 ];
 const ExportReport= (props)=>{
@@ -23,11 +22,6 @@ const ExportReport= (props)=>{
             var wc= XLSX.utils.sheet_to_csv(ws);
             var blob=new Blob([wc],{type:'type/csv;charset=utf-8'});
             saveAs(blob,name+".csv");
-        }
-        else if(options===".pdf"){
-            var wp= XLSX.utils.sheet_to_csv(ws);
-            var blob2=new Blob([wp],{type:'application/pdf;base64'});
-            saveAs(blob2,name+".pdf");
         }
     }
     return(
