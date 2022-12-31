@@ -24,11 +24,12 @@ import ManagerDashboard from "./pages/HumanResource/ManagerDashboard/manager_das
 import Monitoring from "./pages/Monitoring/monitoring";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Login from "./pages/User/Login";
+import Register from "./pages/User/Register";
 
 function App() {
     return (
         <React.Fragment>
-            <Header />
             <main>
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
@@ -45,6 +46,8 @@ function App() {
                     <Route path="/manage-staff" element={<ManageStaff />} />
                     <Route path="/select-shift" element={<StaffShift />} />
                     <Route path="/admin" element={<ManagerDashboard />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="/customer-care" element={<CustomerCare />}>
                         <Route path="new-feedback" element={<NewFeedbacks />} />
                         <Route
@@ -60,7 +63,6 @@ function App() {
                     />
                 </Routes>
             </main>
-            <Footer />
         </React.Fragment>
     );
 }
