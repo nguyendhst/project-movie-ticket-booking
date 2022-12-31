@@ -15,12 +15,17 @@ const imgPath = "https://image.tmdb.org/t/p/original";
 function MoviePoster(props) {
     const { film } = props;
     return (
-        <Link to={"/movie/" + film.id}>
-            <Card className="Banner_horizontal">
-                <Card.Img variant="top" src={imgPath + film?.poster_path} />
-            </Card>
-        </Link>
-    );
+        <Card className="Banner_horizontal">
+            <a href={"/movie/" + props.filmDetail.id} style={{ textDecoration: 'none' , color: "inherit"}}>
+            <Card.Img variant="top" src= {props.filmDetail.poster}/>
+            <Card.Body>
+                <Card.Title style={{
+                    textOverflow: "ellipsis"
+                }}>{props.filmDetail.name}</Card.Title>
+            </Card.Body>
+            </a>
+        </Card>
+    ) 
 }
 
 function FilmBanner() {
