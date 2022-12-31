@@ -17,7 +17,7 @@ function BannerHorizontal(props) {
             </Card.Body>
             </a>
         </Card>
-    )
+    ) 
 }
 
 function FilmBanner() {
