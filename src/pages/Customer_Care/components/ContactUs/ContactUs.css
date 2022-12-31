@@ -13,3 +13,29 @@
 	text-align: justify;
 	margin: 10px;
 }
+
+.cbox p {
+    margin-bottom: 0; 
+}
+    .cbox p span {
+      font-weight: 500;
+      color: #000; 
+    }
+    .dbox p a {
+      color: #46b5d1; 
+    }
+    .cbox .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #3D9A8B;
+    margin: 0 auto;
+    margin-bottom: 20px; 
+    }
+        .cbox .icon .contact-logo {
+        font-size: 50px;
+        color: #fff; 
+        }
+	.text p {
+		font-size: 20px;
+	}
