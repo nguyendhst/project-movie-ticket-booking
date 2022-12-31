@@ -2,10 +2,10 @@ const db = require("mysql2");
 const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 
-app.use(cors())
-app.use(express.json({extended: false}));
+app.use(cors());
+app.use(express.json({ extended: false }));
 // import .env.local
 dotenv.config({
     path: `${__dirname}/../.env.local`,
@@ -73,13 +73,35 @@ app.get("/", async (req, res) => {
 
 // GET /api/movies?genre=action&language=en&sort=release_date&order=desc&limit=10&offset=0
 
+const queryMovieByStatus = (dbname, status) => {
+    return `SELECT * FROM \`${dbname}\`.\`movies\` WHERE status LIKE '${status}';`;
+};
 // GET /api/movies?all=true
 app.get("/api/movies", async (req, res) => {
-    const { all, genre, language, sort, order, limit, offset } = req.query;
+    const { all, status, genre, language, sort, order, limit, offset } =
+        req.query;
     if (all) {
         try {
             connection.query(
                 queryGetAllMovies(process.env.DB_NAME),
+                function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                        res.send({ error: err });
+                    } else {
+                        console.log(results);
+                        res.send({ results });
+                    }
+                }
+            );
+        } catch (e) {
+            console.log(e);
+            res.send({ error: e });
+        }
+    } else if (status) {
+        try {
+            connection.query(
+                queryMovieByStatus(process.env.DB_NAME, status),
                 function (err, results, fields) {
                     if (err) {
                         console.log(err);
@@ -147,26 +169,36 @@ app.get("/api/movies/:id/timeslots", async (req, res) => {
 });
 
 //monitoring
-const show_all_act = (dbname, upper_time,lower_time) => {
+const show_all_act = (dbname, upper_time, lower_time) => {
     return `SELECT * FROM \`${dbname}\`.\`activities\` WHERE (end_time > '${lower_time}' AND end_time <= '${upper_time}');`;
 };
 
-const insert_act=(dbname,names,code,start_time,end_time,received,spend,kpi,descriptions)=>{
+const insert_act = (
+    dbname,
+    names,
+    code,
+    start_time,
+    end_time,
+    received,
+    spend,
+    kpi,
+    descriptions
+) => {
     return `INSERT INTO \`${dbname}\`.\`activities\` (names,code,start_time,end_time,received,spend,kpi,descriptions) VALUES ('${names}','${code}','${start_time}','${end_time}',${received},${spend},${kpi},'${descriptions}');`;
 };
 
-app.post("/api/monitoring", async(req,res)=>{
-    const upper_time=req.body.end_time;
-    const lower_time=req.body.start_time;
+app.post("/api/monitoring", async (req, res) => {
+    const upper_time = req.body.end_time;
+    const lower_time = req.body.start_time;
     try {
         connection.query(
-            show_all_act(process.env.DB_NAME, upper_time,lower_time),
+            show_all_act(process.env.DB_NAME, upper_time, lower_time),
             function (err, results) {
                 if (err) {
                     console.log(err);
                     res.send({ error: err });
                 } else {
-                    res.send({ results:results });
+                    res.send({ results: results });
                 }
             }
         );
@@ -174,19 +206,38 @@ app.post("/api/monitoring", async(req,res)=>{
         console.log(e);
         res.send({ error: e });
     }
-})
+});
 
-app.post("/api/monitoring/add",async(req,res)=>{
-    const {names,code,start_time,end_time,received,spend,kpi,descriptions}=req.body;
+app.post("/api/monitoring/add", async (req, res) => {
+    const {
+        names,
+        code,
+        start_time,
+        end_time,
+        received,
+        spend,
+        kpi,
+        descriptions,
+    } = req.body;
     try {
         connection.query(
-            insert_act(process.env.DB_NAME, names,code,start_time,end_time,received,spend,kpi,descriptions),
+            insert_act(
+                process.env.DB_NAME,
+                names,
+                code,
+                start_time,
+                end_time,
+                received,
+                spend,
+                kpi,
+                descriptions
+            ),
             function (err, results) {
                 if (err) {
                     console.log(err);
-                    res.send({ error: err,results:false });
+                    res.send({ error: err, results: false });
                 } else {
-                    res.send({ results:true });
+                    res.send({ results: true });
                 }
             }
         );
@@ -194,7 +245,35 @@ app.post("/api/monitoring/add",async(req,res)=>{
         console.log(e);
         res.send({ error: e });
     }
-})
+});
+
+const queryGetGenresById = (dbname, id) => {
+    return `SELECT * FROM \`${dbname}\`.\`genres\` WHERE id IN (${id});`;
+};
+// GET /api/genres?id=[]
+app.get("/api/genres", async (req, res) => {
+    const { id } = req.query;
+    if (id) {
+        try {
+            connection.query(
+                queryGetGenresById(process.env.DB_NAME, id),
+                function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                        res.send({ error: err });
+                    } else {
+                        console.log(results);
+                        res.send({ results });
+                    }
+                }
+            );
+        } catch (e) {
+            console.log(e);
+            res.send({ error: e });
+        }
+    } 
+});
+
 
 // Start the server
 try {
