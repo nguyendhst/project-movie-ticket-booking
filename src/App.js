@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ManagerLP from "./pages/ManagerLP/ManagerLP";
+import StaffLP from "./pages/StaffLP/StaffLP";
 
 import Content from "./pages/Content/Content";
 import Movie from "./pages/Content/Movie/Movie";
@@ -32,6 +33,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
+                    <Route path="/staff" element={<StaffLP />} />
 
                     <Route path="/content-manage" element={<Content />}/>
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
