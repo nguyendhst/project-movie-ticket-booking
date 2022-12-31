@@ -1,0 +1,64 @@
+{
+    "eventList": [
+        {
+            "id": 1,
+            "discount": 0.2,
+            "discount_on": 1,
+            "eventName": "SỰ KIỆN ĐÓN PHIM ONE PIECE: FILM RED CÙNG NTTVN",
+            "eventStart": "25/12/2022",
+            "eventEnd": "1/1/2022",
+            "eventImage": "https://cartelescine.files.wordpress.com/2022/07/onepieceredbanner.jpg",
+            "status": 0
+        },
+        {
+            "id": 2,
+            "discount": 0.3,
+            "discount_on": 1,
+            "eventName": "SỰ KIỆN MỪNG NGÀY NHÀ GIÁO CÙNG NTTVN",
+            "eventStart": "19/11/2022",
+            "eventEnd": "21/11/2022",
+            "eventImage": "https://i.postimg.cc/7ZFKFCMP/2011.png",
+            "status": 2
+        },
+        {
+            "id": 3,
+            "discount": 0.7,
+            "discount_on": 1,
+            "eventName": "SỰ KIỆN BÙNG NỔ HỨNG KHỞI KHAI PHÁ PHIM MỚI CÙNG NTTVN",
+            "eventStart": "01/11/2022",
+            "eventEnd": "10/11/2022",
+            "eventImage": "https://i.postimg.cc/15jSNHPW/event.png",
+            "status": 2
+        },
+        {
+            "id": 4,
+            "discount": 0.2,
+            "discount_on": 2,
+            "eventName": "SỰ KIỆN KHUYẾN MÃI PHIM MỚI CÙNG NTTVN",
+            "eventStart": "28/12/2022",
+            "eventEnd": "5/1/2023",
+            "eventImage": "https://i.postimg.cc/6QpcDDyc/film.png",
+            "status": 0
+        },
+        {
+            "id": 5,
+            "discount": 0.3,
+            "eventName": "SỰ KIỆN TUẦN LỄ ĐẦU CÙNG NTTVN",
+            "discount_on": 1,
+            "eventStart": "2/1/2023",
+            "eventEnd": "8/1/2023",
+            "eventImage": "https://i.postimg.cc/15jSNHPW/event.png",
+            "status": 1
+        },
+        {
+            "id": 3,
+            "discount": 0.3,
+            "eventName": "SỰ KIỆN TUẦN LỄ ĐẦU CÙNG NTTVN",
+            "discount_on": 2,
+            "eventStart": "2/1/2023",
+            "eventEnd": "8/1/2023",
+            "eventImage": "https://i.postimg.cc/15jSNHPW/event.png",
+            "status": 1
+        }
+    ]
+}

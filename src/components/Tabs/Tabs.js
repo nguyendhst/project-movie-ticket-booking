@@ -15,7 +15,8 @@ function AddModal(props) {
         const srcValue =  e.target.value;
         setBannerSrc(srcValue)
     }
-    
+    const [startdate, setStartdate] = useState(new Date())
+    const [enddate, setEnddate] = useState(new Date())
 
     return (
         props.type === 0?
@@ -156,9 +157,76 @@ function AddModal(props) {
                 <Button onClick={props.onHide} className="footerBtn">Huỷ</Button>
             </Modal.Footer>
         </Modal>
-        :
+        : props.type === 2?
         <Modal>
             Từ từ add
+        </Modal>
+        : 
+        <Modal {...props}
+        //   className="addModal"
+        //   size="xl"
+        //   aria-labelledby="contained-modal-title-vcenter"
+          centered
+          dialogClassName="addModal"
+          >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                Thêm khuyến mãi mới
+                </Modal.Title>
+            </Modal.Header>
+            
+          <Modal.Body >
+            <Form className="addModalBody3 overflow-auto">
+                <Form.Label className="iLabel eventName" htmlFor="inputName">Tên sự kiện</Form.Label>
+                <Form.Group className="InputName">
+                    <Form.Control type="text" id="inputName"/>
+                </Form.Group>
+
+                <Form.Label className="iLabel discount" htmlFor="Discount">Giảm (%)</Form.Label>
+                <Form.Group className="InputDiscount">
+                    <Form.Control type="number" id="discount"/>
+                </Form.Group>
+
+                <Form.Label className="iLabel discountOn" htmlFor="DiscountOn">Sản phẩm</Form.Label>
+                <Form.Group className="InputDiscountOn">
+                    <Form.Select id="DiscountOn" className="CategoriesOption">
+                        <option value={1}>Vé xem phim</option>
+                        <option value={2}>Đồ ăn & thức uống</option>
+                    </Form.Select>
+                </Form.Group>
+
+                <Form.Label className="iLabel Startdate" htmlFor="inputStartdate">Ngày bắt đầu</Form.Label>
+                <Form.Group className="InputStartdate">
+                    <DatePicker
+                    dateFormat='dd/MM/yyyy'
+                    className='form-control'
+                    selected={startdate}
+                    onChange={date => setStartdate(date)}
+                    id="inputStartdate"
+                    />
+                </Form.Group>
+
+                <Form.Label className="iLabel Enddate" htmlFor="inputEnddate">Ngày kết thúc</Form.Label>
+                <Form.Group className="InputEnddate">
+                    <DatePicker
+                    dateFormat='dd/MM/yyyy'
+                    className='form-control'
+                    selected={enddate}
+                    onChange={date => setEnddate(date)}
+                    id="inputEnddate"
+                    />
+                </Form.Group>
+
+                <Form.Group className="BannerPreview">
+                    <Form.Control onChange={bannerChange} type="text" id="BannerSrc"/>
+                    <img className="BannerPreview" src={bannerSrc} alt="Please input film banner source"/>
+                </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+                <Button onClick={props.onHide} className="footerBtn">Lưu</Button>
+                <Button onClick={props.onHide} className="footerBtn">Huỷ</Button>
+            </Modal.Footer>
         </Modal>
     );
 }
@@ -203,7 +271,7 @@ function Tabs({tabs = [], editable = false , type = 0, sourceData = ""}) {
                             {/* {console.log(addPopup)} */}
                         </div>
                         
-                        <div className="TabContent overflow-auto">
+                        <div className={"TabContent"+ type + " overflow-auto"}>
                         {tabs[activeTabIndex].content}
                         </div>
 

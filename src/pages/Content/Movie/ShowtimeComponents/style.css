@@ -18,3 +18,8 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.slick-slider {
+    background-color: #DFF2ED;
+    border-radius: 16px;
+}
