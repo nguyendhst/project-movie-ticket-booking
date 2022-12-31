@@ -8,7 +8,7 @@ import Button from "react-bootstrap/esm/Button";
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import './ManagerLP.css';
+import './StaffLP.css';
 import Footer from "../../components/Footer/Footer";
 
 import House from "../../Asset/house.svg"
@@ -20,7 +20,7 @@ function Header() {
         <ul className="Header">
             <ul className="Left_header">
                 <li id="Home-logo">
-                    <a href="/manager">
+                    <a href="/staff">
                         <img src={House} width='40px' height='40px' alt="Home logo"></img>
                     </a>
                 </li>
@@ -53,12 +53,11 @@ function ManagerLP() {
         <div className="ManagerLP">
             <Header/>
             <div className="ManagerLPMain">
-                <ManagerOptions content="Quản lý doanh thu" route="/monitoring"/>
-                <ManagerOptions content="Quản lý ca làm việc" route="/manage-shift"/>
-                <ManagerOptions content="Quản lý nhân viên" route="/manage-staff"/>
-                <ManagerOptions content="Lịch chiếu & Phim" route="/content-manage"/>
-                <ManagerOptions content="Khuyến mãi" route="/event-manage"/>
-                <ManagerOptions content="Đồ ăn & thức uống" route="/food-manage"/>
+                <ManagerOptions content="Hồ sơ nhân viên" route="/#"/>
+                <ManagerOptions content="Chọn ca làm việc" route="/select-shift"/>
+                <ManagerOptions content="Thông báo sự kiện" route="/notify-event"/>
+                <ManagerOptions content="Phân nhóm khách hàng" route="/classify-customer"/>
+                <ManagerOptions content="Phản hồi khách hàng" route="/reply-feedback"/>
             </div>
             <Footer/>
         </div>
