@@ -376,10 +376,17 @@ function TicketItem(props) {
                     </div>
                 </Collapse>
                 <Collapse
-                    in={openDetails && activeID === id}
+                    in={openDetails}
                     unmountOnExit={true}
                 >
-                    <div id="collapse-detail">Details</div>
+                    <div id="collapse-detail">
+                        <div className="ticket-item__detail">
+                            <h4>
+                                Việc hoàn tiền vé có thể được thực hiện trong vòng 48h sau khi đặt vé. Nếu bạn muốn hủy vé, vui lòng liên hệ với chúng tôi qua số điện thoại 1900 0000.
+
+                            </h4>
+                        </div>
+                    </div>
                 </Collapse>
             </Row>
         </React.Fragment>

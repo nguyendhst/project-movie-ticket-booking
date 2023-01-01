@@ -4,10 +4,21 @@ import Barcode from "react-barcode";
 import "./index.css";
 
 function Step4(props) {
-    const { total, payment, seats, snacks, time, date } = props;
+    const {
+        total,
+        payment,
+        seats,
+        snacks,
+        time,
+        date,
+        updateBarhash,
+        barhash,
+    } = props;
 
     const randHash = () => {
-        return Math.random().toString(36).substring(2, 15);
+        let t = Math.random().toString(36).substring(2, 15);
+        updateBarhash(t);
+        return t;
     };
 
     return (
@@ -41,7 +52,8 @@ function Step4(props) {
                             {seats.map((item, index) => {
                                 return (
                                     <span key={index}>
-                                        {"/"}{item.number} - {item.row}
+                                        {"/"}
+                                        {item.number} - {item.row}
                                     </span>
                                 );
                             })}
@@ -74,7 +86,7 @@ function Step4(props) {
                     </Col>
                 </Row>
                 <Row>
-                    <Barcode value={randHash()} />
+                    <Barcode value={barhash === "" ? randHash() : barhash} />
                 </Row>
             </Container>
         </div>

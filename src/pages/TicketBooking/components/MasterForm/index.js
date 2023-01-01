@@ -16,6 +16,7 @@ function MasterForm(props) {
     const [payment, setPayment] = useState("");
     const [selectedMenu, setSelectedMenu] = useState("");
     const [seats, setSeats] = useState([]);
+    const [barhash, setBarhash] = useState("");
 
     // render when sum changes
     useEffect(() => {
@@ -96,6 +97,10 @@ function MasterForm(props) {
         setPayment(newPayment);
     };
 
+    const updateBarhash = (newBarhash) => {
+        setBarhash(newBarhash);
+    };
+
     return (
         <React.Fragment>
             <form>
@@ -126,6 +131,8 @@ function MasterForm(props) {
                         snacks={selectedMenu}
                         time={time}
                         date={date}
+                        updateBarhash={updateBarhash}
+                        barhash={barhash}
                     />
                 )}
             </form>
