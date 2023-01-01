@@ -22,7 +22,7 @@ function HandleLogin() {
         } else if (accRole === "2") {
             window.location.href = "/staff";
         } else if (accRole === "3"){
-            window.location.href = "/";
+            window.location.href = "/member";
         }
     } else {
         ReactDOM.render(<span>Tên đăng nhập hoặc mật khẩu không đúng</span>, document.getElementById("error"));

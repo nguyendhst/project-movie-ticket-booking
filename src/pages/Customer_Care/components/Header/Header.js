@@ -10,7 +10,7 @@ function Header() {
         <ul className="Header">
             <ul className="Left_header">
                 <li id="Home-logo">
-                    <a href="/staff">
+                    <a href="/">
                         <img src={House} width='40px' height='40px' alt="Home logo"></img>
                     </a>
                 </li>

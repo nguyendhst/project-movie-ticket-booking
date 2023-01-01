@@ -3,7 +3,9 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ManagerLP from "./pages/ManagerLP/ManagerLP";
+import AboutUs from "./pages/AboutUs/AboutUs";
 import StaffLP from "./pages/StaffLP/StaffLP";
+import MemberLP from "./pages/MemberLP/MemberLP";
 import Content from "./pages/Content/Content";
 import Movie from "./pages/Content/Movie/Movie";
 import Event from "./pages/Content/Event/Event";
@@ -30,6 +32,8 @@ function App() {
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/manager" element={<ManagerLP />} />
                     <Route path="/staff" element={<StaffLP />} />
+                    <Route path="/member" element={<MemberLP />} />
+                    <Route path="/about-us" element={<AboutUs />} />
                     <Route path="/content-manage" element={<Content />}/>
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
                     <Route path="/event-manage" element={<Event />} />
