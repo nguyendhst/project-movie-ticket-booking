@@ -1,0 +1,7 @@
+.summary-content {
+    width: 50%;
+}
+
+.summary-content .row {
+    border-bottom: 1px solid #ccc;
+}

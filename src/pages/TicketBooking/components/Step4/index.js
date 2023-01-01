@@ -1,63 +1,76 @@
 import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Barcode from "react-barcode";
+import "./index.css";
 
 function Step4(props) {
-  if (props.currentStep !== 4) {
-    return null;
-  }
-  return (
-    <div className="summary">
-      <div className="info">
-        <div className="title">Payment Summary</div>
-      </div>
-      <div className="summary__content">
-        <div className="summary__content__item">
-          <div className="summary__content__item__title">Movie</div>
-          <div className="summary__content__item__value">{props.movie}</div>
+    const { total, payment, seats, snacks, time, date } = props;
 
-          <div className="summary__content__item__time">{props.time}</div>
+    const randHash = () => {
+        return Math.random().toString(36).substring(2, 15);
+    };
 
-          <div className="summary__content__item__date">{props.date}</div>
-
-          <div className="summary__content__item__payment">{props.payment}</div>
-
-          <div className="summary__content__item__seats">
-            {props.seats.map((item) => (
-              <div className="summary__content__item__seats__item">
-                <div className="summary__content__item__seats__item__name">
-                  {item.name}
-                </div>
-
-                <div className="summary__content__item__seats__item__price">
-                  {item.price}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="summary__content__item__snacks">
-            {props.snacks.map((item) => (
-              <div className="summary__content__item__snacks__item">
-                <div className="summary__content__item__snacks__item__name">
-                  {item.name}
-                </div>
-                <div className="summary__content__item__snacks__item__price">
-                  {item.price}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="summary__content__item__total">
-            <div className="summary__content__item__total__title">Total</div>
-            <div className="summary__content__item__total__value">
-              {props.total}
+    return (
+        <div className="summary">
+            <div className="info">
+                <h3>Payment Summary</h3>
             </div>
-          </div>
-        </div>
+            <Container className="summary-content">
+                <Row>
+                    <Col xs={6}>
+                        <p>Time</p>
+                    </Col>
+                    <Col xs={6}>
+                        <p>{time}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <p>Date</p>
+                    </Col>
+                    <Col xs={6}>
+                        <p>{date}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <p>Seats</p>
+                    </Col>
+                    <Col xs={6}>
+                        <p>{seats}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <p>Snacks</p>
+                    </Col>
+                    <Col xs={6}>
+                        <p>{snacks}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <p>Payment</p>
+                    </Col>
+                    <Col xs={6}>
+                        <p>{payment}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <p>Total</p>
+                    </Col>
 
-        <p>Total: {props.currentSum}</p>
-      </div>
-    </div>
-  );
+                    <Col xs={6}>
+                        <p>{total}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Barcode value={randHash()} />
+                </Row>
+            </Container>
+        </div>
+    );
 }
 
 export default Step4;

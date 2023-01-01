@@ -1,7 +1,11 @@
 /* monitoring */
-th, td{
-    /* font-size: 5px; */
-    min-width: 3em;
+#m-main{
+    margin-top: calc(5% + 60px);
+}
+tfoot td{
+    word-wrap:break-word;
+    table-layout:fixed;
+    white-space:normal;
 }
 .form-control:focus{
     z-index: 5;
@@ -9,24 +13,66 @@ th, td{
 .m-centering{
     text-align: center;
 }
-/* calendar */
-
-.m-header{
-    display:flex;
-    flex-direction: row;
+#m-add-event-button{
+    display: flex;
+    justify-content: flex-end;
 }
-.m-paginating,.quarter{
-    flex: 50%;
+/* calendar */
+.m-paginating{
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    align-items: center;
+    margin: 0.4em;
+    padding: 0.1em;
+}
+.m-paginating h4{display:flex;align-items: center; margin:0;}
+.m-navi{
+    display: flex;
+    width: fit-content;
+    font-size: 700;
+    background-color:#B7EDFF;
+    border:#B7EDFF;
+}
+.m-year,.m-month{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #FBFBFB;
+    border-radius: 0.3em;
+}
+.m-quarter{
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #FBFBFB;
+    border-radius: 0.3em;
 }
 .unused{
-    color:#D3D3D3;
+    color:#565353;
+    font-weight: 700;
+    padding: 0.8em;
+    margin:0.1em;
+    border: #CCCCCC;
+    border-radius: 0.3em;
+    background-color: #CCCCCC;
 }
 .used{
     color: #000000;
     font-weight: 700;
+    padding: 0.8em;
+    margin:0.1em;
+    border: white;
+    border-radius: 0.3em;
+    background-color: white;
 }
-.year, .month{
-    flex: 33.3%;
+.used:hover{
+    background-color: #63C2D2;
+}
+.m-chosed{
+    background-color:#3D9A8B;
+}
+.m-cur{
+    border: #9A9292;
+    background-color: #9A9292;
 }
 /* modal */
 .m-close-bar{
@@ -46,4 +92,17 @@ th, td{
     right: 0;
     flex-wrap: wrap;
     bottom: 70px;
+}
+#m-monitor-button button{
+    font-size: 1em;
+}
+/* export file */
+.m-extension{
+    display: flex;
+    justify-content: flex-end;
+}
+#m-select-ext,#m-select-cal{
+    margin: auto;
+    width:75%;
+    padding:1em;
 }

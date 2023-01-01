@@ -1,5 +1,5 @@
-import React from 'react';
-import Select from 'react-select';
+import React, { createContext } from 'react';
+// import Select from 'react-select';
 import {Modal, Button, Table ,Container,Row, ButtonGroup} from 'react-bootstrap';
 import { useState, useEffect} from 'react';
 import axios from 'axios';
@@ -10,27 +10,75 @@ import MCalendar from './mcalendar';
 import AddEvent from './add-event';
 import ExportReport from './exportreport';
 import './common.css';
+import House from "../../Asset/house.svg";
 //for calendar
-const Calendar_unit = [
-  {value: "Tháng", label:"month"},
-  {value: "Quý", label:"quarter"},
-  {value: "Năm", label:"year"}
-];
+// const Calendar_unit = [
+//   {value: "Tháng", label:"month"},
+//   {value: "Quý", label:"quarter"},
+//   {value: "Năm", label:"year"}
+// ];
 
-const cal =new MCalendar();
+// const cal =MCalendar();
 
-function ChooseTime(){
-  const drop_click= (options)=>{
-      cal.setUnit(options);
-  };
-  return(
-      <div className="choose-time">
-          <Select options={Calendar_unit} onChange={drop_click}/>
-          {cal.render()}
-      </div>
-  );
-}
+// function ChooseTime(){
+//   // const drop_click= (options)=>{
+//   //     cal.setUnit(options);
+//   // };
+//   const calendar=cal.render();
+//   return(
+//       <div className="choose-time">
+//           {calendar}
+//       </div>
+//   );
+// }
 //helpers
+
+function Header() {
+
+  return(
+      <ul className="Header">
+          <ul className="Left_header">
+              <li id="Home-logo">
+                  <a href="/manager">
+                      <img src={House} width='40px' height='40px' alt="Home logo"></img>
+                  </a>
+              </li>
+          </ul>
+          <li>
+              <a href='/#'>
+              <Button
+              className="LogoutButton"
+              >
+                  Đăng xuất
+              </Button>
+              </a>
+          </li>
+      </ul>
+  )
+}
+
+
+const date= new Date();
+function daysInMonth(year, month) {
+  return (month !== 2) ?
+      31 - (((month - 1) % 7) % 2) :
+      28 + (year % 4 === 0 ? 1 : 0) - (year % 100 === 0 ? 1 : 0) + (year % 400 === 0 ? 1 : 0)
+}
+
+function display_time(unit,year,start_time){
+          let t;
+          if (unit === "Tháng") {
+              t = (start_time.getMonth() + 1) + '/' + year;
+          }
+          else if (unit === "Quý") {
+              t = '0' + Math.floor((start_time.getMonth() + 3) / 3) + '/' + year;
+          }
+          else {
+              t = year;
+          }
+          return (unit + ' ' + t).toUpperCase();
+      }
+
 function MakestringFromDate(inp){
   let t='';
   if (inp.getDate()<10){
@@ -43,7 +91,7 @@ function close_bar_monitoring(trigger){
       <FontAwesomeIcon icon={faCircleXmark} onClick={trigger}/>
   )
 }
-
+export const monitoring_context=createContext();
 
 //for monitoring
 const get_activity = "http://localhost:8080/api/monitoring";
@@ -57,6 +105,10 @@ function Monitoring() {
   const [addeventstate,toggleAE]=useState(false);
   const [ctimestate,toggleCT]=useState(false);
   const [exportstate,toggleE]=useState(false);
+  const [unit,setUnit]=useState("Tháng");
+  const [start_time,setStart_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, 1));
+  const [end_time,setEnd_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, daysInMonth(date.getFullYear(), date.getMonth())));
+  const [yearpage,setYearPage]=useState(date.getFullYear()-(date.getMonth()-1<0?1:0));
   const handleAE=(e)=>{
     e.preventDefault();
     toggleAE(!addeventstate);
@@ -70,25 +122,30 @@ function Monitoring() {
     toggleE(!exportstate);
   }
   useEffect(() => {
-    axios.post(get_activity,{start_time:MakestringFromDate(cal.state.start_time), end_time:MakestringFromDate(cal.state.end_time)})
+    axios.post(get_activity,{start_time:MakestringFromDate(start_time), end_time:MakestringFromDate(end_time)})
       .then(res => {
         setData(res.data.results);
       })
       .catch(err=>{console.log(err);})
   })
+
   return (
-    <Container>
+    <>
+    <Header/>
+    <Container id='m-main'>
+      
       <Row >
-    <h2 className="m-centering">THỐNG KÊ HOẠT ĐỘNG {cal.display_time()} </h2>
+    <h2 className="m-centering">THỐNG KÊ HOẠT ĐỘNG {display_time(unit,yearpage,start_time)} </h2>
     </Row>
     <Row>
-    <Table bordered hover responsive="xl" variant='success m-centering' >
+    <Table bordered hover responsive='xl' variant='success' >
       <thead>
         <tr>
           <th scope="col">STT</th>
           <th scope="col">Tên hoạt động</th>
           <th scope="col">Mã hoạt động</th>
-          <th scope="col">Thời gian</th>
+          <th scope="col">Bắt đầu</th>
+          <th scope="col">Kết thúc</th>
           <th scope="col">Thu (đ)</th>
           <th scope="col">Chi (đ)</th>
           <th scope="col">Lợi nhuận (đ)</th>
@@ -100,17 +157,18 @@ function Monitoring() {
     activity_data.map(
       (data, id) => { return(
         <tr onClick={detail} key={id}>
-          <th scope='row'>{id}</th>
+          <th >{id}</th>
           <td>{data.names}</td>
           <td>{data.code}</td>
-          <td>{data.start_time.split('T')[0]} đến {data.end_time.split('T')[0]}</td>
+          <td>{data.start_time.split('T')[0]}</td>
+          <td>{data.end_time.split('T')[0]}</td>
           <td>{data.received}</td>
           <td>{data.spend}</td>
           <td>{data.received - data.spend}</td>
           <td>{Math.ceil((data.received - data.spend) / (data.kpi) * 100)}</td>
         </tr>);
       }
-    ):<tr><td colSpan={8}><h3 className='m-calendar'>Không có dữ liệu</h3></td></tr>
+    ):<tr><td colSpan={9}><h5 className='m-centering'>Không có dữ liệu</h5></td></tr>
   }
       </tbody>
     </Table>
@@ -139,7 +197,18 @@ function Monitoring() {
       </Modal.Header>
       <Modal.Body>
         <h2 className='m-centering'>Chọn thời gian</h2>
-        <ChooseTime/>
+        <monitoring_context.Provider value={{
+          unit_us:{unit,setUnit},
+          start_time_us:{start_time,setStart_time},
+          end_time_us:{end_time,setEnd_time},
+          yearpage_us:{yearpage,setYearPage},
+          date_us:date,
+          handleCT:handleCT}}>
+        {/* <MCalendar unit={unit} start_time={start_time} end_time={end_time} 
+        setUnit={setUnit} setStart_time={setStart_time} setEnd_time={setEnd_time}/> */}
+        <MCalendar/>
+        </monitoring_context.Provider>
+        
       </Modal.Body>
     </Modal>
 
@@ -149,10 +218,11 @@ function Monitoring() {
       </Modal.Header>
       <Modal.Body>
       <h2 className='m-centering'>Xuất báo cáo</h2>
-        <ExportReport/>
+        <ExportReport activity_data={activity_data} name={display_time(unit,yearpage,start_time).replace("/","_")}/>
       </Modal.Body>
     </Modal>
     </Container>
+    </>
   );
 }
 

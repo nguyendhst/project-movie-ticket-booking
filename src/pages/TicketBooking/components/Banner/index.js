@@ -1,16 +1,29 @@
 import { React, useEffect, useState } from "react";
 import "./index.css";
-import { Container, Row, Col, Image} from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const imgPath = "https://image.tmdb.org/t/p/original";
+const genrePath = "http://localhost:8080/api/genres?id=";
 
 function Banner(props) {
     const { movie } = props;
     console.log("movie", movie);
     const [bannerPoster, setBannerPoster] = useState({});
+    const [genres, setGenres] = useState([]);
+
+    // fetch genres
+    useEffect(() => {
+        if (movie) {
+            fetch(genrePath + movie.genre_ids)
+                .then((res) => res.json())
+                .then((data) => {
+                    setGenres(data.results);
+                });
+        }
+    }, [movie]);
 
     // get big poster
     useEffect(() => {
@@ -19,8 +32,6 @@ function Banner(props) {
             setBannerPoster(imgPath + movie.vertical_poster_path);
         }
     }, [movie]);
-
-    // hedonist or revolutionary
 
     return (
         <Container className="booking-banner" fluid>
@@ -44,21 +55,38 @@ function Banner(props) {
                         </div>
                     </Row>
                     <Row className="banner-stats">
-                        <div className="booking-banner_trending">
-                            <div className="booking-banner_trending-item">
-                                <div className="booking-banner_trending-item-icon">
-                                    <FontAwesomeIcon
-                                        icon={faFire}
-                                        color="white"
-                                    />
-                                </div>
-                                {movie?.status === "Trending" ? (
-                                    <div className="booking-banner_trending-item-text">
-                                        <p>Trending</p>
+                        <Col>
+                            <div className="booking-banner_trending">
+                                <div className="booking-banner_trending-item">
+                                    <div className="booking-banner_trending-item-icon">
+                                        <FontAwesomeIcon
+                                            icon={faFire}
+                                            color="white"
+                                        />
                                     </div>
-                                ) : null}
+                                    {movie?.status === "Trending" ? (
+                                        <div className="booking-banner_trending-item-text">
+                                            <p>Trending</p>
+                                        </div>
+                                    ) : null}
+                                </div>
                             </div>
-                        </div>
+                        </Col>
+                        <Col>
+                            <div className="booking-banner_genres">
+                                <p>
+                                    {genres?.map((genre) => {
+                                        // if not last, add comma
+                                        if (
+                                            genre !== genres[genres.length - 1]
+                                        ) {
+                                            return genre.name + ", ";
+                                        }
+                                        return genre.name;
+                                    })}
+                                </p>
+                            </div>
+                        </Col>
                     </Row>
                 </Col>
             </Row>
