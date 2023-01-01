@@ -9,7 +9,7 @@ function MainPage() {
     if (curURL.includes("/manage-shift") || curURL.includes("/manage-staff")) {
         window.location.href = "/manager";
     } else if (curURL.includes("/select-shift")) {
-        window.location.href = "#";
+        window.location.href = "/staff";
     }
 }
 
