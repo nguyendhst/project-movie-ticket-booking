@@ -396,7 +396,7 @@ const insert = async (ids) => {
     }
 };
 
-insert(ids);
+//insert(ids);
 
 //// timeslots
 // const queryInsertTimeslots = (dbname, timeslots) => {
