@@ -37,7 +37,15 @@ function Step4(props) {
                         <p>Seats</p>
                     </Col>
                     <Col xs={6}>
-                        <p>{seats}</p>
+                        <p>
+                            {seats.map((item, index) => {
+                                return (
+                                    <span key={index}>
+                                        {"/"}{item.number} - {item.row}
+                                    </span>
+                                );
+                            })}
+                        </p>
                     </Col>
                 </Row>
                 <Row>
