@@ -88,7 +88,7 @@
     /* padding-bottom: ; */
 }
 
-.ManagerLPMain{
+.StaffLPMain{
     margin-top: calc(10% + 60px);
 
     display: grid;
@@ -98,7 +98,7 @@
     height: 100%;
     max-width: 1400px;
 
-    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
     row-gap: 32px;
     grid-column-gap: 2%;
 }

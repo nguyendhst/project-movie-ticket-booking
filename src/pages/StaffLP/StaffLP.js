@@ -52,7 +52,7 @@ function ManagerLP() {
     return (
         <div className="ManagerLP">
             <Header/>
-            <div className="ManagerLPMain">
+            <div className="StaffLPMain">
                 <ManagerOptions content="Chọn ca làm việc" route="/select-shift"/>
                 <ManagerOptions content="Thông báo sự kiện" route="/notify-event"/>
                 <ManagerOptions content="Phân nhóm khách hàng" route="/classify-customer"/>
