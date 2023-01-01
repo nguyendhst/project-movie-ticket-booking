@@ -79,7 +79,6 @@ const Table = () => {
                     </tbody>
                 </table>
             </div>
-
         </>
     );
 }
@@ -93,8 +92,8 @@ export default function Page () {
                 <div className="h-100">
                     <div className="container-fluid p-5 h-100">
                         <div className="row d-flex justify-content-center align-items-center h-100">
-                            <div className="page col-xl">
-                                <div className="card rounded-3 text-black p-5 d-flex justify-content-center">
+                            <div className="col-xl">
+                                <div id="page" className="card rounded-3 text-black p-5">
                                     <div className="form-outline mb-4 d-flex justify-content-center">
                                         <input type="search"
                                                className="form-control w-25"

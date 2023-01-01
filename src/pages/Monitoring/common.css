@@ -1,13 +1,21 @@
 /* monitoring */
-th, tr,td{
-    /* font-size: 5px; */
-    min-width: 3em;
+#m-main{
+    margin-top: calc(5% + 60px);
+}
+tfoot td{
+    word-wrap:break-word;
+    table-layout:fixed;
+    white-space:normal;
 }
 .form-control:focus{
     z-index: 5;
 }
 .m-centering{
     text-align: center;
+}
+#m-add-event-button{
+    display: flex;
+    justify-content: flex-end;
 }
 /* calendar */
 .m-paginating{
@@ -84,4 +92,17 @@ th, tr,td{
     right: 0;
     flex-wrap: wrap;
     bottom: 70px;
+}
+#m-monitor-button button{
+    font-size: 1em;
+}
+/* export file */
+.m-extension{
+    display: flex;
+    justify-content: flex-end;
+}
+#m-select-ext,#m-select-cal{
+    margin: auto;
+    width:75%;
+    padding:1em;
 }

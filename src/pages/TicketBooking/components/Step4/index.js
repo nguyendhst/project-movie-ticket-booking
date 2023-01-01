@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { Form, Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Barcode from "react-barcode";
 import "./index.css";
 
@@ -38,7 +37,15 @@ function Step4(props) {
                         <p>Seats</p>
                     </Col>
                     <Col xs={6}>
-                        <p>{seats}</p>
+                        <p>
+                            {seats.map((item, index) => {
+                                return (
+                                    <span key={index}>
+                                        {"/"}{item.number} - {item.row}
+                                    </span>
+                                );
+                            })}
+                        </p>
                     </Col>
                 </Row>
                 <Row>

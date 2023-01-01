@@ -10,6 +10,7 @@ import MCalendar from './mcalendar';
 import AddEvent from './add-event';
 import ExportReport from './exportreport';
 import './common.css';
+import House from "../../Asset/house.svg";
 //for calendar
 // const Calendar_unit = [
 //   {value: "Tháng", label:"month"},
@@ -31,6 +32,31 @@ import './common.css';
 //   );
 // }
 //helpers
+
+function Header() {
+
+  return(
+      <ul className="Header">
+          <ul className="Left_header">
+              <li id="Home-logo">
+                  <a href="/manager">
+                      <img src={House} width='40px' height='40px' alt="Home logo"></img>
+                  </a>
+              </li>
+          </ul>
+          <li>
+              <a href='/#'>
+              <Button
+              className="LogoutButton"
+              >
+                  Đăng xuất
+              </Button>
+              </a>
+          </li>
+      </ul>
+  )
+}
+
 
 const date= new Date();
 function daysInMonth(year, month) {
@@ -82,7 +108,7 @@ function Monitoring() {
   const [unit,setUnit]=useState("Tháng");
   const [start_time,setStart_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, 1));
   const [end_time,setEnd_time]=useState(new Date(date.getFullYear(), date.getMonth()-1, daysInMonth(date.getFullYear(), date.getMonth())));
-  const [yearpage,setYearPage]=useState(date.getFullYear());
+  const [yearpage,setYearPage]=useState(date.getFullYear()-(date.getMonth()-1<0?1:0));
   const handleAE=(e)=>{
     e.preventDefault();
     toggleAE(!addeventstate);
@@ -104,19 +130,22 @@ function Monitoring() {
   })
 
   return (
-    <Container>
+    <>
+    <Header/>
+    <Container id='m-main'>
+      
       <Row >
     <h2 className="m-centering">THỐNG KÊ HOẠT ĐỘNG {display_time(unit,yearpage,start_time)} </h2>
     </Row>
     <Row>
-    <Table bordered hover responsive='lg' variant='success' >
+    <Table bordered hover responsive='xl' variant='success' >
       <thead>
         <tr>
           <th scope="col">STT</th>
           <th scope="col">Tên hoạt động</th>
           <th scope="col">Mã hoạt động</th>
-          <th scope="col">Thời gian bắt đầu</th>
-          <th scope="col">Thời gian kết thúc</th>
+          <th scope="col">Bắt đầu</th>
+          <th scope="col">Kết thúc</th>
           <th scope="col">Thu (đ)</th>
           <th scope="col">Chi (đ)</th>
           <th scope="col">Lợi nhuận (đ)</th>
@@ -189,10 +218,11 @@ function Monitoring() {
       </Modal.Header>
       <Modal.Body>
       <h2 className='m-centering'>Xuất báo cáo</h2>
-        <ExportReport/>
+        <ExportReport activity_data={activity_data} name={display_time(unit,yearpage,start_time).replace("/","_")}/>
       </Modal.Body>
     </Modal>
     </Container>
+    </>
   );
 }
 

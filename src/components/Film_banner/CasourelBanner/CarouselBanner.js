@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/esm/Carousel';
 import './CarouselBanner.css';
 
-import films from '../../../data/films.json'
+import films from '../../../data/lp_movies.json'
 
 function CarouselBanner() {
   const [index, setIndex] = useState(0);

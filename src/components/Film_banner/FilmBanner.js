@@ -1,7 +1,7 @@
 import React from "react";
 import './FilmBanner.css';
 
-import films from '../../data/films.json';
+import films from '../../data/lp_movies.json';
 import CarouselBanner from "./CasourelBanner/CarouselBanner";
 import Card from 'react-bootstrap/esm/Card';
 

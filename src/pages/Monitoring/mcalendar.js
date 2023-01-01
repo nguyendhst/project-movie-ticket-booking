@@ -105,7 +105,7 @@ function MCalendar(){
                 <div className="m-month">
                     {
                         Months.map((month, idx) => {
-                            if (idx > date.getMonth()) {
+                            if (idx > date.getMonth() && yearpage>=date.getFullYear()) {
                                 return <button className="unused" value={idx} key={idx} disabled>{month}</button>;
                             } else if (idx===date.getMonth() && yearpage===date.getFullYear()){
                                 return <button className="unused m-cur" value={idx} key={idx} disabled>{month}</button>
@@ -141,11 +141,11 @@ function MCalendar(){
                 <div className="m-quarter">
                     {
                         Quarters.map((quarter, idx) => {
-                            if (idx*3+3 > date.getMonth()) {
+                            if (idx > Math.floor(date.getMonth()/3) && yearpage>=date.getFullYear()) {
                                 return <button className="unused" key={idx} value={idx} disabled>{quarter}</button>;
-                            } else if(idx===Math.ceil(date.getMonth()/3) && yearpage===date.getFullYear()){
+                            } else if(idx===Math.floor(date.getMonth()/3) && yearpage===date.getFullYear()){
                                 return <button className="unused m-cur" key={idx} value={idx} disabled>{quarter}</button>;
-                            } else if(idx===Math.ceil(start_time.getMonth()/3) && yearpage===start_time.getFullYear()) {
+                            } else if(idx===Math.floor(start_time.getMonth()/3) && yearpage===start_time.getFullYear()) {
                                 return (
                                     <button className="used m-chosed" key={idx} value={idx} onClick={(e)=>{
                                         setStart_time(new Date(yearpage, e.target.value * 3, 1));
@@ -178,9 +178,9 @@ function MCalendar(){
                     {
                         year_list.slice(Math.floor((yearpage-year_list[0])/10)*10,Math.floor((yearpage-year_list[0])/10)*10+10)
                         .map((year, idx) => {
-                            if (year >= date.getFullYear()) {
+                            if (year > date.getFullYear()) {
                                 return <button className="unused" key={idx} value={idx} disabled>{year}</button>;
-                            } else if(year===start_time.getFullYear()){
+                            } else if(year===date.getFullYear()){
                                 return <button className="unused m-cur" key={idx} value={idx} disabled>{year}</button>;
                             } else if(year===yearpage) {
                                 return (
@@ -214,9 +214,11 @@ function MCalendar(){
     }
     return(
         <div className="m-centering">
-            <Select options={Calendar_unit} onChange={(val)=>{
+            <div id='m-select-cal'>
+                <Select options={Calendar_unit} onChange={(val)=>{
                 setUnit(val.value);
-                setYearPage(date.getFullYear());}} />
+                setYearPage(date.getFullYear()-(date.getMonth()-1<0?1:0));}} />
+            </div>
             <div className="m-centering m-header">
                 <div className="m-paginating">
                     {m_paginating()}

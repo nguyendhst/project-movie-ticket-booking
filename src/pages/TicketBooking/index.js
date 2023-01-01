@@ -156,8 +156,17 @@ function TicketBooking() {
             console.log("sorting prices desc");
             base.sort((a, b) => b.price - a.price);
         }
+
+        console.log("base: ", base);
+        setTicketData(base);
+    }, [priceFilter]);
+
+    // apply time filter
+    useEffect(() => {
         // format Tue 17-Dec-2022 17:41-19:41
-        console.log(timeFilter);
+        console.log("apply time filter");
+        let base = originalTicketData.map((ticket) => ticket);
+
         if (timeFilter === "asc") {
             console.log("sorting times asc");
             base.sort((a, b) => {
@@ -181,6 +190,15 @@ function TicketBooking() {
                 return bTime - aTime;
             });
         }
+        console.log("base: ", base);
+        setTicketData(base);
+    }, [timeFilter]);
+
+    // apply seat filter
+    useEffect(() => {
+        console.log("apply seat filter");
+        let base = originalTicketData.map((ticket) => ticket);
+
         if (seatFilter === "asc") {
             console.log("sorting seats asc");
             base.sort((a, b) => a.emptySeats - b.emptySeats);
@@ -188,10 +206,9 @@ function TicketBooking() {
             console.log("sorting seats desc");
             base.sort((a, b) => b.emptySeats - a.emptySeats);
         }
-
         console.log("base: ", base);
         setTicketData(base);
-    }, [priceFilter, timeFilter, seatFilter]);
+    }, [seatFilter]);
 
     const activeTicket = (id) => {
         console.log("activeTicket", id);
@@ -351,11 +368,11 @@ function TicketItem(props) {
                     unmountOnExit={true}
                 >
                     <div id="collapse-booking">
-                        <MasterForm 
+                        <MasterForm
                             basePrice={price}
                             time={time}
                             date={timeLong}
-                         />
+                        />
                     </div>
                 </Collapse>
                 <Collapse
