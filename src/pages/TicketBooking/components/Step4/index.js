@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Barcode from "react-barcode";
 import "./index.css";
+
+const randHash = () => {
+    return Math.random().toString(36).substring(2, 15);
+};
 
 function Step4(props) {
     const {
@@ -15,11 +19,11 @@ function Step4(props) {
         barhash,
     } = props;
 
-    const randHash = () => {
-        let t = Math.random().toString(36).substring(2, 15);
-        updateBarhash(t);
-        return t;
-    };
+    const [barcode, setBarcode] = React.useState(randHash());
+
+    useEffect(() => {
+        updateBarhash(barcode);
+    }, [barcode]);
 
     return (
         <div className="summary">
@@ -86,7 +90,7 @@ function Step4(props) {
                     </Col>
                 </Row>
                 <Row>
-                    <Barcode value={barhash === "" ? randHash() : barhash} />
+                    <Barcode value={barhash !== "" ? barhash : ""} />
                 </Row>
             </Container>
         </div>
