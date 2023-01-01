@@ -170,7 +170,7 @@ app.get("/api/movies/:id/timeslots", async (req, res) => {
 
 //monitoring
 const show_all_act = (dbname, upper_time, lower_time) => {
-    return `SELECT * FROM \`${dbname}\`.\`activities\` WHERE (end_time > '${lower_time}' AND end_time <= '${upper_time}');`;
+    return `SELECT * FROM \`${dbname}\`.\`activities\` WHERE (end_time > '${lower_time}' AND end_time <= '${upper_time}') ORDER BY start_time,end_time;`;
 };
 
 const insert_act = (
