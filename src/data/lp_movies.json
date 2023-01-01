@@ -1,0 +1,79 @@
+{
+    "Trend": [3, 4, 8, 9],
+    "OnGoing": [
+        {
+            "name": "The Boss Baby: Christmas Bonus",
+            "poster": "https://image.tmdb.org/t/p/original/iMmMxF6f2OonUrXrHKBLSYAhXly.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/2T92w8l2iTnyG9jwOmIWfM9thRV.jpg",
+            "id": 1
+        },
+        {
+            "name": "Avatar",
+            "poster": "https://image.tmdb.org/t/p/original/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/o0s4XsEDfDlvit5pDRKjzXR4pp2.jpg",
+            "id": 2
+        },
+        {
+            "name": "Fight Club",
+            "poster": "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
+            "id": 3
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
+            "id": 4
+        },
+        {
+            "name": "Black Adam",
+            "poster": "https://image.tmdb.org/t/p/original/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/qBx97wytqlyPqXATHqRgIVFxJRU.jpg",
+            "id": 5
+        },
+        {
+            "name": "Troll",
+            "poster": "https://image.tmdb.org/t/p/original/9z4jRr43JdtU66P0iy8h18OyLql.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/53BC9F2tpZnsGno2cLhzvGprDYS.jpg",
+            "id": 6
+        },
+        {
+            "name": "The Woman King",
+            "poster": "https://image.tmdb.org/t/p/original/438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
+            "id": 7
+        },
+        {
+            "name": "Avatar: The Way of Water",
+            "poster": "https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg",
+            "id": 8
+        },
+        {
+            "name": "My Name Is Vendetta",
+            "poster": "https://image.tmdb.org/t/p/original/7l3war94J4tRyWUiLAGokr3ViF2.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/edOt2jNyCbb8SQSvulD2sRRJhmA.jpg",
+            "id": 9
+        }
+    ],
+    "UpComing": [
+        {
+            "name": "Fight Club",
+            "poster": "https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/rr7E0NoGKxvbkb89eR1GwfoYjpA.jpg",
+            "id": 3
+        },
+        {
+            "name": "Black Panther: Wakanda Forever",
+            "poster": "https://image.tmdb.org/t/p/original/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg",
+            "id": 4
+        },
+        {
+            "name": "Black Adam",
+            "poster": "https://image.tmdb.org/t/p/original/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+            "verticalPoster": "https://image.tmdb.org/t/p/original/qBx97wytqlyPqXATHqRgIVFxJRU.jpg",
+            "id": 5
+        }
+    ]
+}
