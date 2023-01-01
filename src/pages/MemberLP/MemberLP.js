@@ -1,5 +1,5 @@
 import React from "react"
-import './LandingPage.css';
+import './MemberLP.css';
 
 import HamburgerLogo from '../../Asset/Hamburger.png';
 import House from '../../Asset/house.svg';
@@ -8,45 +8,9 @@ import FilmBanner from "../../components/Film_banner/FilmBanner";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {Modal, Button, ButtonGroup} from "react-bootstrap";
-
-function LoginPopup(props) {
-    return (
-      <Modal
-        {...props}
-        className="LoginPopup"
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Đăng nhập với tư cách:
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <ButtonGroup vertical >
-                <Button className="LoginOption">
-                    Khách hàng
-                </Button>
-                <Button className="LoginOption">
-                    Nhân viên
-                </Button>
-                <Button className="LoginOption" href="/manager">
-                    Quản lý
-                </Button>
-            </ButtonGroup> 
-        </Modal.Body>
-      </Modal>
-    );
-}
-
-function Login () {
-    window.location.href = "/login";
-}
+import {Button} from "react-bootstrap";
 
 function Header() {
-    const [loginShow, setLoginShow] = React.useState(false);
     const [sidebar, setSidebar] = React.useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -58,7 +22,7 @@ function Header() {
                     <img src={HamburgerLogo} alt="Hamburger icon" width="52px" height="40px" onClick={showSidebar}></img>
                 </li>
                 <li id="Home-logo">
-                    <a href="/#">
+                    <a href="/member">
                         <img src={House} width='40px' height='40px' alt="Home logo"></img>
                     </a>
                 </li>
@@ -93,14 +57,13 @@ function Header() {
                 </ul>
             </li>
             <li>
-                <Button className="LoginButton" onClick={Login}>
-                    Đăng nhập
-                </Button>
-
-                <LoginPopup
-                    show={loginShow}
-                    onHide={() => setLoginShow(false)}
-                />
+                <a href='/'>
+                    <Button
+                    className="LogoutButton"
+                    >
+                        Đăng xuất
+                    </Button>
+                </a>
             </li>
         </ul>
     )
