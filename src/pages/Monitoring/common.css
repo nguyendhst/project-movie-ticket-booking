@@ -17,6 +17,9 @@ tfoot td{
     display: flex;
     justify-content: flex-end;
 }
+#m-tbody{
+    overflow-y:initial;
+}
 /* calendar */
 .m-paginating{
     display: flex;
