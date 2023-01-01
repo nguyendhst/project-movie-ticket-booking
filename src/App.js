@@ -34,7 +34,6 @@ function App() {
                     <Route path="movie-manage/:movie_id" element={<Movie />}/>
                     <Route path="/event-manage" element={<Event />} />
                     <Route path="/food-manage" element={<Food />} />
-
                     <Route path="monitoring" element={<Monitoring />}/>
                     <Route path="/movie/:id" element={<TicketBooking />} />
                     <Route path="/manage-shift" element={<ManageShift />} />
