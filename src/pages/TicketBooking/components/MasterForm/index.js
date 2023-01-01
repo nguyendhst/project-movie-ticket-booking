@@ -130,16 +130,18 @@ function MasterForm(props) {
                 )}
             </form>
             <div className="total-box">
-                <h4>
-                    Total:{" "}
-                    {
-                        // parse to vnd format
-                        total.toLocaleString("it-IT", {
-                            style: "currency",
-                            currency: "VND",
-                        })
-                    }
-                </h4>
+                {currentStep !== 4 && (
+                    <h4>
+                        Total:{" "}
+                        {
+                            // parse to vnd format
+                            total.toLocaleString("it-IT", {
+                                style: "currency",
+                                currency: "VND",
+                            })
+                        }
+                    </h4>
+                )}
 
                 {previousButton()}
                 {nextButton()}
