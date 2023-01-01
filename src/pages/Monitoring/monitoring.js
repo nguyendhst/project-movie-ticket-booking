@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 // import Select from 'react-select';
-import {Modal, Button, Table ,Container,Row, ButtonGroup} from 'react-bootstrap';
+import {Modal, Button, Table ,Container,Row, Col,ButtonGroup} from 'react-bootstrap';
 import { useState, useEffect} from 'react';
 import axios from 'axios';
 import Footer from '../../components/Footer/Footer';
@@ -138,7 +138,8 @@ function Monitoring() {
     <h2 className="m-centering">THỐNG KÊ HOẠT ĐỘNG {display_time(unit,yearpage,start_time)} </h2>
     </Row>
     <Row>
-    <Table bordered hover responsive='xl' variant='success' >
+      <Col>
+    <Table bordered hover responsive variant='success'>
       <thead>
         <tr>
           <th scope="col">STT</th>
@@ -152,7 +153,7 @@ function Monitoring() {
           <th scope="col">So với chỉ tiêu (%)</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id='m-tbody'>
       {activity_data.length ?
     activity_data.map(
       (data, id) => { return(
@@ -172,6 +173,7 @@ function Monitoring() {
   }
       </tbody>
     </Table>
+    
     <Row id='m-monitor-button'>
     <ButtonGroup >
       <Button variant="primary me-3" onClick={handleAE}> Thêm hoạt động</Button>
@@ -179,6 +181,7 @@ function Monitoring() {
       <Button variant="primary me-3" onClick={handleE}> Xuất báo cáo</Button>
     </ButtonGroup>
     </Row>
+    </Col>
     </Row>
     <Footer/>
     <Modal show={addeventstate} centered size="lg">
